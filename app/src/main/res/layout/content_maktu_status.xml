@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.kawka.myfly.MainActivity"
+    tools:showIn="@layout/fragment_maktu_status"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_marginLeft="30dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/custom_bg"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MI-8"
+            android:textSize="20sp"
+            android:layout_marginBottom="3dp"
+            />
+        <Button
+            android:text="STATUS"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_status"
+            android:onClick="dialogCreate"
+            android:background="@android:color/holo_red_light"
+
+            android:elevation="50dp"
+            />
+
+        <Button
+            android:text="KOMISJA LEKARSKA"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_kom_lek"
+            android:onClick="dialogCreate"
+            android:background="@android:color/holo_blue_bright"
+            android:layout_marginTop="2dp"
+            android:elevation="50dp"
+
+
+            />
+        <Button
+            android:text="KNC"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_knc"
+            android:onClick="dialogCreate"
+            android:background="@android:color/holo_green_light"
+            android:layout_marginTop="2dp"
+
+            />
+
+        <Button
+            android:text="WOSZK"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_woszk"
+            android:onClick="dialogCreate"
+            android:background="@android:color/holo_orange_light"
+            android:layout_marginTop="2dp"
+
+            />
+        <Button
+            android:text="W-R WODOWANIE"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_wr_wod"
+            android:onClick="dialogCreate"
+            />
+        <Button
+            android:text="W-R ZAAWANSOWANY"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_wr_zaawans"
+            android:onClick="dialogCreate"
+            />
+        <Button
+            android:text="Egzamin z wiedzy stosowaniej"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_egzamin"
+            android:onClick="dialogCreate"
+            />
+        <Button
+            android:text="KONTROLE"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_kontrole"
+            android:onClick="dialogCreate"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/custom_bg"
+
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SW-4"
+            android:textSize="20sp"
+            android:layout_marginBottom="3dp"
+            />
+
+        <Button
+            android:text="STATUS"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_status2"
+            android:onClick="dialogCreate"
+            android:elevation="50dp"
+
+            />
+        <Button
+            android:text="KOMISJA LEKARSKA"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_kom_lek2"
+            android:onClick="dialogCreate"
+            />
+        <Button
+            android:text="KNC"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_knc2"
+            android:onClick="dialogCreate"
+            />
+        <Button
+            android:text="WOSZK"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_woszk2"
+            android:onClick="dialogCreate"
+            />
+        <Button
+            android:text="W-R WODOWANIE"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_wr_wod2"
+            android:onClick="dialogCreate"
+            />
+        <Button
+            android:text="W-R ZAAWANSOWANY"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_wr_zaawans2"
+            android:onClick="dialogCreate"
+            />
+        <Button
+            android:text="Egzamin z wiedzy stosowaniej"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_egzamin2"
+            android:onClick="dialogCreate"
+            />
+        <Button
+            android:text="KONTROLE"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:id="@+id/button_kontrole2"
+            android:onClick="dialogCreate"
+            />
+    </LinearLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

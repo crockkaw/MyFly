@@ -1,0 +1,113 @@
+<resources>
+
+    <style name="AppThemeDark" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+    </style>
+
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="settingsTheme1" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_one</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme2" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_two</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme3" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_three</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme4" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_four</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme5" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_five</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme6" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_six</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme7" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_seven</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme8" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_eight</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme9" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_nine</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme10" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_ten</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme11" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_eleven</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme12" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_twelve</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme13" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_thirteen</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme14" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_fourteen</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme15" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_fifteen</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme16" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_sixteen</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme17" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_seventeen</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme18" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_eightteen</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="settingsTheme19" parent="PreferenceThemeOverlay">
+        <item name="colorAccent">@color/color_nineteen</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+</resources>

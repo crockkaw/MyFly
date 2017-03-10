@@ -1,0 +1,66 @@
+<android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.codevscolor.materialpreference.widget.MaterialPreferenceCategory android:title="Ogólna">
+        <com.codevscolor.materialpreference.widget.ColorChooserPreference
+            android:key="secondary_color_position"
+            android:summary="Ustaw dowolny kolor"
+            android:title="Kolor opisu" />
+
+        <android.support.v7.preference.EditTextPreference
+            android:defaultValue="true"
+            android:key="edit_text"
+            android:summary="Edit text preference summary"
+            android:title="Sample Edit Text" />
+
+    </com.codevscolor.materialpreference.widget.MaterialPreferenceCategory>
+
+    <com.codevscolor.materialpreference.widget.MaterialPreferenceCategory android:title="Autoryzacja">
+
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="switch_short_login"
+            android:summary="Kliknij aby ustawić skrócone logowanie"
+            android:title="Logowanie skrócone" />
+
+        <android.support.v7.preference.CheckBoxPreference
+            android:defaultValue="true"
+            android:key="Checkbox_pin"
+            android:summary="Autoryzacja za pomocą kodu PIN"
+            android:title="Kod PIN" />
+
+        <android.support.v7.preference.CheckBoxPreference
+            android:defaultValue="true"
+            android:key="Checkbox_finger"
+            android:summary="Autoryzacja czytnikiem linii papilarnych"
+            android:title="Odcisk Palca" />
+
+        <Preference
+            android:key="changePin"
+            android:title="Zmień PIN"
+            android:summary="Kliknij aby zmienić kod PIN"
+            >
+            <intent
+            android:targetPackage="com.example.kawka.myfly"
+            android:targetClass="com.example.kawka.myfly.SettingsHandler">
+                <extra android:name="type" android:value="pin" />
+            </intent>
+        </Preference>
+
+        <Preference android:title="Ustawienia skanera linii papilarnych"
+            android:summary="Kliknij aby zarządzać odciskami palca"
+            android:key="changeFinger">
+            <intent
+                android:targetPackage="com.example.kawka.myfly"
+                android:targetClass="com.example.kawka.myfly.SettingsHandler">
+                <extra android:name="type" android:value="finger" />
+            </intent>
+        </Preference>
+
+        <android.support.v7.preference.ListPreference
+            android:entries="@array/sample_array"
+            android:entryValues="@array/array_values"
+            android:key="list_preference"
+            android:summary=""
+            android:title="Domyślna autoryzacja" />
+    </com.codevscolor.materialpreference.widget.MaterialPreferenceCategory>
+
+</android.support.v7.preference.PreferenceScreen>

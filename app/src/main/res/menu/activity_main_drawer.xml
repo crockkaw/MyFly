@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_aktualnosc"
+            android:title="Aktualności" />
+        <item
+            android:id="@+id/nav_planyLoty"
+            android:title="Planowane Loty" />
+        <item
+            android:id="@+id/nav_kalendarz"
+            android:title="Kalendarz" />
+        <item
+            android:id="@+id/nav_nalot"
+            android:title="Nalot" />
+        <item
+            android:id="@+id/nav_zdarzenia"
+            android:title="Zdarzenia" />
+
+
+    </group>
+
+    <item android:title="Inne">
+        <menu>
+            <item
+                android:id="@+id/nav_ustawienia"
+                android:title="Ustawienia" />
+            <item
+                android:id="@+id/nav_logout"
+                android:title="Wyloguj" />
+        </menu>
+    </item>
+
+</menu>

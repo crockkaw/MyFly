@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="100dp"
+    android:layout_margin="10dp"
+    >
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_centerHorizontal="true">
+    >
+            <com.veinhorn.tagview.TagView
+                android:layout_margin="15px"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="STAN"
+                android:textSize="14sp"
+                app:tagType="classic"
+                app:tagColor="#ffaa66cc"
+                app:tagUpperCase="true" />
+
+            <com.veinhorn.tagview.TagView
+                android:layout_marginLeft="117dp"
+                android:layout_marginTop="15px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Klasa dokumentu"
+                android:textSize="14sp"
+                app:tagType="modern_trapezium_reversed"
+                app:tagColor="#ffaa66cc"
+                app:tagUpperCase="true"/>
+
+</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="Treść dokumentu:"
+                android:textStyle="bold"
+                android:layout_marginTop="2dp"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:text="Nr dokumentu:"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:text="Wydawca:"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:text="Data wydania:"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:text="Termin Realizacji:"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
+                android:text="Data zapozania się: "
+                android:textStyle="bold"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Pokaż dokument"
+                    android:textSize="12dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:drawableLeft="@drawable/ic_picture_as_pdf_white_24dp"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="Zapoznałem się"
+                    android:textSize="12dp"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"
+                    android:drawableLeft="@drawable/ic_done_all_white_24dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="100dp"
+        android:layout_margin="10dp"
+        >
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_centerHorizontal="true">
+                    >
+                    <com.veinhorn.tagview.TagView
+                        android:layout_margin="15px"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="STAN"
+                        android:textSize="14sp"
+                        app:tagType="classic"
+                        app:tagColor="#ffaa66cc"
+                        app:tagUpperCase="true" />
+
+                    <com.veinhorn.tagview.TagView
+                        android:layout_marginLeft="117dp"
+                        android:layout_marginTop="15px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Klasa dokumentu"
+                        android:textSize="14sp"
+                        app:tagType="modern_trapezium_reversed"
+                        app:tagColor="#ffaa66cc"
+                        app:tagUpperCase="true"/>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="Treść dokumentu:"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Nr dokumentu:"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Wydawca:"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Data wydania:"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Termin Realizacji:"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Data zapozania się: "
+                    android:textStyle="bold"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="Pokaż dokument"
+                        android:textSize="12dp"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:drawableLeft="@drawable/ic_picture_as_pdf_white_24dp"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="Zapoznałem się"
+                        android:textSize="12dp"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:drawableLeft="@drawable/ic_done_all_white_24dp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="100dp"
+        android:layout_margin="10dp"
+        >
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_centerHorizontal="true">
+                    >
+                    <com.veinhorn.tagview.TagView
+                        android:layout_margin="15px"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="STAN"
+                        android:textSize="14sp"
+                        app:tagType="classic"
+                        app:tagColor="#ffaa66cc"
+                        app:tagUpperCase="true" />
+
+                    <com.veinhorn.tagview.TagView
+                        android:layout_marginLeft="117dp"
+                        android:layout_marginTop="15px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Klasa dokumentu"
+                        android:textSize="14sp"
+                        app:tagType="modern_trapezium_reversed"
+                        app:tagColor="#ffaa66cc"
+                        app:tagUpperCase="true"/>
+
+                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="Treść dokumentu:"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Nr dokumentu:"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Wydawca:"
+                    android:textStyle="bold"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Data wydania:"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Termin Realizacji:"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Data zapozania się: "
+                    android:textStyle="bold"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="Pokaż dokument"
+                        android:textSize="12dp"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:drawableLeft="@drawable/ic_picture_as_pdf_white_24dp"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:text="Zapoznałem się"
+                        android:textSize="12dp"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:drawableLeft="@drawable/ic_done_all_white_24dp"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

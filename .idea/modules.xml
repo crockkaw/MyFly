@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MyFly1.iml" filepath="$PROJECT_DIR$/MyFly1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cuboidCircleButton/cuboidCircleButton.iml" filepath="$PROJECT_DIR$/cuboidCircleButton/cuboidCircleButton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loliPin/loliPin.iml" filepath="$PROJECT_DIR$/loliPin/loliPin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/preferenceMaterial/preferenceMaterial.iml" filepath="$PROJECT_DIR$/preferenceMaterial/preferenceMaterial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rapidFloatingActionButton/rapidFloatingActionButton.iml" filepath="$PROJECT_DIR$/rapidFloatingActionButton/rapidFloatingActionButton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scrollTable/scrollTable.iml" filepath="$PROJECT_DIR$/scrollTable/scrollTable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/slideDateTimePicker/slideDateTimePicker.iml" filepath="$PROJECT_DIR$/slideDateTimePicker/slideDateTimePicker.iml" />
+    </modules>
+  </component>
+</project>
