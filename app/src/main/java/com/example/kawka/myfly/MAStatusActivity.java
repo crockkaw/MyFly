@@ -40,7 +40,7 @@ private RapidFloatingActionHelper rfabHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maktu_status);
+//        setContentView(R.layout.activity_maktu_status);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -127,41 +127,42 @@ private RapidFloatingActionHelper rfabHelper;
     }
 
 
-    private void floatingButtonMenu() {
+    private void floatingButtonMenu(){
+
         RapidFloatingActionContentLabelList rfaContent = new RapidFloatingActionContentLabelList(context);
         rfaContent.setOnRapidFloatingActionContentLabelListListener(this);
         List<RFACLabelItem> items = new ArrayList<>();
         items.add(new RFACLabelItem<Integer>()
-                .setLabel("Powyżej 30 dni")
-                .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xff008600)
+                .setLabel(getString(R.string.legend_label_green))
                 .setLabelColor(Color.WHITE)
+                .setResId(R.mipmap.ico_test_d)
+                .setIconNormalColor(0xff2f7650)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(0)
         );
         items.add(new RFACLabelItem<Integer>()
-                .setLabel("Od 5 do 30 dni")
+                .setLabel(getString(R.string.legend_label_yellow))
                 .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffffff00)
+                .setIconNormalColor(0xffffd900)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(1)
         );
         items.add(new RFACLabelItem<Integer>()
-                .setLabel("Do 5 dni")
+                .setLabel(getString(R.string.legend_label_purple))
                 .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xfff28a35)
+                .setIconNormalColor(0xffb904c6)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(2)
         );
         items.add(new RFACLabelItem<Integer>()
-                .setLabel("Termin przekroczony")
+                .setLabel(getString(R.string.legend_label_red))
                 .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffce0a0a)
+                .setIconNormalColor(0xffc60a04)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
@@ -171,7 +172,6 @@ private RapidFloatingActionHelper rfabHelper;
                 .setLabel("Dokument nie przeczytany")
                 .setResId(R.mipmap.ico_test_d)
                 .setIconNormalColor(0xffb0000)
-                .setIconPressedColor(0xff3e2723)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
@@ -210,6 +210,7 @@ private RapidFloatingActionHelper rfabHelper;
                 rfaBtn,
                 rfaContent
         ).build();
+
 
     }
 
