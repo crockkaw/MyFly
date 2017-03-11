@@ -21,7 +21,7 @@ public class MPlanLotyFragment extends Fragment {
     public int a = 22 ;
     SeekBar seekBar;
 
-    private static final String[] topTitles = new String[] {"T startu", "T lądowania", "Nr ćwiczenia", "Typ SP"};
+    private  String[] topTitles;
     private static final String[] leftTitles = new String[] {" ", " ", " "};
 
 
@@ -35,6 +35,7 @@ public class MPlanLotyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         myView = inflater.inflate(R.layout.fragment_mplan_loty, container, false);
 
+        topTitles = new String[] {getString(R.string.plan_loty1), getString(R.string.plan_loty2), getString(R.string.plan_loty3), getString(R.string.plan_loty4)};
 
         stv_wariant1 = (ScrollTableView) myView.findViewById(R.id.scroll_wariant1);
         stv_wariant2 = (ScrollTableView) myView.findViewById(R.id.scroll_wariant2);

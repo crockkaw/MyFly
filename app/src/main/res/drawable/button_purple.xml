@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#b904c6" />
 
-</selector>
+    <corners android:bottomRightRadius="180dip"
+        android:bottomLeftRadius="180dip"
+        android:topRightRadius="180dip"
+        android:topLeftRadius="180dip"/>
+    <stroke android:width="2dp" android:color="#7f0787" />
+    <corners android:bottomRightRadius="180dip"
+        android:bottomLeftRadius="180dip"
+        android:topRightRadius="180dip"
+        android:topLeftRadius="180dip"/>
+</shape>

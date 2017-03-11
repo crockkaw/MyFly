@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,7 +31,7 @@ public class MKalendarzFragment extends Fragment  {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        myView = inflater.inflate(R.layout.fragment_mplany, container, false);
+        myView = inflater.inflate(R.layout.fragment_mkalendarz, container, false);
         ButterKnife.bind(this, myView);
 
 //        widget.setOnDateChangedListener(this);

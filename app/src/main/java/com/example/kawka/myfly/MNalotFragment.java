@@ -3,31 +3,14 @@ package com.example.kawka.myfly;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
-
-import com.example.kawka.myfly.models.Item;
-import com.example.kawka.myfly.models.Nalot;
-import com.example.kawka.myfly.network.ApiService;
 import com.loopeer.android.librarys.scrolltable.ScrollTableView;
-
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 
 public class MNalotFragment extends Fragment  implements View.OnClickListener {
@@ -38,24 +21,19 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
     SeekBar seekBar;
     int wysokosc = 264;
 
-    List nalotAktualny;
-    Item item;
+
     LinearLayout ll;
 
-    int be;
 
 
     ArrayList<ArrayList<String>> resultsAktualny;
 
 
-    private static final String[] topTitlesLoty = new String[]{"Typ sp", "Funkcja/pozycja", "Cw. wyk. w locie", "Czas lotu", "Godzina startu", "Godzina lądowania"};
-    private static final String[] topTitlesRoczny = new String[]{"Styczeń", "Luty", "Marzec", "Kwiecień", "Maj", "Czerwiec", "Lipiec", "Sierpień", "Wrzesień", "Listopad", "Grudzień"};
-    private static final String[] topTitles = new String[]{"Nalot całkowity", "Nalot VFR dzień", "Nalot IFR dzień", "Nalot VDR noc", "Nalot IFR noc"};
-
-//    private static final String[] leftTitleLoty = new String[]{"Nalot całkowity", "Nalot VFR dzień", "Nalot IFR dzień", "Nalot VDR noc", "Nalot IFR noc"};
+    private  String[] topTitlesLoty ;
+    private  String[] topTitlesRoczny ;
+    private  String[] topTitlesAktualny ;
 
     private String[] leftTitlesAktualny = new String[10];
-    private static final String[] contentAktualny = new String[10];
 
 
     private ScrollTableView stv_loty, stv_aktualny, stv_roczny, stv_roczny_sym;
@@ -68,13 +46,16 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
         myView = inflater.inflate(R.layout.fragment_mnalot, container, false);
 
         MainActivity activity = (MainActivity) getActivity();
-        leftTitlesAktualny = activity.getMyLeftTitlesAktualny();
-        resultsAktualny = activity.getMyResultsAktualny();
+        leftTitlesAktualny = activity.nalotAktualnyAdapter.getMyLeftTitlesAktualny();
+        resultsAktualny = activity.nalotAktualnyAdapter.getMyResultsAktualny();
 
-        System.out.println("Odebrano dane w Fragmencie ");
-        System.out.println(resultsAktualny.get(0).get(0));
+        topTitlesLoty = new String[]{getString(R.string.nal_loty1), getString(R.string.nal_loty2), getString(R.string.nal_loty3), getString(R.string.nal_loty4), getString(R.string.nal_loty5), getString(R.string.nal_loty6)};
+        topTitlesRoczny = new String[]{getString(R.string.nal_rocz1), getString(R.string.nal_rocz2), getString(R.string.nal_rocz3), getString(R.string.nal_rocz4), getString(R.string.nal_rocz5), getString(R.string.nal_rocz6), getString(R.string.nal_rocz7), getString(R.string.nal_rocz8), getString(R.string.nal_rocz9), getString(R.string.nal_rocz10), getString(R.string.nal_rocz11), getString(R.string.nal_rocz12)};
+        topTitlesAktualny = new String[]{getString(R.string.nal_cal1), getString(R.string.nal_cal2), getString(R.string.nal_cal3), getString(R.string.nal_cal4), getString(R.string.nal_cal5)};
+
 
         initialization();
+
 
         return myView;
     }
@@ -94,7 +75,6 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
 
         ArrayList<String> topTitlesLoty = createTopTitlesLoty();
         ArrayList<String> leftTitle = createLeftTitle();
-        ArrayList<String> topTitles = createTopTitles();
         ArrayList<String> topTitlesRoczny = createTopTitlesRoczny();
         ArrayList<String> leftTitleLoty = createLeftTitleLoty();
 
@@ -103,8 +83,7 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
         stv_loty.setDatas(createTopTitlesLoty(), createLeftTitleLoty(), createContent(leftTitleLoty.size(), topTitlesLoty.size()));
         stv_roczny.setDatas(createTopTitlesRoczny(), createLeftTitle(), createContent(leftTitle.size(), topTitlesRoczny.size()));
         stv_roczny_sym.setDatas(createTopTitlesRoczny(), createLeftTitle(), createContent(leftTitle.size(), topTitlesRoczny.size()));
-        stv_aktualny.setDatas(createTopTitles(), createLeftTitle(), resultsAktualny);
-
+        stv_aktualny.setDatas(createTopTitlesAktualny(), createLeftTitleAktualny(), resultsAktualny);
 
 
         seekBar = (SeekBar) myView.findViewById(R.id.seekBar1);
@@ -190,10 +169,30 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
         return results;
     }
 
-    private ArrayList<String> createTopTitles() {
+    private ArrayList<String> createTopTitlesAktualny() {
         ArrayList<String> results = new ArrayList<>();
-        for (String string : topTitles) {
+        for (String string : topTitlesAktualny) {
             results.add(string);
+        }
+        return results;
+    }
+
+    private ArrayList<String> createLeftTitle() {
+        ArrayList<String> results = new ArrayList<>();
+        for (String string : leftTitlesAktualny) {
+            if (string != null && !string.isEmpty())
+            {
+                results.add(string);}
+        }
+        return results;
+    }
+
+    private ArrayList<String> createLeftTitleAktualny() {
+        ArrayList<String> results = new ArrayList<>();
+        for (String string : leftTitlesAktualny) {
+            if (string != null && !string.isEmpty())
+            {
+                results.add(string);}
         }
         return results;
     }
@@ -216,15 +215,7 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
     }
 
 
-    private ArrayList<String> createLeftTitle() {
-        ArrayList<String> results = new ArrayList<>();
-        for (String string : leftTitlesAktualny) {
-            if (string != null && !string.isEmpty())
-            {
-            results.add(string);}
-        }
-        return results;
-    }
+
 
 
 

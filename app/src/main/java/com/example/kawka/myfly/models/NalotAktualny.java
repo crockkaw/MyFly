@@ -8,14 +8,14 @@ public class NalotAktualny {
 
     @SerializedName("items")
     @Expose
-    private List<NalotCalkowityItems> items = null;
+    private List<NalotAktualnyItems> items = null;
 
 
-    public List<NalotCalkowityItems> getItems() {
+    public List<NalotAktualnyItems> getItems() {
         return items;
     }
 
-    public void setItems(List<NalotCalkowityItems> items) {
+    public void setItems(List<NalotAktualnyItems> items) {
         this.items = items;
     }
 

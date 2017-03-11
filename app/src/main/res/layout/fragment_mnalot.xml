@@ -7,16 +7,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#e5eff9"
     >
 
-    <TextView
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Trwa ladoawnie danych"
-        android:textSize="35dp"
-        android:textStyle="bold"
-        android:id="@+id/load_text"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,6 +25,8 @@
     style="@style/scrollbar_shape_style"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.kawka.myfly.MainActivity"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
     >
 
 
@@ -47,8 +42,8 @@
             android:layout_height="match_parent"
             android:elevation="0dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp">
+            app:contentPadding="5dp"
+            >
 
             <com.veinhorn.tagview.TagView
                 android:layout_width="wrap_content"
@@ -141,8 +136,9 @@
             android:layout_height="match_parent"
             android:elevation="0dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp">
+            app:contentPadding="5dp"
+
+            >
         <com.veinhorn.tagview.TagView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -168,8 +164,8 @@
             android:layout_height="match_parent"
             android:elevation="0dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp">
+            app:contentPadding="5dp"
+            >
 
 
             <com.veinhorn.tagview.TagView
@@ -195,8 +191,8 @@
             android:layout_height="match_parent"
             android:elevation="0dp"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp">
+            app:contentPadding="5dp"
+            >
         <com.veinhorn.tagview.TagView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

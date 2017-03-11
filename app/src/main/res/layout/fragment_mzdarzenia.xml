@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.kawka.myfly.MainActivity"
     style="@style/scrollbar_shape_style"
+    android:background="#e5eff9"
     >
 
     <!--<ScrollView-->

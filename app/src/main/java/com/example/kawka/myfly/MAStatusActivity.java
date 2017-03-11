@@ -2,6 +2,9 @@ package com.example.kawka.myfly;
 
 
 import android.graphics.Color;
+import android.support.v7.widget.Toolbar;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ScrollView;
 import android.widget.Toast;
 import android.support.v7.app.ActionBar;
@@ -37,7 +40,13 @@ private RapidFloatingActionHelper rfabHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupActionBar();
+        setContentView(R.layout.activity_maktu_status);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Status & ZIB");
+
+//        setupActionBar();
         Bundle bundle = getIntent().getExtras();
         String zib = bundle.getString("a");
         if (zib.equals("zib")){
@@ -45,6 +54,11 @@ private RapidFloatingActionHelper rfabHelper;
 
         setupWindowAnimations();
         floatingButtonMenu();
+
+        Window window = this.getWindow();
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(this.getResources().getColor(R.color.statusbar_color));
 
     }
 
@@ -89,15 +103,15 @@ private RapidFloatingActionHelper rfabHelper;
     }
 
 
-    private void setupActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            // Show the Up button in the action bar.
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("Status & ZIB");
-
-        }
-    }
+//    private void setupActionBar() {
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            // Show the Up button in the action bar.
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//            actionBar.setTitle("Status & ZIB");
+//
+//        }
+//    }
 
 
     @Override

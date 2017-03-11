@@ -10,7 +10,8 @@
         android:icon="@drawable/appicon1"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:screenOrientation="portrait">
         <activity
             android:name=".PinLockActivity"
             android:label="@string/app_name"
@@ -48,9 +49,13 @@
         <activity android:name=".SettingsHandler" />
         <activity
             android:name=".MAStatusActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".MATypActivity" />
-        <activity android:name=".KomunikatorActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".MATypActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".KomunikatorActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".StartActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

@@ -20,12 +20,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
-//        compileOptions {
-//            sourceCompatibility JavaVersion.VERSION_1_8
-//            targetCompatibility JavaVersion.VERSION_1_8
-//        }
     }
     compileOptions {
+        encoding "UTF-8"
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
@@ -92,6 +89,5 @@ dependencies {
     compile project(':slideDateTimePicker')
     compile project(':preferenceMaterial')
     compile project(':loliPin')
-    compile project(':cuboidCircleButton')
     compile project(':scrollTable');
 }

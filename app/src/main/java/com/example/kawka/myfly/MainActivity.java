@@ -13,20 +13,18 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kawka.myfly.MAktualnoscFragments.MAktualnoscFragment;
-import com.example.kawka.myfly.models.Nalot;
+import com.example.kawka.myfly.models.NalotAktualny;
 import com.example.kawka.myfly.network.ApiService;
+import com.example.kawka.myfly.network.NalotAktualnyAdapter;
 import com.github.jjobes.slidedatetimepicker.SlideDateTimeListener;
 import com.github.jjobes.slidedatetimepicker.SlideDateTimePicker;
 
@@ -49,9 +47,11 @@ public class MainActivity extends AppCompatActivity
     int poleData;
     EditText dataOdET, dataDoET;
 
+    NalotAktualnyAdapter nalotAktualnyAdapter;
 
-    ArrayList<ArrayList<String>> resultsAktualny;
-    private static final String[] leftTitlesAktualny = new String[10];
+
+    ArrayList<ArrayList<String>> resultsNalAkt;
+    private static final String[] leftTitlesNalAkt = new String[10];
 
 //    private SimpleDateFormat mFormatter = new SimpleDateFormat("MMMM dd yyyy hh:mm aa");
     private SimpleDateFormat mFormatter = new SimpleDateFormat("dd MMMM yyyy");
@@ -108,7 +108,10 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         setTitle(getString(R.string.aktu));
 
-        dane();
+        nalotAktualnyAdapter = new NalotAktualnyAdapter();
+
+
+//        dane();
 
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -171,52 +174,52 @@ public class MainActivity extends AppCompatActivity
 //        onStart();
     }
 
-    public void dane() {
+//    public void dane() {
+//
+//        Retrofit retrofit = new Retrofit.Builder()
+//                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .baseUrl("http://81.18.213.35:7001/Rest/api/v0/")
+//                .build();
+//
+//
+//        ApiService apiService = retrofit.create(ApiService.class);
+//        Observable<NalotAktualny> nal = apiService.getItems();
+//
+//        nal.subscribeOn(Schedulers.newThread())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(nalot -> {
+//                    int b = nalot.getItems().size();
+//                    for (int k = 0; k < b; k++) {
+//                        leftTitlesNalAkt[k] = nalot.getItems().get(k).getNazwa();
+//                    }
+//
+//                    resultsNalAkt = new ArrayList<>();
+//                    for (int l = 0; l < b; l++) {
+//                        ArrayList<String> strings = new ArrayList<>();
+//                        strings.add(nalot.getItems().get(l).getOgolny());
+//                        strings.add(nalot.getItems().get(l).getDv());
+//                        strings.add(nalot.getItems().get(l).getDi());
+//                        strings.add(nalot.getItems().get(l).getNv());
+//                        strings.add(nalot.getItems().get(l).getNi());
+//
+//                        resultsNalAkt.add(strings);
+//                    }
+//                    System.out.println("Pobrano dane w Main ");
+//                    System.out.println(resultsNalAkt.get(0).get(0));
+//
+//
+//                },error -> System.out.println(error.toString()));
+//
+//    }
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://81.18.213.35:7001/Rest/api/v0/")
-                .build();
-
-
-        ApiService apiService = retrofit.create(ApiService.class);
-        Observable<Nalot> nal = apiService.getItems();
-
-        nal.subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(nalot -> {
-                    int b = nalot.getItems().size();
-                    for (int k = 0; k < b; k++) {
-                        leftTitlesAktualny[k] = nalot.getItems().get(k).getNazwa();
-                    }
-
-                    resultsAktualny = new ArrayList<>();
-                    for (int l = 0; l < b; l++) {
-                        ArrayList<String> strings = new ArrayList<>();
-                        strings.add(nalot.getItems().get(l).getOgolny());
-                        strings.add(nalot.getItems().get(l).getDv());
-                        strings.add(nalot.getItems().get(l).getDi());
-                        strings.add(nalot.getItems().get(l).getNv());
-                        strings.add(nalot.getItems().get(l).getNi());
-
-                        resultsAktualny.add(strings);
-                    }
-                    System.out.println("Pobrano dane w Main ");
-                    System.out.println(resultsAktualny.get(0).get(0));
-
-
-                },error -> System.out.println(error.toString()));
-
-    }
-
-    public String[] getMyLeftTitlesAktualny() {
-        return leftTitlesAktualny;
-    }
-
-    public ArrayList<ArrayList<String>> getMyResultsAktualny() {
-        return resultsAktualny;
-    }
+//    public String[] getMyLeftTitlesAktualny() {
+//        return nalotAktualnyAdapter.getMyLeftTitlesAktualny();
+//    }
+//
+//    public ArrayList<ArrayList<String>> getMyResultsAktualny() {
+//        return nalotAktualnyAdapter.getMyResultsAktualny();
+//    }
 
 
     @Override
@@ -264,7 +267,7 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.content_frame
                             , new MAktualnoscFragment())
                     .commit();
-            actionBar.setTitle("Aktualności");
+            actionBar.setTitle(getString(R.string.aktu));
         } else if (id == R.id.nav_planyLoty) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame
@@ -282,7 +285,7 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.content_frame
                             , new MNalotFragment())
                     .commit();
-            actionBar.setTitle("Nalot");
+            actionBar.setTitle("NalotAktualny");
         } else if (id == R.id.nav_zdarzenia) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame

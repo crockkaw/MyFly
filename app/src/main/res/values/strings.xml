@@ -96,4 +96,36 @@
     <string name="activity_appcompat_message">I am a PinCompatActivity!</string>
     <string name="aktu">Aktualność</string>
 
+    <string name="nal_cal1">Nalot całkowity</string>
+    <string name="nal_cal2">Nalot VFR dzień</string>
+    <string name="nal_cal3">Nalot IFR dzień</string>
+    <string name="nal_cal4">Nalot VDR noc</string>
+    <string name="nal_cal5">Nalot IFR noc</string>
+
+    <string name="nal_rocz1">Styczeń</string>
+    <string name="nal_rocz2">Luty</string>
+    <string name="nal_rocz3">Marzec</string>
+    <string name="nal_rocz4">Kwiecień</string>
+    <string name="nal_rocz5">Maj</string>
+    <string name="nal_rocz6">Czerwiec</string>
+    <string name="nal_rocz7">Lipiec</string>
+    <string name="nal_rocz8">Sierpień</string>
+    <string name="nal_rocz9">Wrzesień</string>
+    <string name="nal_rocz10">Wrzesień</string>
+    <string name="nal_rocz11">Listopad</string>
+    <string name="nal_rocz12">Grudzień</string>
+
+    <string name="nal_loty1">Typ sp</string>
+    <string name="nal_loty2">Funkcja/pozycja</string>
+    <string name="nal_loty3">Cw. wyk. w locie</string>
+    <string name="nal_loty4">Czas lotu</string>
+    <string name="nal_loty5">Godzina startu</string>
+    <string name="nal_loty6">Godzina lądowania</string>
+
+    <string name="plan_loty1">T startu</string>
+    <string name="plan_loty2">T lądowania</string>
+    <string name="plan_loty3">Nr ćwiczenia</string>
+    <string name="plan_loty4">Typ SP</string>
+
+
 </resources>
