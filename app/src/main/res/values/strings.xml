@@ -130,6 +130,15 @@
     <string name="legend_label_yellow">Od 5 do 30 dni</string>
     <string name="legend_label_purple">Do 5 dni</string>
     <string name="legend_label_red">Termin przekroczony</string>
+    <string name="status_komisja">Komisja Lekarska</string>
+    <string name="status_komisja_1">"Data badania: "</string>
+    <string name="status_komisja_2">"Data następnego badania: "</string>
+    <string name="status_komisja_3">"Wynik orzeczenia komisji: "</string>
+    <string name="status_komisja_4">"Pozostało dni: "</string>
+    <string name="typ_wodowanie">W-R Wodowanie</string>
+    <string name="typ_wodow1">"Data kontroli: "</string>
+    <string name="typ_wodow2">"Data następnej kontroli: "</string>
+    <string name="typ_wodow3">"Pozostało dni: "</string>
 
 
 </resources>

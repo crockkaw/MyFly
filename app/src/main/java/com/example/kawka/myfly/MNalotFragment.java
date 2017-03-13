@@ -6,10 +6,15 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.Spinner;
+
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import com.loopeer.android.librarys.scrolltable.ScrollTableView;
 
 
@@ -23,6 +28,8 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
 
 
     LinearLayout ll;
+
+    Spinner spinRocznySp, spinRocznySym;
 
 
 
@@ -55,6 +62,7 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
 
 
         initialization();
+        addItemsOnSpinner();
 
 
         return myView;
@@ -212,6 +220,24 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
             results.add(i+".01.17");
         }
         return results;
+    }
+
+
+    public void addItemsOnSpinner() {
+        ArrayList<String> years= new ArrayList<>(Arrays.asList("2017","2016","2015","2014","2013","2012"));
+
+        spinRocznySp = (Spinner) myView.findViewById(R.id.spinnerRokSp);
+        spinRocznySym = (Spinner) myView.findViewById(R.id.spinnerRokSym);
+
+
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getActivity().getBaseContext(), R.layout.spinner_item, years);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinRocznySp.setAdapter(spinnerArrayAdapter);
+
+        ArrayAdapter<String> spinnerArrayAdapter2 = new ArrayAdapter<String>(getActivity().getBaseContext(), R.layout.spinner_item, years);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinRocznySym.setAdapter(spinnerArrayAdapter);
+
     }
 
 

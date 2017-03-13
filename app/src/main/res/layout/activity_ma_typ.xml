@@ -95,7 +95,8 @@
             android:text="W-R WODOWANIE"
             android:textSize="14dp"
             android:textStyle="bold"
-            android:id="@+id/button" />
+            android:id="@+id/button"
+            android:onClick="wodowanie_onClick"/>
 
 
         <Button

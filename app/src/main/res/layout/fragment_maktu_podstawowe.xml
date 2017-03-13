@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:rfal="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_main_rfal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    rfal:rfal_frame_color="#ffffff"
+    rfal:rfal_frame_alpha="0.7"
+    >
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
@@ -312,6 +323,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
+                    android:layout_marginBottom="50dp"
                     android:onClick="pressTyp"
                     android:paddingTop="12dp"
                     android:paddingBottom="12dp"
@@ -415,9 +427,26 @@
 
         <!--<include layout="@layout/content_maktu_podstawowe" />-->
 
-
-
-
 </LinearLayout>
+    <com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton
+        xmlns:rfab="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/activity_main_rfab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="-3dp"
+        android:layout_marginBottom="-3dp"
+        android:padding="8dp"
+        rfab:rfab_size="normal"
+        rfab:rfab_drawable="@android:drawable/ic_dialog_info"
+        rfab:rfab_color_normal="#37474f"
+        rfab:rfab_color_pressed="#263238"
+        rfab:rfab_shadow_radius="7dp"
+        rfab:rfab_shadow_color="#999999"
+        rfab:rfab_shadow_dx="0dp"
+        rfab:rfab_shadow_dy="5dp"
+        />
+</com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout>
 
 

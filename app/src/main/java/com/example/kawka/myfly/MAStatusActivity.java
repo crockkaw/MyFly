@@ -1,11 +1,19 @@
 package com.example.kawka.myfly;
 
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
@@ -13,6 +21,8 @@ import android.transition.Slide;
 import android.transition.Transition;
 import android.view.Gravity;
 import android.view.MenuItem;
+
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.wangjie.androidinject.annotation.annotations.base.AIView;
 import com.wangjie.androidbucket.utils.ABTextUtil;
 import com.wangjie.androidbucket.utils.imageprocess.ABShape;
@@ -24,8 +34,13 @@ import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RFACLabelItem;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RapidFloatingActionContentLabelList;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.OnClick;
 
 @AILayout(R.layout.activity_maktu_status)
 public class MAStatusActivity extends AIActionBarActivity implements RapidFloatingActionContentLabelList.OnRapidFloatingActionContentLabelListListener {
@@ -35,6 +50,9 @@ private RapidFloatingActionLayout rfaLayout;
 @AIView(R.id.activity_main_rfab)
 private RapidFloatingActionButton rfaBtn;
 private RapidFloatingActionHelper rfabHelper;
+
+
+
 
 
     @Override
@@ -214,4 +232,60 @@ private RapidFloatingActionHelper rfabHelper;
 
     }
 
+//    public void komisja_onClick(View view) {
+//
+//
+////        boolean wrapInScrollView = true;
+////        new MaterialDialog.Builder(this)
+////                .title("Komisja Lekarska")
+////                .customView(R.layout.custom_view, wrapInScrollView)
+////                .positiveText(R.string.positive)
+////                .show();
+//
+//
+//        new MaterialDialog.Builder(this)
+//                .title("Komisja Lekarska")
+//                .items(komisjaList)
+//                .positiveText("OK")
+//                .show();
+//
+//    }
+
+
+
+    public void komisja_onClick(View view) {
+        Dialog dialog;
+        View v;
+        v =  (LayoutInflater.from(this))
+                .inflate(R.layout.dialog_status, null);
+        final AlertDialog.Builder alertBuldier =
+                new AlertDialog.Builder(this);
+        alertBuldier.setView(v);
+        final TextView titleText = (TextView)
+                v.findViewById(R.id.titleText);
+        titleText.setText(R.string.status_komisja);
+        final TextView textView1_1 = (TextView)
+                v.findViewById(R.id.textView1_1);
+        textView1_1.setText(R.string.status_komisja_1);
+        final TextView textView2_1 = (TextView)
+                v.findViewById(R.id.textView2_1);
+        textView2_1.setText(R.string.status_komisja_2);
+        final TextView textView3_1 = (TextView)
+                v.findViewById(R.id.textView3_1);
+        textView3_1.setText(R.string.status_komisja_3);
+        final TextView textView4_1 = (TextView)
+                v.findViewById(R.id.textView4_1);
+        textView4_1.setText(R.string.status_komisja_4);
+
+        alertBuldier.setCancelable(true)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which){
+                            }
+                        });
+        dialog = alertBuldier.create();
+        dialog.show();
+    }
 }

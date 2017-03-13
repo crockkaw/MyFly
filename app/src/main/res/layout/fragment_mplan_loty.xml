@@ -55,7 +55,7 @@
                 android:text="PTL wariant I / 11.03.2017"
                 android:textSize="16sp"
                 app:tagType="modern"
-                app:tagColor="#2F94FA"
+                app:tagColor="#4a76a3"
                 app:tagUpperCase="true" />
 
 
@@ -92,7 +92,7 @@
                 android:text="PTL wariant II / 11.03.2017"
                 android:textSize="16sp"
                 app:tagType="modern"
-                app:tagColor="#2F94FA"
+                app:tagColor="#4a76a3"
                 app:tagUpperCase="true" />
 
 
@@ -126,7 +126,7 @@
                 android:text="PTL wariant I / 13.03.2017"
                 android:textSize="16sp"
                 app:tagType="modern"
-                app:tagColor="#2F94FA"
+                app:tagColor="#4a76a3"
                 app:tagUpperCase="true" />
 
 
@@ -163,7 +163,7 @@
                 android:text="PTL wariant II / 13.03.2017"
                 android:textSize="16sp"
                 app:tagType="modern"
-                app:tagColor="#2F94FA"
+                app:tagColor="#4a76a3"
                 app:tagUpperCase="true" />
 
 

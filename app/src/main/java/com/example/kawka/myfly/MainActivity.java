@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.kawka.myfly.MAktualnoscFragments.MAktualnoscFragment;
@@ -53,15 +54,14 @@ public class MainActivity extends AppCompatActivity
     ArrayList<ArrayList<String>> resultsNalAkt;
     private static final String[] leftTitlesNalAkt = new String[10];
 
-//    private SimpleDateFormat mFormatter = new SimpleDateFormat("MMMM dd yyyy hh:mm aa");
+    //    private SimpleDateFormat mFormatter = new SimpleDateFormat("MMMM dd yyyy hh:mm aa");
     private SimpleDateFormat mFormatter = new SimpleDateFormat("dd MMMM yyyy");
 
     private SlideDateTimeListener listener = new SlideDateTimeListener() {
 
         @Override
-        public void onDateTimeSet(Date date)
-        {
-            if (poleData==1){
+        public void onDateTimeSet(Date date) {
+            if (poleData == 1) {
 
                 String dat = mFormatter.format(date);
                 dataOdET = (EditText) findViewById(R.id.dataOd_et);
@@ -76,8 +76,7 @@ public class MainActivity extends AppCompatActivity
 
         // Optional cancel listener
         @Override
-        public void onDateTimeCancel()
-        {
+        public void onDateTimeCancel() {
             Toast.makeText(MainActivity.this,
                     "Canceled", Toast.LENGTH_SHORT).show();
         }
@@ -138,7 +137,6 @@ public class MainActivity extends AppCompatActivity
                         , new MAktualnoscFragment())
                 .commit();
         navigationView.setCheckedItem(R.id.nav_aktualnosc);
-
 
 
         Window window = this.getWindow();
@@ -263,7 +261,7 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         ActionBar actionBar = getSupportActionBar();
         if (id == R.id.nav_aktualnosc) {
-                    fragmentManager.beginTransaction()
+            fragmentManager.beginTransaction()
                     .replace(R.id.content_frame
                             , new MAktualnoscFragment())
                     .commit();
@@ -280,7 +278,7 @@ public class MainActivity extends AppCompatActivity
                             , new MKalendarzFragment())
                     .commit();
             actionBar.setTitle("Kalendarz");
-        } else if (id == R.id.nav_nalot){
+        } else if (id == R.id.nav_nalot) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame
                             , new MNalotFragment())
@@ -296,7 +294,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_ustawienia) {
 
-            Intent intent = new Intent(this,SettingsActivity.class);
+            Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
@@ -318,7 +316,8 @@ public class MainActivity extends AppCompatActivity
         alertDialogBuilder.setPositiveButton("ok",
                 new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {}
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
 
                 });
 
@@ -401,25 +400,25 @@ public class MainActivity extends AppCompatActivity
 
 
     public void pressStatus(View view) {
-        Intent i = new Intent(this,MAStatusActivity.class);
-        i.putExtra("a","a");
+        Intent i = new Intent(this, MAStatusActivity.class);
+        i.putExtra("a", "a");
         transitionTo(i);
 
     }
 
     public void pressTyp(View view) {
-        Intent i = new Intent(this,MATypActivity.class);
+        Intent i = new Intent(this, MATypActivity.class);
         transitionTo(i);
     }
 
     public void pressNewDoc(View view) {
-        Intent i = new Intent(this,MAStatusActivity.class);
-        i.putExtra("a","zib");
+        Intent i = new Intent(this, MAStatusActivity.class);
+        i.putExtra("a", "zib");
         transitionTo(i);
     }
 
     public void pressChat(View view) {
-        Intent i = new Intent(this,KomunikatorActivity.class);
+        Intent i = new Intent(this, KomunikatorActivity.class);
         transitionTo(i);
     }
 
@@ -430,6 +429,13 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    public void nalRoczSpButton(View view) {
+        LinearLayout l = (LinearLayout) findViewById(R.id.nalRoczSp);
+        l.setVisibility(View.VISIBLE);
+    }
+
+    public void nalRoczSymButton(View view) {
+        LinearLayout l = (LinearLayout) findViewById(R.id.nalRoczSym);
+        l.setVisibility(View.VISIBLE);
+    }
 }
-
-

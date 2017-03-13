@@ -37,36 +37,86 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.CardView
-            android:id="@+id/wykonaneLotyCard"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:elevation="0dp"
             android:layout_marginTop="10dp"
             app:contentPadding="5dp"
             >
 
-            <com.veinhorn.tagview.TagView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <com.veinhorn.tagview.TagView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wykonane loty"
+                    android:textSize="16sp"
+                    app:tagType="modern"
+                    app:tagColor="#4a76a3"
+                    app:tagUpperCase="true"
+                    android:layout_gravity="right"
+ />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="right">
+                    <Button
+                        android:layout_gravity="right"
+                        android:background="@drawable/button_edit"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:paddingLeft="7dp"
+                        android:drawableLeft="@drawable/ic_mode_edit_white_24dp"
+                        android:layout_marginBottom="2dp"
+                        android:id="@+id/dataButton1"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="3dp"
+                android:id="@+id/zakresDat_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Wykonane loty"
-                android:textSize="16sp"
-                app:tagType="modern"
-                app:tagColor="#2F94FA"
-                app:tagUpperCase="true"
-                />
+                android:visibility="gone"
+                android:orientation="horizontal"
+                >
 
-            <Button
-                android:id="@+id/dataButton1"
-                android:layout_gravity="right"
-                android:background="#45207c"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:paddingLeft="7dp"
-                android:drawableLeft="@drawable/ic_mode_edit_white_24dp"
+                <SeekBar
+                    android:id="@+id/seekBar1"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="20dp"
+                    android:max="15"
+                    android:layout_marginLeft="0dp"
+                    />
 
-                />
+                <EditText
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:hint="Od daty:"
+                    android:onClick="dataOd"
+                    android:editable="false"
+                    android:id="@+id/dataOd_et"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
 
 
 <LinearLayout
@@ -75,60 +125,23 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_marginTop="30dp"
-            android:id="@+id/zakresDat_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="horizontal"
-            >
+    <LinearLayout
+        android:id="@+id/layout_loty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.loopeer.android.librarys.scrolltable.ScrollTableView
+            android:id="@+id/scroll_t_loty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </LinearLayout>
+
+</LinearLayout>
 
 
 
-
-            <SeekBar
-                android:id="@+id/seekBar1"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="20dp"
-                android:max="15"
-                android:layout_marginLeft="0dp"
-                />
-
-
-
-            <EditText
-                android:layout_marginLeft="15dp"
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:hint="Od daty:"
-                android:onClick="dataOd"
-                android:editable="false"
-                android:id="@+id/dataOd_et"
-                android:textSize="15sp"
-                />
-
-            </LinearLayout>
-
-
-
-
-            <LinearLayout
-                android:id="@+id/layout_loty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <com.loopeer.android.librarys.scrolltable.ScrollTableView
-                    android:layout_marginTop="20dp"
-                    android:id="@+id/scroll_t_loty"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
-            </LinearLayout>
-
-            </LinearLayout>
+</LinearLayout>
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
@@ -137,26 +150,86 @@
             android:elevation="0dp"
             android:layout_marginTop="10dp"
             app:contentPadding="5dp"
-
             >
-        <com.veinhorn.tagview.TagView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nalot na sp w roku bieżącym"
-            android:textSize="16sp"
-            app:tagType="modern"
-            app:tagColor="#2F94FA"
-            app:tagUpperCase="true"
 
-            android:id="@+id/tagView" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+
+                <com.veinhorn.tagview.TagView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nalot na sp w roku bieżącym"
+                    android:textSize="16sp"
+                    app:tagType="modern"
+                    app:tagColor="#4a76a3"
+                    app:tagUpperCase="true"
+                    android:layout_gravity="right"
+
+                    android:id="@+id/tagView" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="right">
+                    <Button
+                        android:layout_gravity="right"
+                        android:background="@drawable/button_edit"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:paddingLeft="7dp"
+                        android:drawableLeft="@drawable/ic_mode_edit_white_24dp"
+                        android:layout_marginBottom="2dp"
+                        android:onClick="nalRoczSpButton"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:id="@+id/nalRoczSp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_marginLeft="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wybierz rok:"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    />
+
+                <Spinner
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinnerRokSp"
+                    android:background="#FFFFFF"
+                    android:textStyle="bold"
+                    android:gravity="center"
+
+                    />
+
+            </LinearLayout>
 
 
             <com.loopeer.android.librarys.scrolltable.ScrollTableView
-                android:layout_marginTop="20dp"
                 android:id="@+id/scroll_t_roczny"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
             />
+
+            </LinearLayout>
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
@@ -166,24 +239,84 @@
             android:layout_marginTop="10dp"
             app:contentPadding="5dp"
             >
-
-
-            <com.veinhorn.tagview.TagView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nalot sym. w roku bieżącym"
-                android:textSize="16sp"
-                app:tagType="modern"
-                app:tagColor="#2F94FA"
-                app:tagUpperCase="true"
-                android:id="@+id/tagView2" />
+                android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+
+                <com.veinhorn.tagview.TagView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nalot na sp w roku bieżącym"
+                    android:textSize="16sp"
+                    app:tagType="modern"
+                    app:tagColor="#4a76a3"
+                    app:tagUpperCase="true"
+                    android:layout_gravity="right"
+
+                     />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="right">
+                    <Button
+                        android:layout_gravity="right"
+                        android:background="@drawable/button_edit"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:paddingLeft="7dp"
+                        android:drawableLeft="@drawable/ic_mode_edit_white_24dp"
+                        android:layout_marginBottom="2dp"
+                        android:onClick="nalRoczSymButton"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:id="@+id/nalRoczSym"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_marginLeft="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wybierz rok:"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    />
+
+                <Spinner
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinnerRokSym"
+                    android:background="#FFFFFF"
+                    android:textStyle="bold"
+                    android:gravity="center"
+
+                    />
+
+            </LinearLayout>
 
             <com.loopeer.android.librarys.scrolltable.ScrollTableView
-            android:layout_marginTop="20dp"
             android:id="@+id/scroll_t_roczny_sym"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             />
+
+            </LinearLayout>
+
         </android.support.v7.widget.CardView>
 
         <android.support.v7.widget.CardView
@@ -200,9 +333,10 @@
             android:text="Nalot aktualny"
             android:textSize="16sp"
             app:tagType="modern"
-            app:tagColor="#2F94FA"
+            app:tagColor="#4a76a3"
             app:tagUpperCase="true"
 />
+
 
 
 <LinearLayout

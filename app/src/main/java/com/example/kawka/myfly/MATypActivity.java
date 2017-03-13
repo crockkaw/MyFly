@@ -1,5 +1,8 @@
 package com.example.kawka.myfly;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +11,12 @@ import android.support.v7.widget.Toolbar;
 import android.transition.Slide;
 import android.transition.Transition;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wangjie.androidbucket.utils.ABTextUtil;
@@ -165,5 +171,42 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
     public void onRFACItemIconClick(int position, RFACLabelItem item) {
         Toast.makeText(getContext(), "clicked icon: " + position, Toast.LENGTH_SHORT).show();
         rfabHelper.toggleContent();
+    }
+
+    public void wodowanie_onClick(View view) {
+        Dialog dialog;
+        View v;
+        v =  (LayoutInflater.from(this))
+                .inflate(R.layout.dialog_status, null);
+        final AlertDialog.Builder alertBuldier =
+                new AlertDialog.Builder(this);
+        alertBuldier.setView(v);
+        final TextView titleText = (TextView)
+                v.findViewById(R.id.titleText);
+        titleText.setText(R.string.typ_wodowanie);
+        final TextView textView1_1 = (TextView)
+                v.findViewById(R.id.textView1_1);
+        textView1_1.setText(R.string.typ_wodow1);
+        final TextView textView2_1 = (TextView)
+                v.findViewById(R.id.textView2_1);
+        textView2_1.setText(R.string.typ_wodow2);
+        final TextView textView3_1 = (TextView)
+                v.findViewById(R.id.textView3_1);
+        textView3_1.setText(R.string.typ_wodow3);
+        final TextView textView4_1 = (TextView)
+                v.findViewById(R.id.textView4_1);
+        textView4_1.setVisibility(View.INVISIBLE);
+
+
+        alertBuldier.setCancelable(true)
+                .setPositiveButton("OK",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which){
+                            }
+                        });
+        dialog = alertBuldier.create();
+        dialog.show();
     }
 }

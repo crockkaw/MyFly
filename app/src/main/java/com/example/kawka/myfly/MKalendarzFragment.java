@@ -34,6 +34,8 @@ public class MKalendarzFragment extends Fragment  {
         myView = inflater.inflate(R.layout.fragment_mkalendarz, container, false);
         ButterKnife.bind(this, myView);
 
+        widget = (MaterialCalendarView)myView.findViewById(R.id.calendarView);
+
 //        widget.setOnDateChangedListener(this);
         widget.setShowOtherDates(MaterialCalendarView.SHOW_ALL);
 
