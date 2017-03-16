@@ -12,6 +12,6 @@ import rx.Observable;
 
 public interface ApiService {
 
-    @GET("nal_akt")
+    @GET("nal_cal?finder=RowFinder;id_num=40")
     Observable<NalotAktualny> getItems();
 }

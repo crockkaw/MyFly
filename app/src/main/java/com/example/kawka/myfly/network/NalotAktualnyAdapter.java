@@ -25,7 +25,7 @@ public class NalotAktualnyAdapter {
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("http://81.18.213.35:7001/Rest/api/v0/")
+                .baseUrl("http://kkawka.pl:7001/rest/api/v0/")
                 .build();
 
 
@@ -65,5 +65,4 @@ public class NalotAktualnyAdapter {
     public ArrayList<ArrayList<String>> getMyResultsAktualny() {
         return resultsNalAkt;
     }
-
 }
