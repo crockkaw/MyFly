@@ -3,7 +3,10 @@ package com.example.kawka.myfly.network;
 import com.example.kawka.myfly.models.NalotAktualny;
 
 
+import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -12,6 +15,7 @@ import rx.Observable;
 
 public interface ApiService {
 
+
     @GET("nal_cal?finder=RowFinder;id_num=40")
-    Observable<NalotAktualny> getItems();
+    Call<NalotAktualny> getItems();
 }
