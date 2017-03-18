@@ -49,7 +49,7 @@ public class NalotAktualnyAdapter {
 //        Retrofit retrofit = builder.build();
 
 
-        ApiService client = ServiceGenerator.createService(ApiService.class);
+        ApiService client = ServiceGenerator.createService(ApiService.class, "client", "Turawa2016");
 
         Call<NalotAktualny> call = client.getItems();
 
