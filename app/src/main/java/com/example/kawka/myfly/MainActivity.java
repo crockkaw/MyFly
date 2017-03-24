@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity
 
     NalotAktualnyAdapter nalotAktualnyAdapter;
 
+    Context context;
+
 
 
 
@@ -109,8 +111,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle(getString(R.string.aktu));
+        context=this;
 
-        nalotAktualnyAdapter = new NalotAktualnyAdapter(getApplication());
+        nalotAktualnyAdapter = new NalotAktualnyAdapter();
 
 
 //        dane();
@@ -440,6 +443,10 @@ public class MainActivity extends AppCompatActivity
     public void nalRoczSymButton(View view) {
         LinearLayout l = (LinearLayout) findViewById(R.id.nalRoczSym);
         l.setVisibility(View.VISIBLE);
+    }
+
+    public Context getContext(){
+        return context;
     }
 
 

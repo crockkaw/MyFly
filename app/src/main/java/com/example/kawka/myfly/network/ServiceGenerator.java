@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceGenerator {
 
 
-    private static final String BASE_URL = "http://kkawka.pl:7001/rest/api/v0/";
+    private static final String BASE_URL = "https://81.18.213.35:8011/rest/api/v0/";
 
 
     private static SelfSigningClientBuilder selfSigningClientBuilder = new SelfSigningClientBuilder();

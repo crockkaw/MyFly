@@ -32,7 +32,8 @@ public class NalotAktualnyAdapter {
     private ArrayList<ArrayList<String>> resultsNalAkt;
     private String[] leftTitlesNalAkt = new String[10];
 
-    public NalotAktualnyAdapter(Context context) {
+    public NalotAktualnyAdapter() {
+
 
 //        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 //

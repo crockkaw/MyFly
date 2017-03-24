@@ -1,8 +1,10 @@
 package com.example.kawka.myfly.network;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.ContextWrapper;
 
 import com.example.kawka.myfly.MainActivity;
+import com.example.kawka.myfly.MyApplication;
 import com.example.kawka.myfly.R;
 
 import java.io.IOException;
@@ -27,14 +29,14 @@ import javax.net.ssl.X509TrustManager;
 
 import okhttp3.OkHttpClient;
 
-public  class SelfSigningClientBuilder {
+public  class SelfSigningClientBuilder   {
 
-public static MainActivity main;
+
+
     public static OkHttpClient createClient() {
 
-        Context context;
-        main = new MainActivity();
-        context=main.getApplicationContext();
+
+        Context context= MyApplication.getAppContext();
 
         OkHttpClient client = null;
 
@@ -44,7 +46,7 @@ public static MainActivity main;
         SSLContext sslContext = null;
         try {
             cf = CertificateFactory.getInstance("X.509");
-            cert = context.getResources().openRawResource(R.raw.my_cert); // Place your 'my_cert.crt' file in `res/raw`
+            cert = context.getResources().openRawResource(R.raw.mycert); // Place your 'my_cert.crt' file in `res/raw`
 
             ca = cf.generateCertificate(cert);
             cert.close();
@@ -71,5 +73,6 @@ public static MainActivity main;
 
         return client;
     }
+
 
 }
