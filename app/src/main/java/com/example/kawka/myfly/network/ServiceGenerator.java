@@ -1,6 +1,9 @@
 package com.example.kawka.myfly.network;
 
+import android.content.Context;
 import android.text.TextUtils;
+
+import java.security.cert.CertificateException;
 
 import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
@@ -14,13 +17,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceGenerator {
 
+
     private static final String BASE_URL = "http://kkawka.pl:7001/rest/api/v0/";
 
+
+    private static SelfSigningClientBuilder selfSigningClientBuilder = new SelfSigningClientBuilder();
 
     private static Retrofit.Builder builder =
             new Retrofit.Builder()
                     .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create());
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(selfSigningClientBuilder.createClient())
+            ;
 
     private static Retrofit retrofit = builder.build();
 
@@ -30,6 +38,25 @@ public class ServiceGenerator {
 
     private static OkHttpClient.Builder httpClient =
             new OkHttpClient.Builder();
+
+
+
+//    httpClient.sslSocketFactory(sslContext.getSocketFactory(),
+//            new X509TrustManager() {
+//        @Override
+//        public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws
+//        CertificateException {
+//        }
+//
+//        @Override
+//        public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
+//        }
+//
+//        @Override
+//        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+//            return new java.security.cert.X509Certificate[]{};
+//        }
+//    });
 
 
     public static void logging (){
@@ -50,6 +77,7 @@ public class ServiceGenerator {
 
     public static <S> S createService(
             Class<S> serviceClass, String username, String password) {
+
         if (!TextUtils.isEmpty(username)
                 && !TextUtils.isEmpty(password)) {
             String authToken = Credentials.basic(username, password);

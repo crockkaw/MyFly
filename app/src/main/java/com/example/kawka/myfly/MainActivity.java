@@ -1,6 +1,7 @@
 package com.example.kawka.myfly;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity
     EditText dataOdET, dataDoET;
 
     NalotAktualnyAdapter nalotAktualnyAdapter;
+
+
 
 
     ArrayList<ArrayList<String>> resultsNalAkt;
@@ -107,7 +110,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         setTitle(getString(R.string.aktu));
 
-        nalotAktualnyAdapter = new NalotAktualnyAdapter();
+        nalotAktualnyAdapter = new NalotAktualnyAdapter(getApplication());
 
 
 //        dane();
@@ -438,4 +441,6 @@ public class MainActivity extends AppCompatActivity
         LinearLayout l = (LinearLayout) findViewById(R.id.nalRoczSym);
         l.setVisibility(View.VISIBLE);
     }
+
+
 }

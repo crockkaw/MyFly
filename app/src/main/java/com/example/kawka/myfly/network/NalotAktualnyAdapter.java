@@ -1,5 +1,6 @@
 package com.example.kawka.myfly.network;
 
+import android.content.Context;
 import android.widget.Toast;
 
 import com.example.kawka.myfly.MainActivity;
@@ -31,7 +32,7 @@ public class NalotAktualnyAdapter {
     private ArrayList<ArrayList<String>> resultsNalAkt;
     private String[] leftTitlesNalAkt = new String[10];
 
-    public NalotAktualnyAdapter() {
+    public NalotAktualnyAdapter(Context context) {
 
 //        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
 //
