@@ -1,13 +1,17 @@
 package com.example.kawka.myfly;
 
 
+import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.text.style.ForegroundColorSpan;
-import android.util.Log;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +21,7 @@ import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -28,7 +33,13 @@ import butterknife.ButterKnife;
 public class MKalendarzFragment extends Fragment implements OnDateSelectedListener {
 
     View myView;
-    TextView dateTextView;
+    HashSet<CalendarDay> set_ifr_d, set_vfr_n, set_kontrola;
+
+    public static final int ifr_d = 3;
+    public static final int vfr_n = 20;
+    public static final int ifr_n = 13;
+    public static final int kontrola = 28;
+    public static final int w_r_wod = 27;
 
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
 
@@ -42,18 +53,16 @@ public class MKalendarzFragment extends Fragment implements OnDateSelectedListen
         ButterKnife.bind(this, myView);
         widget = (MaterialCalendarView)myView.findViewById(R.id.calendarView);
 
-//        widget.setOnDateChangedListener(this);
         widget.setShowOtherDates(MaterialCalendarView.SHOW_ALL);
-
 
         Calendar instance = Calendar.getInstance();
         widget.setSelectedDate(instance.getTime());
 
         Calendar instance1 = Calendar.getInstance();
-        instance1.set(instance1.get(Calendar.YEAR), Calendar.JANUARY, 1);
+        instance1.set(instance1.get(Calendar.YEAR), instance1.get(Calendar.MONTH), 1);
 
         Calendar instance2 = Calendar.getInstance();
-        instance2.set(instance2.get(Calendar.YEAR), Calendar.DECEMBER, 31);
+        instance2.set(instance2.get(Calendar.YEAR) + 1 , instance2.get(Calendar.MONTH), 31);
 
         widget.state().edit()
                 .setFirstDayOfWeek(Calendar.MONDAY)
@@ -61,180 +70,194 @@ public class MKalendarzFragment extends Fragment implements OnDateSelectedListen
                 .setMaximumDate(instance2.getTime())
                 .commit();
 
-//        widget.addDecorators(
-//                new MySelectorDecorator(this),
-//                new HighlightWeekendsDecorator(),
-//                oneDayDecorator
-//        );
-
 
         Calendar cal1 = Calendar.getInstance();
         cal1.set(instance1.get(Calendar.YEAR), Calendar.JANUARY, 1);
         Calendar cal2 = Calendar.getInstance();
         cal2.set(instance1.get(Calendar.YEAR), Calendar.DECEMBER, 8);
 
-        HashSet<CalendarDay> setDays = getCalendarDaysSet();
-        HashSet<CalendarDay> setDays2 = getCalendarDaysSet2();
+        set_ifr_d = getCalendar_ifr_d();
+        set_vfr_n = getCalendar_vfr_n();
+        set_kontrola = getCalendar_kontrola();
 
-        int myColor = R.color.red;
-        widget.addDecorator(new BookingDecorator(myColor, setDays));
-        widget.addDecorator(new BookingDecorator2(myColor, setDays2));
+        EventDecorator eventDecorator = new EventDecorator(getActivity());
+        EventDecorator.Decorator_ifr_d obj_ifr_d = eventDecorator.new Decorator_ifr_d(set_ifr_d);
+        EventDecorator.Decorator_vfr_n obj_vfr_n = eventDecorator.new Decorator_vfr_n(set_vfr_n);
+        EventDecorator.Decorator_kontrola obj_kontrola = eventDecorator.new Decorator_kontrola(set_kontrola);
+        EventDecorator.DaySelectorDecorator obj_day_decor = eventDecorator.new DaySelectorDecorator(getActivity());
+        EventDecorator.CurrentDecorator obj_cur_decor = eventDecorator.new CurrentDecorator();
+
+        widget.addDecorator(obj_ifr_d);
+        widget.addDecorator(obj_vfr_n);
+        widget.addDecorator(obj_kontrola);
+        widget.addDecorators(obj_day_decor);
+        widget.addDecorator(obj_cur_decor);
 
 
         widget.setOnDateChangedListener(this);
 
-         dateTextView = (TextView) myView.findViewById(R.id.selected_date_textView);
-
-
-
-
-
-
-
-
-
-
-//        new ApiSimulator().executeOnExecutor(Executors.newSingleThreadExecutor());
         return myView;
     }
 
+
+
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-        //If you change a decorate, you need to invalidate decorators
-        dateTextView.setText(FORMATTER.format(date.getDate()));
+        TextView noEventTextView = (TextView) myView.findViewById(R.id.noEventTextView);
 
-        Log.d("MyApp","BookingDecorator decorate last");
+        int l = date.getDay();
+        switch(l){
+            case ifr_d:
+                noEventTextView.setText("Mi-8 Lot IFR w dzien");
+                break;
+            case vfr_n:
+                noEventTextView.setText("Mi-2 Lot VFR w nocy");
+               break;
+            case ifr_n:
+                noEventTextView.setText(R.string.no_plans_for_that_day);
+
+                break;
+            case kontrola:
+                noEventTextView.setText("Mi-2 Kontrola techniki pilotowania");
+
+                break;
+            case w_r_wod:
+                noEventTextView.setText(R.string.no_plans_for_that_day);
+
+                break;
+            default:
+                noEventTextView.setText(R.string.no_plans_for_that_day);
+
+        }
 
     }
 
 
-
-//    @Override
-//    public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-//        //If you change a decorate, you need to invalidate decorators
-//        oneDayDecorator.setDate(date.getDate());
-//        widget.invalidateDecorators();
-//    }
-
-    /**
-     * Simulate an API call to show how to add decorators
-     */
-//    private class ApiSimulator extends AsyncTask<Void, Void, List<CalendarDay>> {
-//
-//        @Override
-//        protected List<CalendarDay> doInBackground(@NonNull Void... voids) {
-//            try {
-//                Thread.sleep(2000);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-//            Calendar calendar = Calendar.getInstance();
-//            calendar.add(Calendar.MONTH, -2);
-//            ArrayList<CalendarDay> dates = new ArrayList<>();
-//            for (int i = 0; i < 30; i++) {
-//                CalendarDay day = CalendarDay.from(calendar);
-//                dates.add(day);
-//                calendar.add(Calendar.DATE, 5 );
-//            }
-//
-//            return dates;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(@NonNull List<CalendarDay> calendarDays) {
-//            super.onPostExecute(calendarDays);
-//
-////            if (isFinishing()) {
-////                return;
-////            }
-//
-//            widget.addDecorator(new BookingDecorator(Color.RED, calendarDays));
-//        }
-//    }
-
-    private HashSet<CalendarDay> getCalendarDaysSet() {
+    private HashSet<CalendarDay> getCalendar_ifr_d() {
 
         Calendar instance = Calendar.getInstance();
 
-        HashSet<CalendarDay> setDays = new HashSet<>();
-                CalendarDay calDay = CalendarDay.from(2017,Calendar.MARCH,14);
-                setDays.add(calDay);
-         calDay = CalendarDay.from(instance.get(Calendar.YEAR),instance.get(Calendar.MONTH),18);
-        setDays.add(calDay);
-         calDay = CalendarDay.from(instance.get(Calendar.YEAR),instance.get(Calendar.MONTH) + 1,2);
-        setDays.add(calDay);
+         set_ifr_d = new HashSet<>();
+                CalendarDay calDay = CalendarDay.from(instance.get(Calendar.YEAR),instance.get(Calendar.MONTH),ifr_d);
+                set_ifr_d.add(calDay);
 
-//        while (cal1.getTime().before(cal2.getTime())) {
-//            CalendarDay calDay = CalendarDay.from(cal1);
-//            setDays.add(calDay);
-//            cal1.add(Calendar.DATE, 1);
-//
-//        }
-        Log.d("MyApp","HashSet");
-
-        return setDays;
+        return set_ifr_d;
     }
 
-    private HashSet<CalendarDay> getCalendarDaysSet2() {
+    private HashSet<CalendarDay> getCalendar_vfr_n() {
         Calendar instance = Calendar.getInstance();
 
-        HashSet<CalendarDay> setDays2 = new HashSet<>();
-        CalendarDay calDay = CalendarDay.from(2017,Calendar.MARCH,17);
-        setDays2.add(calDay);
-        calDay = CalendarDay.from(instance.get(Calendar.YEAR),instance.get(Calendar.MONTH),24);
-        setDays2.add(calDay);
-        calDay = CalendarDay.from(instance.get(Calendar.YEAR),instance.get(Calendar.MONTH) + 1,6);
-        setDays2.add(calDay);
+        set_vfr_n = new HashSet<>();
+        CalendarDay calDay = CalendarDay.from(instance.get(Calendar.YEAR),instance.get(Calendar.MONTH),vfr_n);
+        set_vfr_n.add(calDay);
 
-        return setDays2;
+        return set_vfr_n;
+    }
+
+    private HashSet<CalendarDay> getCalendar_kontrola() {
+        Calendar instance = Calendar.getInstance();
+
+        set_kontrola = new HashSet<>();
+        CalendarDay calDay = CalendarDay.from(instance.get(Calendar.YEAR),instance.get(Calendar.MONTH),kontrola);
+        set_kontrola.add(calDay);
+
+        return set_kontrola;
     }
 
 
-    private class BookingDecorator implements DayViewDecorator {
-        private int mColor;
-        private HashSet<CalendarDay> mCalendarDayCollection;
-
-        public BookingDecorator(int color, HashSet<CalendarDay> calendarDayCollection) {
-            mColor = color;
-            mCalendarDayCollection = calendarDayCollection;
-        }
-
-        @Override
-        public boolean shouldDecorate(CalendarDay day) {
-            return mCalendarDayCollection.contains(day);
-        }
-
-        @Override
-        public void decorate(DayViewFacade view) {
-            view.addSpan(new ForegroundColorSpan(mColor));
-            //view.addSpan(new BackgroundColorSpan(Color.BLUE));
-            view.setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.calendar_box));
-            Log.d("MyApp","BookingDecorator decorate last");
-    }
-    }
-
-    private class BookingDecorator2 implements DayViewDecorator {
-        private int mColor;
-        private HashSet<CalendarDay> mCalendarDayCollection;
-
-        public BookingDecorator2(int color, HashSet<CalendarDay> calendarDayCollection) {
-            mColor = color;
-            mCalendarDayCollection = calendarDayCollection;
-        }
-
-        @Override
-        public boolean shouldDecorate(CalendarDay day) {
-            return mCalendarDayCollection.contains(day);
-        }
-
-        @Override
-        public void decorate(DayViewFacade view) {
-            view.addSpan(new ForegroundColorSpan(mColor));
-            //view.addSpan(new BackgroundColorSpan(Color.BLUE));
-            view.setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.calendar_box2));
-            Log.d("MyApp","BookingDecorator decorate last");
-        }
-    }
-
+//    private class Decorator_ifr_d implements DayViewDecorator {
+//        private HashSet<CalendarDay> mCalendarDayCollection;
+//
+//        public Decorator_ifr_d( HashSet<CalendarDay> calendarDayCollection) {
+//            mCalendarDayCollection = calendarDayCollection;
+//        }
+//
+//        @Override
+//        public boolean shouldDecorate(CalendarDay day) {
+//            return mCalendarDayCollection.contains(day);}
+//
+//        @Override
+//        public void decorate(DayViewFacade view) {
+//            view.addSpan(new ForegroundColorSpan(Color.BLUE));
+//            view.addSpan(new StyleSpan(Typeface.BOLD));
+//            view.setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.k_ifr_d));}
+//    }
+//
+//    private class Decorator_vfr_n implements DayViewDecorator {
+//        private HashSet<CalendarDay> mCalendarDayCollection;
+//
+//        public Decorator_vfr_n( HashSet<CalendarDay> calendarDayCollection) {
+//            mCalendarDayCollection = calendarDayCollection;
+//        }
+//
+//        @Override
+//        public boolean shouldDecorate(CalendarDay day) {
+//            return mCalendarDayCollection.contains(day);
+//        }
+//
+//        @Override
+//        public void decorate(DayViewFacade view) {
+//            view.addSpan(new ForegroundColorSpan(Color.BLUE));
+//            view.addSpan(new StyleSpan(Typeface.BOLD));
+//            view.setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.k_vfr_n));
+//
+//        }
+//    }
+//
+//    private class Decorator_kontrola implements DayViewDecorator {
+//        private HashSet<CalendarDay> mCalendarDayCollection;
+//
+//        public Decorator_kontrola( HashSet<CalendarDay> calendarDayCollection) {
+//            mCalendarDayCollection = calendarDayCollection;
+//        }
+//
+//        @Override
+//        public boolean shouldDecorate(CalendarDay day) {
+//            return mCalendarDayCollection.contains(day);}
+//
+//        @Override
+//        public void decorate(DayViewFacade view) {
+//            view.addSpan(new ForegroundColorSpan(Color.BLUE));
+//            view.addSpan(new StyleSpan(Typeface.BOLD));
+//            view.setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.k_kontrola));}
+//    }
+//
+//    public class DaySelectorDecorator implements DayViewDecorator {
+//        private final Drawable drawable;
+//
+//        public DaySelectorDecorator(Activity context) {
+//            drawable = context.getResources().getDrawable(R.drawable.day_selector);
+//        }
+//
+//        @Override
+//        public boolean shouldDecorate(CalendarDay day) {
+//            return true;
+//        }
+//
+//        @Override
+//        public void decorate(DayViewFacade view) {
+//            view.setSelectionDrawable(drawable);
+//        }
+//    }
+//
+//    public class CurrentDecorator implements DayViewDecorator {
+//        private final Calendar calendar = Calendar.getInstance();
+//        private CalendarDay date;
+//
+//        public CurrentDecorator() {
+//            date = CalendarDay.today();
+//        }
+//
+//        @Override
+//        public boolean shouldDecorate(CalendarDay day) {
+//            day.copyTo(calendar);
+//            int weekDay = calendar.get(Calendar.DAY_OF_WEEK);
+//            return date != null && day.equals(date);
+//        }
+//
+//        @Override
+//        public void decorate(DayViewFacade view) {
+//            view.setBackgroundDrawable(ContextCompat.getDrawable(getContext(),R.drawable.current_day));}
+//        }
 
 }

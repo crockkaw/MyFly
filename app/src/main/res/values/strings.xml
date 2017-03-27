@@ -139,6 +139,7 @@
     <string name="typ_wodow1">"Data kontroli: "</string>
     <string name="typ_wodow2">"Data następnej kontroli: "</string>
     <string name="typ_wodow3">"Pozostało dni: "</string>
+    <string name="no_plans_for_that_day">Brak planów na dany dzień</string>
 
 
 </resources>

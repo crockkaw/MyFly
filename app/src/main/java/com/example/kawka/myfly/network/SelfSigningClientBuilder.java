@@ -1,15 +1,10 @@
 package com.example.kawka.myfly.network;
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.ContextWrapper;
-
-import com.example.kawka.myfly.MainActivity;
 import com.example.kawka.myfly.MyApplication;
 import com.example.kawka.myfly.R;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.security.GeneralSecurityException;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -46,7 +41,7 @@ public  class SelfSigningClientBuilder   {
         SSLContext sslContext = null;
         try {
             cf = CertificateFactory.getInstance("X.509");
-            cert = context.getResources().openRawResource(R.raw.mycert); // Place your 'my_cert.crt' file in `res/raw`
+            cert = context.getResources().openRawResource(R.raw.kawka); // Place your 'my_cert.crt' file in `res/raw`
 
             ca = cf.generateCertificate(cert);
             cert.close();
@@ -54,7 +49,7 @@ public  class SelfSigningClientBuilder   {
             String keyStoreType = KeyStore.getDefaultType();
             KeyStore keyStore = KeyStore.getInstance(keyStoreType);
             keyStore.load(null, null);
-            keyStore.setCertificateEntry("ca", ca);
+            keyStore.setCertificateEntry("kawka.pl", ca);
 
             String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
