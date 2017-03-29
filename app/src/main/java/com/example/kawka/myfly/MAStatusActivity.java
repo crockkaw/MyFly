@@ -179,7 +179,7 @@ private RapidFloatingActionHelper rfabHelper;
         items.add(new RFACLabelItem<Integer>()
                 .setLabel("Dokument nie przeczytany")
                 .setResId(R.drawable.doc_warning)
-                .setIconNormalColor(0xffb0000)
+                .setIconNormalColor(0xffea1212)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
