@@ -112,24 +112,24 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
                 .setLabel(getString(R.string.legend_label_green))
                 .setLabelColor(Color.WHITE)
                 .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xff2f7650)
+                .setIconNormalColor(0xff06a64f)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(0)
         );
         items.add(new RFACLabelItem<Integer>()
-                .setLabel(getString(R.string.legend_label_yellow))
+                .setLabel(getString(R.string.legend_label_purple))
                 .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffffd900)
+                .setIconNormalColor(0xffea9054)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(1)
         );
         items.add(new RFACLabelItem<Integer>()
-                .setLabel(getString(R.string.legend_label_purple))
                 .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffb904c6)
+                .setLabel(getString(R.string.legend_label_yellow))
+                .setIconNormalColor(0xffecec14)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
@@ -138,7 +138,7 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
         items.add(new RFACLabelItem<Integer>()
                 .setLabel(getString(R.string.legend_label_red))
                 .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffc60a04)
+                .setIconNormalColor(0xffea1212)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
@@ -163,13 +163,11 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
     @Override
     public void onRFACItemLabelClick(int position, RFACLabelItem item) {
-        Toast.makeText(getContext(), "clicked label: " + position, Toast.LENGTH_SHORT).show();
         rfabHelper.toggleContent();
     }
 
     @Override
     public void onRFACItemIconClick(int position, RFACLabelItem item) {
-        Toast.makeText(getContext(), "clicked icon: " + position, Toast.LENGTH_SHORT).show();
         rfabHelper.toggleContent();
     }
 
@@ -200,12 +198,8 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
         alertBuldier.setCancelable(true)
                 .setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which){
-                            }
-                        });
+                        (dialog1, which) -> {
+    });
         dialog = alertBuldier.create();
         dialog.show();
     }

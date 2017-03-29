@@ -93,13 +93,11 @@ private RapidFloatingActionHelper rfabHelper;
 
     @Override
     public void onRFACItemLabelClick(int position, RFACLabelItem item) {
-            Toast.makeText(getContext(), "clicked label: " + position, Toast.LENGTH_SHORT).show();
             rfabHelper.toggleContent();
             }
 
     @Override
     public void onRFACItemIconClick(int position, RFACLabelItem item) {
-            Toast.makeText(getContext(), "clicked icon: " + position, Toast.LENGTH_SHORT).show();
             rfabHelper.toggleContent();
             }
 
@@ -121,15 +119,7 @@ private RapidFloatingActionHelper rfabHelper;
     }
 
 
-//    private void setupActionBar() {
-//        ActionBar actionBar = getSupportActionBar();
-//        if (actionBar != null) {
-//            // Show the Up button in the action bar.
-//            actionBar.setDisplayHomeAsUpEnabled(true);
-//            actionBar.setTitle("Status & ZIB");
-//
-//        }
-//    }
+
 
 
     @Override
@@ -154,24 +144,24 @@ private RapidFloatingActionHelper rfabHelper;
                 .setLabel(getString(R.string.legend_label_green))
                 .setLabelColor(Color.WHITE)
                 .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xff2f7650)
+                .setIconNormalColor(0xff06a64f)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(0)
         );
         items.add(new RFACLabelItem<Integer>()
-                .setLabel(getString(R.string.legend_label_yellow))
+                .setLabel(getString(R.string.legend_label_purple))
                 .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffffd900)
+                .setIconNormalColor(0xffea9054)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(1)
         );
         items.add(new RFACLabelItem<Integer>()
-                .setLabel(getString(R.string.legend_label_purple))
                 .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffb904c6)
+                .setLabel(getString(R.string.legend_label_yellow))
+                .setIconNormalColor(0xffecec14)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
@@ -180,7 +170,7 @@ private RapidFloatingActionHelper rfabHelper;
         items.add(new RFACLabelItem<Integer>()
                 .setLabel(getString(R.string.legend_label_red))
                 .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffc60a04)
+                .setIconNormalColor(0xffea1212)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
@@ -188,7 +178,7 @@ private RapidFloatingActionHelper rfabHelper;
         );
         items.add(new RFACLabelItem<Integer>()
                 .setLabel("Dokument nie przeczytany")
-                .setResId(R.mipmap.ico_test_d)
+                .setResId(R.drawable.doc_warning)
                 .setIconNormalColor(0xffb0000)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)

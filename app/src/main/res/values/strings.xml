@@ -140,6 +140,7 @@
     <string name="typ_wodow2">"Data następnej kontroli: "</string>
     <string name="typ_wodow3">"Pozostało dni: "</string>
     <string name="no_plans_for_that_day">Brak planów na dany dzień</string>
+    <string name="title_activity_test">TestActivity</string>
 
 
 </resources>

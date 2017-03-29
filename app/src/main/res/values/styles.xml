@@ -21,6 +21,7 @@
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
@@ -57,6 +58,23 @@
 
     </style>
 
+    <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">#FFFFFF</item>
+        <item name="android:textColorPrimary">#CCCCCC</item>
+        <item name="android:background">#1e165c</item>
+    </style>
+
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">#dcdbdb</item>
+        <item name="android:textSize">26sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">#dcdbdb</item>
+        <item name="colorControlNormal">#45063e</item>
+        <item name="colorControlActivated">#FFFFFF</item>
+    </style>
+
 
     <!--<style name="MyTheme" parent="@android:style/Theme.Holo.Light">-->
     <!--<item name="android:actionBarStyle">@style/MyActionBar</item>-->
@@ -65,10 +83,6 @@
     <!--<style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">-->
     <!--<item name="android:background">ANY_HEX_COLOR_CODE</item>-->
     <!--</style>-->
-
-
-
-
 
 
 </resources>

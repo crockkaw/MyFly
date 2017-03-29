@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\kawka\\AndroidStudioProjects\\New folder\\MyFly1\\slideDateTimePicker\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\selection_divider.9.png",
-        "source": "C:\\Users\\kawka\\AndroidStudioProjects\\New folder\\MyFly1\\slideDateTimePicker\\src\\main\\res\\drawable-hdpi\\selection_divider.9.png"
-    },
-    {
         "merged": "C:\\Users\\kawka\\AndroidStudioProjects\\MyFly\\slideDateTimePicker\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4\\selection_divider.9.png",
         "source": "C:\\Users\\kawka\\AndroidStudioProjects\\MyFly\\slideDateTimePicker\\src\\main\\res\\drawable-hdpi\\selection_divider.9.png"
     }
