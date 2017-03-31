@@ -3,26 +3,19 @@ package com.example.kawka.myfly;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.transition.Slide;
 import android.transition.Transition;
 import android.view.Gravity;
 import android.view.MenuItem;
-
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.wangjie.androidinject.annotation.annotations.base.AIView;
 import com.wangjie.androidbucket.utils.ABTextUtil;
 import com.wangjie.androidbucket.utils.imageprocess.ABShape;
@@ -33,14 +26,9 @@ import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionHelper;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RFACLabelItem;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RapidFloatingActionContentLabelList;
-
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.OnClick;
 
 @AILayout(R.layout.activity_maktu_status)
 public class MAStatusActivity extends AIActionBarActivity implements RapidFloatingActionContentLabelList.OnRapidFloatingActionContentLabelListListener {
@@ -77,17 +65,11 @@ private RapidFloatingActionHelper rfabHelper;
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(this.getResources().getColor(R.color.statusbar_color));
-
     }
 
     public void zib(){
         final ScrollView scrollview = ((ScrollView) findViewById(R.id.activity_mastatus));
-        scrollview.post(new Runnable() {
-            @Override
-            public void run() {
-                scrollview.fullScroll(ScrollView.FOCUS_DOWN);
-            }
-        });
+        scrollview.post(() -> scrollview.fullScroll(ScrollView.FOCUS_DOWN));
     }
 
 
@@ -179,7 +161,7 @@ private RapidFloatingActionHelper rfabHelper;
         items.add(new RFACLabelItem<Integer>()
                 .setLabel("Dokument nie przeczytany")
                 .setResId(R.drawable.doc_warning)
-                .setIconNormalColor(0xffea1212)
+                .setIconNormalColor(0xfffffff)
                 .setLabelColor(Color.WHITE)
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
@@ -269,12 +251,8 @@ private RapidFloatingActionHelper rfabHelper;
 
         alertBuldier.setCancelable(true)
                 .setPositiveButton("OK",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which){
-                            }
-                        });
+                        (dialog1, which) -> {
+    });
         dialog = alertBuldier.create();
         dialog.show();
     }

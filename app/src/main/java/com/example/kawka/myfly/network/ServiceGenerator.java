@@ -1,26 +1,20 @@
 package com.example.kawka.myfly.network;
 
-import android.content.Context;
 import android.text.TextUtils;
 
-import com.example.kawka.myfly.MyApplication;
-import com.mklimek.sslutilsandroid.SslUtils;
-
-import java.io.File;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.security.cert.CertificateException;
-
-import javax.net.ssl.SSLContext;
+import java.util.Collections;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.CertificatePinner;
+import okhttp3.CipherSuite;
+import okhttp3.ConnectionSpec;
 import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
+import okhttp3.TlsVersion;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static junit.framework.Assert.assertTrue;
 
 /**
  * Created by kawka on 3/16/2017.
@@ -29,27 +23,14 @@ import static junit.framework.Assert.assertTrue;
 public class ServiceGenerator  {
 
 
-    private static final String BASE_URL = "https://81.18.213.35:8011/rest/api/v0/";
-
-
-//    private static OkHttpClient client = new OkHttpClient.Builder()
-//            .certificatePinner(new CertificatePinner.Builder()
-//    .add("81.18.213.35:8011", "sha1/AAAAAAAAAAAAAAAAAAAAAAAAAAA=")
-//    .build())
-//            .build();
-
-
-
-
-
-    private static SelfSigningClientBuilder selfSigningClientBuilder = new SelfSigningClientBuilder();
+    private static final String BASE_URL = "https://kkawka.pl:8011/rest/api/v0/";
 
     private static Retrofit.Builder builder =
             new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .client(selfSigningClientBuilder.createClient())
             ;
+
 
     private static Retrofit retrofit = builder.build();
 
@@ -57,62 +38,29 @@ public class ServiceGenerator  {
             new HttpLoggingInterceptor()
                     .setLevel(HttpLoggingInterceptor.Level.BODY);
 
-//    Context context= MyApplication.getAppContext();
-//
-//    SSLContext sslContext = SslUtils.getSslContextForCertificateFile(context, "raw/mycert.cer");
 
+    private static ConnectionSpec spec = new ConnectionSpec.Builder(ConnectionSpec.MODERN_TLS)
+            .tlsVersions(TlsVersion.TLS_1_2)
+            .cipherSuites(
+                    CipherSuite.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256)
+//                    CipherSuite.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
 
-     protected static OkHttpClient.Builder httpClient =
-            new OkHttpClient
-                    .Builder();
-
-//    httpClient.sslSocketFactory(sslContext.getSocketFactory(),
-//            new X509TrustManager() {
-//        @Override
-//        public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
-//        }
-//
-//        @Override
-//        public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
-//        }
-//
-//        @Override
-//        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-//            return new java.security.cert.X509Certificate[]{};
-//        }
-//    });
-
-
-//    OkHttpClient client = new OkHttpClient();
-//    client.setSslSocketFactory(sslContext.getSocketFactory());
-
-//    File certificate = new File(certificateUri);
-//    static String peerCertificate = PeerCertificateExtractor.extract(certificate);
-
-//    private static OkHttpClient.Builder httpClient =
-//            new OkHttpClient.Builder().certificatePinner(new CertificatePinner.Builder()
-//                    .add("81.18.213.35:8011", peerCertificate)
-//                    .build());
+            .build();
 
 
 
 
-//    httpClient.sslSocketFactory(sslContext.getSocketFactory(),
-//            new X509TrustManager() {
-//        @Override
-//        public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) throws
-//        CertificateException {
-//        }
-//
-//        @Override
-//        public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) throws CertificateException {
-//        }
-//
-//        @Override
-//        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-//            return new java.security.cert.X509Certificate[]{};
-//        }
-//    });
+
+    private static CustomTrust customTrust = new CustomTrust();
+
+    protected static OkHttpClient.Builder httpClient =
+            new OkHttpClient.Builder()
+                    .connectTimeout(30, TimeUnit.SECONDS)
+                    .sslSocketFactory(customTrust.getSslSocketFactory(), customTrust.getTrustManager())
+                    .connectionSpecs(Collections.singletonList(spec))
+                    .certificatePinner(new CertificatePinner.Builder()
+                            .add("kkawka.pl", "sha256/mAcvrh34NtaCNSxr8cZMwws7Fl7ggQCp7/s8ly0IrI4=")
+                            .build());
 
 
     public static void logging (){
