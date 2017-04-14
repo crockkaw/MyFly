@@ -82,22 +82,25 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="3dp"
+        >
+
         <TextView
-            android:layout_marginTop="3dp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Nalot ogólny:"
             android:layout_marginLeft="8dp"
             android:textStyle="bold"
             android:textColor="#000000"
             />
+
         <TextView
             android:id="@+id/nalot_ogolny"
-            android:layout_marginTop="3dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:text="1348"
+            android:layout_marginLeft="5dp"
             />
     </LinearLayout>
 
@@ -105,19 +108,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Nalot w roku bieżącym:"
-            android:layout_marginLeft="8dp"
-            android:textColor="#000000"
 
-            android:textStyle="bold"
-            />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:text="Nalot w roku bieżącym:"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/nalot_biezacy_rok"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:text="147"
+            android:layout_marginLeft="5dp"
             />
     </LinearLayout>
     </LinearLayout>
@@ -248,7 +254,7 @@
                                 android:layout_marginLeft="250dp"
                                 android:layout_marginTop="5dp"
                                 android:background = "@drawable/button_label2"
-                                android:text="Mi-8"
+                                android:text="W-3"
                                 />
 
                             <TextView
@@ -256,7 +262,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="8dp"
                                 android:layout_marginTop="-10dp"
-                                android:text="Nalot na typie: "
+                                android:text="Nalot na typie: 621"
                                 android:textStyle="bold"
                                 android:textColor="#000000"
                                 />
@@ -347,7 +353,7 @@
                                 android:layout_marginLeft="250dp"
                                 android:layout_marginTop="5dp"
                                 android:background = "@drawable/button_label2"
-                                android:text="SW-4"
+                                android:text="MI-17"
                                 />
 
                             <TextView
