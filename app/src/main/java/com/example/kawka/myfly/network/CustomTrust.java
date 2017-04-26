@@ -29,23 +29,16 @@ public final class CustomTrust {
     SSLSocketFactory sslSocketFactory;
 
     public CustomTrust() {
-
         Context context= MyApplication.getAppContext();
         InputStream caInput = context.getResources().openRawResource(R.raw.root_ca);
-
-
         try {
             trustManager = trustManagerForCertificates(caInput);
-
-//            trustManager = trustManagerForCertificates(trustedCertificatesInputStream());
             SSLContext sslContext = SSLContext.getInstance("TLS");
             sslContext.init(null, new TrustManager[] { trustManager }, null);
             sslSocketFactory = sslContext.getSocketFactory();
         } catch (GeneralSecurityException e ) {
             throw new RuntimeException(e);
-
         }
-
     }
 
     public X509TrustManager getTrustManager() {
@@ -57,16 +50,8 @@ public final class CustomTrust {
     }
 
 
-    /**
-     * Returns an input stream containing one or more certificate PEM files. This implementation just
-     * embeds the PEM files in Java strings; most applications will instead read this from a resource
-     * file that gets bundled with the application.
-     */
     private InputStream trustedCertificatesInputStream() {
-        // PEM files for root certificates of Comodo and Entrust. These two CAs are sufficient to view
-        // https://publicobject.com (Comodo) and https://squareup.com (Entrust). But they aren't
-        // sufficient to connect to most HTTPS sites including https://godaddy.com and https://visa.com.
-        // Typically developers will need to get a PEM file from their organization's TLS administrator.
+
         String CertificationAuthority = ""
                 + "-----BEGIN CERTIFICATE-----\n"
                 + "MIIFsjCCA5qgAwIBAgIJAIxqELbmTOHcMA0GCSqGSIb3DQEBCwUAMEQxCzAJBgNV\n"
@@ -102,60 +87,12 @@ public final class CustomTrust {
                 + "8vih8bPEYjEycZJUSMnA2AHbMvNjNw==\n"
                 + "-----END CERTIFICATE-----\n";
 
-//        String entrustCertificate = ""
-//                + "-----BEGIN CERTIFICATE-----\n"
-//                + "MIIEGTCCAgECCQDr69IpPTw9cTANBgkqhkiG9w0BAQsFADBEMQswCQYDVQQGEwJQ\n"
-//                + "TDETMBEGA1UECBMKU29tZS1TdGF0ZTENMAsGA1UEChMESVRXTDERMA8GA1UEAxMI\n"
-//                + "VHVyLUNlcnQwHhcNMTcwMzI5MTkwMzUzWhcNMjcwMzI2MTkwMzUzWjBZMQswCQYD\n"
-//                + "VQQGEwJQTDETMBEGA1UECBMKU29tZS1TdGF0ZTEhMB8GA1UEChMYSW50ZXJuZXQg\n"
-//                + "V2lkZ2l0cyBQdHkgTHRkMRIwEAYDVQQDEwkxMjcuMC4wLjEwggEiMA0GCSqGSIb3\n"
-//                + "DQEBAQUAA4IBDwAwggEKAoIBAQDcPa+ruuFs9KNB4to9lLn//v7Zjki+reqahnhZ\n"
-//                + "3NLXGEPlU3/gZt6WsP6QXH/cW0gat4MydEoEV8oafgMLKVfSqiG+qDGQNBbXn9mJ\n"
-//                + "ISG4z9arTBhgHo3b6YvpG8EsM8foCFWfYxN8RN8vTRB/ziK+tck5dlpz8sFFyli7\n"
-//                + "w3sYmSmu+h7QjokJyHeSxO22Ubv+e7PHxLYTdhcmwixwgivwgV5dt8tDU84TlM/k\n"
-//                + "LZ5oSfL8I7eBP+Vd7/tSz42jqYe2k9czYc0/CwsYvE5nKREuFQxcgGzHRi/htqOO\n"
-//                + "41YJYTupSfhQsr8QtUg2zXayZyRYia8hn0f4pVATaC6Uc7epAgMBAAEwDQYJKoZI\n"
-//                + "hvcNAQELBQADggIBAK3LDYz4jFHie0BkQt3AHP69jLA7rc8BWq7COXLk0j28uC2V\n"
-//                + "R7woN00PF3y/URBJQX0RoNW627/RM/nWi/8A93pvozAfBPsFXs+/8qTUR/pytcto\n"
-//                + "L+H651V0KczPrJU00HCXvvZ+v/MHFWHVPpreS6otXckOgiWTravUyKnN9YcJn+vt\n"
-//                + "MZmRUxzPrcOkfZICZNEGYFbYFbcpHJ8tBiTpgfXMXsG+AagN9n6qyl/vsEkMBjI1\n"
-//                + "zIPc9XNMigoWI+eXK7SDSYv00mjVdkOrKfl9lRsmYJc96LjE8HJcKyr/gcUymDjh\n"
-//                + "BOn+vVg3Jc82kpFG5nUT33g3ntsxmQC570RNkFYUyoPeJYiBY0L6cQZ64f2H1K+z\n"
-//                + "jz3KukL1rtMufgk9rQ4tvsu2DikoORT29DqgVqaV9ZmZIZ0bnptka7IFumxlV6MC\n"
-//                + "ZqwZbY0DnZo72iMW9KYMFUCUSkgYkEjMwUrieyzEV6Y+VL7CWkhbrPnG+Qw+k5lB\n"
-//                + "O7EGP7Ii8Q3KnMRKsx4skbnc6Pznd2KAwJqLRhkbeTkdvB2vibT2VNg7wI4cH+eT\n"
-//                + "nYfaKRHCnVKY8VOEUNxvsnbznWy98KlkqnA+PXmlBKQQerkUfPy0vnO8dL0ZL9Ac\n"
-//                + "GRpBa1WXUleHlGE+GbhlS/FJkGWRYLVRExFVXLwUtHbGYq+8HzwIAveMt3Fr\n"
-//                + "-----END CERTIFICATE-----\n";
-
-//
         return new Buffer()
                 .writeUtf8(CertificationAuthority)
-//                .writeUtf8(entrustCertificate)
                 .inputStream();
     }
 
 
-    /**
-     * Returns a trust manager that trusts {@code certificates} and none other. HTTPS services whose
-     * certificates have not been signed by these certificates will fail with a {@code
-     * SSLHandshakeException}.
-     *
-     * <p>This can be used to replace the host platform's built-in trusted certificates with a custom
-     * set. This is useful in development where certificate authority-trusted certificates aren't
-     * available. Or in production, to avoid reliance on third-party certificate authorities.
-     *
-     * <p>See also {@link CertificatePinner}, which can limit trusted certificates while still using
-     * the host platform's built-in trust store.
-     *
-     * <h3>Warning: Customizing Trusted Certificates is Dangerous!</h3>
-     *
-     * <p>Relying on your own trusted certificates limits your server team's ability to update their
-     * TLS certificates. By installing a specific set of trusted certificates, you take on additional
-     * operational complexity and limit your ability to migrate between certificate authorities. Do
-     * not use custom trusted certificates in production without the blessing of your server's TLS
-     * administrator.
-     */
     private X509TrustManager trustManagerForCertificates(InputStream in)
             throws GeneralSecurityException {
         CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
@@ -164,7 +101,6 @@ public final class CustomTrust {
             throw new IllegalArgumentException("expected non-empty set of trusted certificates");
         }
 
-        // Put the certificates a key store.
         char[] password = "password".toCharArray(); // Any password will work.
         KeyStore keyStore = newEmptyKeyStore(password);
         int index = 0;
@@ -173,7 +109,6 @@ public final class CustomTrust {
             keyStore.setCertificateEntry(certificateAlias, certificate);
         }
 
-        // Use it to build an X509 trust manager.
         KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(
                 KeyManagerFactory.getDefaultAlgorithm());
         keyManagerFactory.init(keyStore, password);
@@ -198,7 +133,5 @@ public final class CustomTrust {
             throw new AssertionError(e);
         }
     }
-
-
 
 }

@@ -36,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="16dip"
-        android:layout_marginRight="16dip"
         android:textColor="#000000"
         />
 
@@ -45,8 +44,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginRight="16dip"
         android:textColor="#000000"
+        android:textStyle="bold"
+        android:layout_marginLeft="4dp"
 
         />
 
@@ -63,7 +63,6 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dip"
-            android:layout_marginRight="16dip"
             android:textColor="#000000"
 
             />
@@ -73,8 +72,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginRight="16dip"
             android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginLeft="4dp"
 
             />
 
@@ -91,7 +91,6 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dip"
-            android:layout_marginRight="16dip"
             android:textColor="#000000"
 
             />
@@ -103,6 +102,8 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="16dip"
             android:textColor="#000000"
+            android:textStyle="bold"
+            android:layout_marginLeft="4dp"
 
             />
 
@@ -119,7 +120,6 @@
     android:layout_height="wrap_content"
     android:layout_centerVertical="true"
     android:layout_marginLeft="16dip"
-    android:layout_marginRight="16dip"
     android:textColor="#000000"
 
         />
@@ -129,8 +129,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_centerVertical="true"
-    android:layout_marginRight="16dip"
     android:textColor="#000000"
+    android:textStyle="bold"
+    android:layout_marginLeft="4dp"
 
     />
 </LinearLayout>

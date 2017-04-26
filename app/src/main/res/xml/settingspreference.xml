@@ -1,19 +1,37 @@
 <android.support.v7.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.codevscolor.materialpreference.widget.MaterialPreferenceCategory android:title="Ogólna">
-        <com.codevscolor.materialpreference.widget.ColorChooserPreference
-            android:key="secondary_color_position"
-            android:summary="Ustaw dowolny kolor"
-            android:title="Kolor opisu" />
+    <com.codevscolor.materialpreference.widget.MaterialPreferenceCategory android:title="Ogólne">
 
-        <android.support.v7.preference.EditTextPreference
+
+        <android.support.v7.preference.SwitchPreferenceCompat
             android:defaultValue="true"
-            android:key="edit_text"
-            android:summary="Edit text preference summary"
-            android:title="Sample Edit Text" />
+            android:key="switch_short_update"
+            android:title="Automatyczne aktualizacje"
+            android:summary="Instaluj aktualizace bez pytania"
+            />
+
+        <android.support.v7.preference.SwitchPreferenceCompat
+            android:defaultValue="true"
+            android:key="switch_short_background"
+            android:summary="Zezwól na pokazywanie powiadomień"
+            android:title="Działaj w tle" />
+
+
 
     </com.codevscolor.materialpreference.widget.MaterialPreferenceCategory>
 
     <com.codevscolor.materialpreference.widget.MaterialPreferenceCategory android:title="Autoryzacja">
+
+        <Preference
+            android:key="changePin"
+            android:title="Zmień Hasło"
+            android:summary="Kliknij aby zmienić Hasło"
+            >
+            <intent
+                android:targetPackage="com.example.kawka.myfly"
+                android:targetClass="com.example.kawka.myfly.SettingsHandler">
+                <extra android:name="type" android:value="pin" />
+            </intent>
+        </Preference>
 
         <android.support.v7.preference.SwitchPreferenceCompat
             android:defaultValue="true"

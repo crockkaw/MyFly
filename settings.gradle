@@ -1,1 +1,1 @@
-include ':app', ':scrollTable', ':rapidFloatingActionButton', ':slideDateTimePicker', ':preferenceMaterial', ':loliPin'
+include ':app', ':scrollTable', ':rapidFloatingActionButton', ':preferenceMaterial', ':loliPin'

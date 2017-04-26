@@ -1,24 +1,14 @@
 package com.example.kawka.myfly.network;
 
-import android.content.Context;
-import android.widget.Toast;
 
-import com.example.kawka.myfly.MainActivity;
 import com.example.kawka.myfly.models.NalotAktualny;
 
 import java.util.ArrayList;
 
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+
 
 /**
  * Created by kawka on 3/8/2017.

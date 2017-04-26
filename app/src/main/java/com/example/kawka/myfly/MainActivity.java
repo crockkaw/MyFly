@@ -23,12 +23,9 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.example.kawka.myfly.MAktualnoscFragments.MAktualnoscFragment;
 import com.example.kawka.myfly.models.NalotAktualny;
 import com.example.kawka.myfly.network.ApiService;
 import com.example.kawka.myfly.network.NalotAktualnyAdapter;
-import com.github.jjobes.slidedatetimepicker.SlideDateTimeListener;
-import com.github.jjobes.slidedatetimepicker.SlideDateTimePicker;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,9 +34,7 @@ import java.util.Date;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Observable;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+
 
 
 public class MainActivity extends AppCompatActivity
@@ -62,30 +57,6 @@ public class MainActivity extends AppCompatActivity
     //    private SimpleDateFormat mFormatter = new SimpleDateFormat("MMMM dd yyyy hh:mm aa");
     private SimpleDateFormat mFormatter = new SimpleDateFormat("dd MMMM yyyy");
 
-    private SlideDateTimeListener listener = new SlideDateTimeListener() {
-
-        @Override
-        public void onDateTimeSet(Date date) {
-            if (poleData == 1) {
-
-                String dat = mFormatter.format(date);
-                dataOdET = (EditText) findViewById(R.id.dataOd_et);
-                dataOdET.setText(dat);
-
-
-            }
-
-//            Toast.makeText(MainActivity.this,
-//                    mFormatter.format(date), Toast.LENGTH_SHORT).show();
-        }
-
-        // Optional cancel listener
-        @Override
-        public void onDateTimeCancel() {
-            Toast.makeText(MainActivity.this,
-                    "Canceled", Toast.LENGTH_SHORT).show();
-        }
-    };
 
 
 //    public void setPrimaryColor(int position) {
@@ -375,34 +346,7 @@ public class MainActivity extends AppCompatActivity
 //        wykLot.requestLayout();
 //    }
 
-    public void dataOd(View view) {
-        new SlideDateTimePicker.Builder(getSupportFragmentManager())
-                .setListener(listener)
-                .setInitialDate(new Date())
-                //.setMinDate(minDate)
-                //.setMaxDate(maxDate)
-                //.setIs24HourTime(true)
-//                .setTheme(SlideDateTimePicker.HOLO_DARK)
-//                .setIndicatorColor(Color.parseColor("#990000"))
-                .build()
-                .show();
-        poleData = 1;
-    }
 
-    public void dataDo(View view) {
-
-        new SlideDateTimePicker.Builder(getSupportFragmentManager())
-                .setListener(listener)
-                .setInitialDate(new Date())
-                //.setMinDate(minDate)
-                //.setMaxDate(maxDate)
-                //.setIs24HourTime(true)
-//                .setTheme(SlideDateTimePicker.HOLO_DARK)
-                //.setIndicatorColor(Color.parseColor("#990000"))
-                .build()
-                .show();
-        poleData = 2;
-    }
 
 
     public void pressStatus(View view) {

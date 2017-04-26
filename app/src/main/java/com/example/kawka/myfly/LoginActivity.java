@@ -50,8 +50,11 @@ public class LoginActivity extends AppCompatActivity {
         _emailText = (EditText) findViewById(R.id.input_email);
         _passwordText = (EditText) findViewById(R.id.input_password);
 
-        _loginButton.setOnClickListener( (View v) -> {
-                login();
+        _loginButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+            login();
+            }
         });
 
 

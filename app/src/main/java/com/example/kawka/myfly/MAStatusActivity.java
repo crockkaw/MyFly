@@ -27,11 +27,16 @@ import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RFACLabelItem;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RapidFloatingActionContentLabelList;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
 
 
 @AILayout(R.layout.activity_maktu_status)
 public class MAStatusActivity extends AIActionBarActivity implements RapidFloatingActionContentLabelList.OnRapidFloatingActionContentLabelListListener {
+
+    String dd, mm, yy, date;
+
 
 @AIView(R.id.activity_main_rfal)
 private RapidFloatingActionLayout rfaLayout;
@@ -65,11 +70,26 @@ private RapidFloatingActionHelper rfabHelper;
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(this.getResources().getColor(R.color.statusbar_color));
+
+        date();
+    }
+
+    private void date() {
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
+        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+        date = dd + "." + mm + "." + yy;
     }
 
     public void zib(){
         final ScrollView scrollview = ((ScrollView) findViewById(R.id.activity_mastatus));
-        scrollview.post(() -> scrollview.fullScroll(ScrollView.FOCUS_DOWN));
+        scrollview.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollview.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
     }
 
 
@@ -226,6 +246,11 @@ private RapidFloatingActionHelper rfabHelper;
 
 
     public void komisja_onClick(View view) {
+
+        String date1 = dd + "." + mm + "." + yy;
+
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+
         Dialog dialog;
         View v;
         v =  (LayoutInflater.from(this))
@@ -236,23 +261,39 @@ private RapidFloatingActionHelper rfabHelper;
         final TextView titleText = (TextView)
                 v.findViewById(R.id.titleText);
         titleText.setText(R.string.status_komisja);
+
         final TextView textView1_1 = (TextView)
                 v.findViewById(R.id.textView1_1);
+        final TextView textView1_2 = (TextView)
+                v.findViewById(R.id.textView1_2);
         textView1_1.setText(R.string.status_komisja_1);
+        textView1_2.setText(String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH)-6) + "." +
+                mm + "." + String.valueOf(instance.get(Calendar.YEAR)-1));
+
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
+        final TextView textView2_2 = (TextView)
+                v.findViewById(R.id.textView2_2);
         textView2_1.setText(R.string.status_komisja_2);
+        textView2_2.setText(String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH)+2) + "." + mm + "." + yy);
+
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
+        final TextView textView3_2 = (TextView)
+                v.findViewById(R.id.textView3_2);
         textView3_1.setText(R.string.status_komisja_3);
+        textView3_2.setText("Z1C");
+
         final TextView textView4_1 = (TextView)
                 v.findViewById(R.id.textView4_1);
+        final TextView textView4_2 = (TextView)
+                v.findViewById(R.id.textView4_2);
         textView4_1.setText(R.string.status_komisja_4);
+        textView4_2.setText("6");
+
 
         alertBuldier.setCancelable(true)
-                .setPositiveButton("OK",
-                        (dialog1, which) -> {
-    });
+                .setPositiveButton("OK", null);
         dialog = alertBuldier.create();
         dialog.show();
     }

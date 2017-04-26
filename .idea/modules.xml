@@ -8,7 +8,6 @@
       <module fileurl="file://$PROJECT_DIR$/preferenceMaterial/preferenceMaterial.iml" filepath="$PROJECT_DIR$/preferenceMaterial/preferenceMaterial.iml" />
       <module fileurl="file://$PROJECT_DIR$/rapidFloatingActionButton/rapidFloatingActionButton.iml" filepath="$PROJECT_DIR$/rapidFloatingActionButton/rapidFloatingActionButton.iml" />
       <module fileurl="file://$PROJECT_DIR$/scrollTable/scrollTable.iml" filepath="$PROJECT_DIR$/scrollTable/scrollTable.iml" />
-      <module fileurl="file://$PROJECT_DIR$/slideDateTimePicker/slideDateTimePicker.iml" filepath="$PROJECT_DIR$/slideDateTimePicker/slideDateTimePicker.iml" />
     </modules>
   </component>
 </project>

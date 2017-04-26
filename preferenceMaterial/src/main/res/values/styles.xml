@@ -11,6 +11,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+    <style name="ToolbarColoredBackArrow" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorSecondary">#ffffff</item>
+    </style>
+
+
     <style name="WindowAnimationTransition">
         <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
         <item name="android:windowExitAnimation">@android:anim/fade_out</item>

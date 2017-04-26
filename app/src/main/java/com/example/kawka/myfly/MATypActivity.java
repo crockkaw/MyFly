@@ -197,9 +197,14 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
 
         alertBuldier.setCancelable(true)
-                .setPositiveButton("OK",
-                        (dialog1, which) -> {
-    });
+
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface pDialog, int pWhich) {
+                    }
+
+                });
+
         dialog = alertBuldier.create();
         dialog.show();
     }

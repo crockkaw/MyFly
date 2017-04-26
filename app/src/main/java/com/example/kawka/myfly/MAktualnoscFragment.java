@@ -1,4 +1,4 @@
-package com.example.kawka.myfly.MAktualnoscFragments;
+package com.example.kawka.myfly;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -64,7 +64,6 @@ public class MAktualnoscFragment extends BaseFragment implements RapidFloatingAc
         // 可通过代码设置属性
         rfaLayout.setFrameColor(Color.RED);
         rfaLayout.setFrameAlpha(0.4f);
-
         rfaBtn.setNormalColor(0xff37474f);
         rfaBtn.setPressedColor(0xff263238);
         rfaBtn.getRfabProperties().setShadowDx(ABTextUtil.dip2px(context, 3));

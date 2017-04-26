@@ -14,7 +14,6 @@
             <option value="$PROJECT_DIR$/preferenceMaterial" />
             <option value="$PROJECT_DIR$/rapidFloatingActionButton" />
             <option value="$PROJECT_DIR$/scrollTable" />
-            <option value="$PROJECT_DIR$/slideDateTimePicker" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

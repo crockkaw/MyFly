@@ -123,12 +123,12 @@ public class MaterialMainActivity extends BaseActivity {
         mToolbar = (Toolbar) findViewById(R.id.materialpref_toolbar);
 
         mToolbar.setTitle(mToolbarTitle);
-        mToolbar.setBackgroundColor(Color.parseColor(MaterialPrefUtil.primaryColor[MaterialPrefUtil.getPrimaryColorPosition()]));
+        mToolbar.setBackgroundColor(0xFF1E6B83);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.parseColor(MaterialPrefUtil.primaryColorDark[MaterialPrefUtil.getPrimaryColorPosition()]));
+            window.setStatusBarColor(0xff155468);
         }
 
         setSupportActionBar(mToolbar);

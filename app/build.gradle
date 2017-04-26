@@ -10,9 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        jackOptions {
-            enabled true
-        }
+//        jackOptions {
+//            enabled true
+//        }
     }
     buildTypes {
         release {
@@ -23,8 +23,8 @@ android {
     }
     compileOptions {
         encoding "UTF-8"
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
+//        targetCompatibility 1.8
+//        sourceCompatibility 1.8
     }
 }
 
@@ -59,9 +59,9 @@ dependencies {
 
 
 
-    //RxAndroid
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.1.6'
+//    //RxAndroid
+//    compile 'io.reactivex:rxandroid:1.2.1'
+//    compile 'io.reactivex:rxjava:1.1.6'
 
     //Gson
     compile 'com.google.code.gson:gson:2.4'
@@ -99,7 +99,6 @@ dependencies {
 
 
     compile project(':rapidFloatingActionButton')
-    compile project(':slideDateTimePicker')
     compile project(':preferenceMaterial')
     compile project(':loliPin')
     compile project(':scrollTable');
