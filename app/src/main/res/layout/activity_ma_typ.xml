@@ -94,22 +94,23 @@
             android:text="W-R WODOWANIE"
             android:textSize="14dp"
             android:textStyle="bold"
+            android:textColor="#000000"
             android:id="@+id/button"
             android:onClick="wodowanie_onClick"/>
 
 
         <Button
+            android:id="@+id/button2"
             android:layout_width="105dp"
             android:layout_height="105dp"
             android:layout_marginLeft="35dp"
-            android:textColor="#FFFFFF"
             android:background="@drawable/button_green"
             android:text="W-R    ZAAWANS."
+            android:textColor="#000000"
             android:textSize="14dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
-</LinearLayout>
+    </LinearLayout>
             <LinearLayout
                 android:layout_marginTop="15dp"
                 android:layout_width="match_parent"
@@ -121,7 +122,7 @@
                         android:layout_width="105dp"
                         android:layout_height="105dp"
                         android:layout_marginLeft="5dp"
-                        android:textColor="#ffffff"
+                        android:textColor="#000000"
                         android:background="@drawable/button_red"
                         android:text="EGZAMINY"
                         android:textSize="14dp"
@@ -133,7 +134,7 @@
                         android:layout_width="105dp"
                         android:layout_height="105dp"
                         android:layout_marginLeft="35dp"
-                        android:textColor="#ffffff"
+                        android:textColor="#000000"
                         android:background="@drawable/button_orange"
                         android:text="KONTROLE"
                         android:textSize="14dp"
@@ -201,11 +202,12 @@
                         android:layout_width="105dp"
                         android:layout_height="105dp"
                         android:layout_marginLeft="5dp"
-                        android:textColor="#ffffff"
+                        android:textColor="#000000"
                         android:text="VFR DZIEŃ"
                         android:textSize="14dp"
                         android:textStyle="bold"
                         android:background="@drawable/button_orange"
+
                         />
 
 
@@ -213,7 +215,7 @@
                         android:layout_width="105dp"
                         android:layout_height="105dp"
                         android:layout_marginLeft="35dp"
-                        android:textColor="#ffff"
+                        android:textColor="#000000"
                         android:text="VFR NOC"
                         android:textSize="14dp"
                         android:textStyle="bold"
@@ -233,7 +235,7 @@
                         android:layout_width="105dp"
                         android:layout_height="105dp"
                         android:layout_marginLeft="5dp"
-                        android:textColor="#ffffff"
+                        android:textColor="#000000"
                         android:text="IFR DZIEŃ"
                         android:textSize="14dp"
                         android:textStyle="bold"
@@ -249,6 +251,8 @@
                         android:text="IFR NOC"
                         android:textSize="14dp"
                         android:textStyle="bold"
+                        android:textColor="#000000"
+
                         android:background="@drawable/button_red"
                         />
                 </LinearLayout>

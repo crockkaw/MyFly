@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context="com.example.kawka.myfly.MainActivity"
+    android:background="#e5eff9">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="PRZEGLĄD OSTATNICH ZDARZEŃ"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="4dp"
+    android:layout_gravity="center"
+    android:textSize="18dp"
+    android:textStyle="bold"
+    android:textColor="#000000"/>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     style="@style/scrollbar_shape_style"
     android:background="#e5eff9"
     >
@@ -28,65 +45,118 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:elevation="100dp"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+
+
             >
             <LinearLayout android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <LinearLayout android:layout_width="match_parent"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:text="Data zdarzenia: "
-                        android:textStyle="bold"
-                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
 
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="2dp"
-                        android:text="Wersja sp:"
-                        android:textStyle="bold"
-                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Data zdarzenia: "
+                            android:textColor="#17026b"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="2dp"
-                        android:text="Nr boczny sp"
-                        android:textStyle="bold"
-                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="28.04.2017"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="2dp"
-                        android:text="Klasa zdarzenia:"
-                        android:textStyle="bold"
-                        />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Wersja sp:"
+                            android:textColor="#17026b"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="W-3 Sokół"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Klasa zdarzenia:"
+                            android:textColor="#17026b"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="III"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
                         android:text="Opis zdarzenia: "
-                        android:textStyle="bold"
-                        />
+                        android:textColor="#17026b"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
-                        android:text=" Pellentesque vitae diam nisi. Fusce et ullamcorper sapien. Etiam id orci finibus, ornare urna vitae, commodo massa. Proin iaculis dui sit amet urna volutpat eleifend. Mauris at vulputate augue. Nunc imperdiet tincidunt justo at luctus. Proin eget tempus velit, nec lobortis mi."
+                        android:text="W trakcie wykonywania lotu wg ćwiczenia nr 8 PSzL-2012 (lot do strefy pilotażu) na śmigłowcu W-3, podczas wirażu w strefie załoga stwierdziła zaświecenie się bursztynowej lampki REZERWOWA ILOŚĆ PALIWA W ZBIORNIKU ROZCHODOWYM SILNIKA 2 (przednia grupa zbiorników, lampka zaświeca się przy pozostałości paliwa 100 litrów w zbiorniku rozchodowym). Na śmigłowcu pozostało po locie 1125 litrów paliwa, w przedniej grupie pozostało 500 l. Załoga przerwała wykonywanie zadania i wylądowała na lotnisku startu bez następstw."
+                        android:textColor="#000000"
+                        android:textStyle="italic"
+
                         />
 
                     <TextView
@@ -95,32 +165,38 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
                         android:text="Źródłowa przyczyna zdarzenia:"
-                        android:textStyle="bold"
-                        />
+                        android:textColor="#17026b"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
-                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere vehicula porta. Nunc lacinia nisl risus. Mauris at vulputate augue. Nunc imperdiet tincidunt justo at luctus. Proin eget tempus velit, nec lobortis mi."
+                        android:text="Sygnał RPPG (rezerwowa pozostałość przedniej grupy). Awaria czujnika poziomu paliwa w zbiorniku rozruchowym."
+                        android:textColor="#000000"
+                        android:textStyle="italic"
+
                         />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
                         android:text="Opis przyczyny: "
-                        android:textStyle="bold"
-                        />
+                        android:textColor="#17026b"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-
-                        android:text="Sed elit elit, iaculis faucibus sapien ut, sagittis fringilla est. Suspendisse vitae consectetur enim."
-                        />
+                        android:textColor="#000000"
+                        android:textStyle="italic"
+                        android:text="Podczas analizy OKL stwierdzono wystąpienie sygnału RPPG (rezerwowa pozostałość przedniej grupy). Smigłowiec przekazano personelowi SIL w celu wyjaśnienia usterki. Stwierdzono awarię czujnika pozimu paliwa w zbiorniku rozruchowym."/>
 
                 </LinearLayout>
 
@@ -138,60 +214,109 @@
             <LinearLayout android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <LinearLayout android:layout_width="match_parent"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:text="Data zdarzenia: "
-                        android:textStyle="bold"
-                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
 
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="2dp"
-                        android:text="Wersja sp:"
-                        android:textStyle="bold"
-                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Data zdarzenia: "
+                            android:textColor="#17026b"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="2dp"
-                        android:text="Nr boczny sp"
-                        android:textStyle="bold"
-                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="13.04.2017"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="2dp"
-                        android:text="Klasa zdarzenia:"
-                        android:textStyle="bold"
-                        />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Wersja sp:"
+                            android:textColor="#17026b"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="MI-17"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Klasa zdarzenia:"
+                            android:textColor="#17026b"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="II"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
                         android:text="Opis zdarzenia: "
-                        android:textStyle="bold"
-                        />
+                        android:textColor="#17026b"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
-                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere vehicula porta. Nunc lacinia nisl risus, at consequat felis posuere ut. Suspendisse vel nisl tincidunt, venenatis eros at, pellentesque turpis. Vivamus viverra a eros non tempor. Sed elit elit, iaculis faucibus sapien ut, sagittis fringilla est. Suspendisse vitae consectetur enim.  Nunc imperdiet tincidunt justo at luctus. Proin eget tempus velit, nec lobortis mi."
+                        android:text="W trakcie uruchamiania śmigłowca z zamiarem wykonania kolejnego lotu (3 lot) po naciśnięciu przycisku rozruch po około 7-8 sekundach załoga usłyszała głośne uderzenie z tylnej półsfery uruchamianego (prawego )silnika. Załoga natychmiast przestawiła DRP uruchamianego silnika w położenie WYŁĄCZONE, oraz nacisnęła przycisk PRZERWANIE ROZRUCHU. W dalszej kolejności załoga wyłączyła urządzenia elektryczne i wyłączyła śmigłowiec."
+                        android:textColor="#000000"
+                        android:textStyle="italic"
+
                         />
 
                     <TextView
@@ -200,32 +325,38 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
                         android:text="Źródłowa przyczyna zdarzenia:"
-                        android:textStyle="bold"
-                        />
+                        android:textColor="#17026b"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
-                        android:text="Pellentesque vitae diam nisi. Fusce et ullamcorper sapien. Etiam id orci finibus, ornare urna vitae, commodo massa. Proin iaculis dui sit amet urna volutpat eleifend. Mauris at vulputate augue."
+                        android:text="Zerwanie więzi kinematycznej przekładni głównej z turbiną napędową silnika."
+                        android:textColor="#000000"
+                        android:textStyle="italic"
+
                         />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
                         android:text="Opis przyczyny: "
-                        android:textStyle="bold"
-                        />
+                        android:textColor="#17026b"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-
-                        android:text=" Morbi posuere vehicula porta. Nunc lacinia nisl risus, at consequat felis posuere ut. Suspendisse vel nisl tincidunt, venenatis eros at, pellentesque turpis. Vivamus viverra a eros non tempor. Sed elit elit, iaculis faucibus sapien ut, sagittis fringilla est. Suspendisse vitae consectetur enim. Nunc vehicula a sem eu rutrum. Nunc non enim ipsum. In vulputate aliquam porttitor. Aenean nunc nunc, varius non congue vitae, mattis tincidunt nisi. Duis finibus, metus sed."
-                        />
+                        android:textColor="#000000"
+                        android:textStyle="italic"
+                        android:text="W trakcie przeglądu technik pokładowy po obejrzeniu uruchamianego prawego silnika stwierdził zerwanie więzi kinematycznej przekładni głównej z turbiną napędową silnika (brak reakcji turbiny napędowej na próbę ręcznego obracania wirnikiem nośnym). Śmigłowiec zabezpieczono do prac Komisji."/>
 
                 </LinearLayout>
 
@@ -243,60 +374,109 @@
             <LinearLayout android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <LinearLayout android:layout_width="match_parent"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:text="Data zdarzenia: "
-                        android:textStyle="bold"
-                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
 
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="2dp"
-                        android:text="Wersja sp:"
-                        android:textStyle="bold"
-                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Data zdarzenia: "
+                            android:textColor="#17026b"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="2dp"
-                        android:text="Nr boczny sp"
-                        android:textStyle="bold"
-                        />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="07.03.2017"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="2dp"
-                        android:text="Klasa zdarzenia:"
-                        android:textStyle="bold"
-                        />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Wersja sp:"
+                            android:textColor="#17026b"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="MI-2"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="Klasa zdarzenia:"
+                            android:textColor="#17026b"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="2dp"
+                            android:text="III"
+                            android:textColor="#000000"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
                         android:text="Opis zdarzenia: "
-                        android:textStyle="bold"
-                        />
+                        android:textColor="#17026b"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
-                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere vehicula porta. Nunc lacinia nisl risus, at consequat felis posuere ut. Suspendisse vel nisl tincidunt, venenatis eros at, pellentesque turpis. Vivamus viverra a eros non tempor. Sed elit elit, iaculis faucibus sapien ut, sagittis fringilla est. Suspendisse vitae consectetur enim. Pellentesque vitae diam nisi. Fusce et ullamcorper sapien. Etiam id orci finibus, ornare urna vitae, commodo massa. Proin iaculis dui sit amet urna volutpat eleifend. Mauris at vulputate augue. Nunc imperdiet tincidunt justo at luctus. Proin eget tempus velit, nec lobortis mi."
+                        android:text="Po uruchomieniu śmigłowca do lotu i przygotowaniu do kołowania, załoga po wepchnięciu dźwigni DRP silników w pozycję AUTOMAT zaobserwowała wahania wskazówki manometru instalacji hydraulicznej SYSTEM 2 w zakresie 90-110kg/cm2 (zakres eksploatacyjny). Następnie po upływie ok. 10sek. zaświeciła lampka HYDR.SYS.2 na tablicy przyrządów oraz zaobserwowano spadek ciśnienia w instalacji SYSTEMU 2 do wartości ok. 70kg/cm2. Załoga sprawdziła poprawność położenia bezpieczników samoczynnych i przełączników na tablicach bezpieczników i przyrządów. Następnie załoga przełączyła przełącznik trójpołożeniowy instalacji hydr. w pozycję SYSTEM 1 wyłączony - nie zaobserwowano zmian ciśnienia na manometrze instalacji SYSTEMU 1 i 2, nie zaobserwowano zaświecenia lampki HYDR.SYS.1. Następnie zaobserwowano spadek ciśnienia w instalacji SYSTEMU 2 do wartości 0 kg/cm2. "
+                        android:textColor="#000000"
+                        android:textStyle="italic"
+
                         />
 
                     <TextView
@@ -305,31 +485,38 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
                         android:text="Źródłowa przyczyna zdarzenia:"
-                        android:textStyle="bold"
-                        />
+                        android:textColor="#17026b"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
-                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi posuere vehicula porta. Nunc lacinia nisl risus"
+                        android:text="Uszkodzenie przewodu hydraulicznego  nr 756243."
+                        android:textColor="#000000"
+                        android:textStyle="italic"
+
                         />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
                         android:text="Opis przyczyny: "
-                        android:textStyle="bold"
-                        />
+                        android:textColor="#17026b"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="2dp"
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="2dp"
-                        android:text="Nunc vehicula a sem eu rutrum. Nunc non enim ipsum. In vulputate aliquam porttitor. Aenean nunc nunc, varius non congue vitae, mattis tincidunt nisi. Duis finibus, metus sed."
-                        android:layout_marginBottom="2dp"
-                        />
+                        android:textColor="#000000"
+                        android:textStyle="italic"
+                        android:text="Podczas oględin przez personel SIL stwierdzono nieszczelność ukłądu hydraulicznego. Zidentyfikowano uszkodzony przewód hydrauliczny. Prawdopodobna przyfczyna uszkodzenia - korozia."/>
 
                 </LinearLayout>
 
@@ -340,4 +527,5 @@
     </LinearLayout>
 
 
-</android.support.v4.widget.NestedScrollView>
+</ScrollView>
+</LinearLayout>

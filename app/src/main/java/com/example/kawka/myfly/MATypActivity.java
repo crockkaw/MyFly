@@ -171,11 +171,15 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
         rfabHelper.toggleContent();
     }
 
+
+
     public void wodowanie_onClick(View view) {
+
+
         Dialog dialog;
         View v;
         v =  (LayoutInflater.from(this))
-                .inflate(R.layout.dialog_status, null);
+                .inflate(R.layout.dialog_status_small, null);
         final AlertDialog.Builder alertBuldier =
                 new AlertDialog.Builder(this);
         alertBuldier.setView(v);
@@ -193,7 +197,7 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
         textView3_1.setText(R.string.typ_wodow3);
         final TextView textView4_1 = (TextView)
                 v.findViewById(R.id.textView4_1);
-        textView4_1.setVisibility(View.INVISIBLE);
+        textView4_1.setVisibility(View.GONE);
 
 
         alertBuldier.setCancelable(true)

@@ -93,7 +93,6 @@ public class MKalendarzFragment extends Fragment implements OnDateSelectedListen
         widget.addDecorators(obj_day_decor);
         widget.addDecorator(obj_cur_decor);
 
-
         widget.setOnDateChangedListener(this);
 
         return myView;

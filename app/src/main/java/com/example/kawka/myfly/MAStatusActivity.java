@@ -4,6 +4,8 @@ package com.example.kawka.myfly;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.graphics.Color;
+import android.os.AsyncTask;
+import android.os.Environment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,8 @@ import android.transition.Slide;
 import android.transition.Transition;
 import android.view.Gravity;
 import android.view.MenuItem;
+
+import com.example.kawka.myfly.network.FileDownloader;
 import com.wangjie.androidinject.annotation.annotations.base.AIView;
 import com.wangjie.androidbucket.utils.ABTextUtil;
 import com.wangjie.androidbucket.utils.imageprocess.ABShape;
@@ -26,6 +30,11 @@ import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionHelper;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RFACLabelItem;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RapidFloatingActionContentLabelList;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -72,6 +81,11 @@ private RapidFloatingActionHelper rfabHelper;
         window.setStatusBarColor(this.getResources().getColor(R.color.statusbar_color));
 
         date();
+        try {
+            zibDate();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     private void date() {
@@ -80,6 +94,60 @@ private RapidFloatingActionHelper rfabHelper;
         mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
         yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
         date = dd + "." + mm + "." + yy;
+    }
+
+    private void zibDate() throws ParseException {
+
+        String dt = String.valueOf(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+
+        Calendar r1 = Calendar.getInstance();
+        r1.setTime(sdf.parse(dt));
+        r1.add(Calendar.DATE, -1);
+        String rel1 = sdf.format(r1.getTime());
+
+        Calendar e1 = Calendar.getInstance();
+        e1.setTime(sdf.parse(dt));
+        e1.add(Calendar.DATE, 6);
+        String ext1 = sdf.format(e1.getTime());
+
+        TextView releaseDate1 = (TextView) findViewById(R.id.releaseDate1);
+        TextView expireDate1 = (TextView) findViewById(R.id.expireDate1);
+        releaseDate1.setText(rel1);
+        expireDate1.setText(ext1);
+
+
+        Calendar r2 = Calendar.getInstance();
+        r2.setTime(sdf.parse(dt));
+        r2.add(Calendar.DATE, -5);
+        String rel2 = sdf.format(r2.getTime());
+
+        Calendar e2 = Calendar.getInstance();
+        e2.setTime(sdf.parse(dt));
+        e2.add(Calendar.DATE, 1);
+        String ext2 = sdf.format(e2.getTime());
+
+        TextView releaseDate2 = (TextView) findViewById(R.id.releaseDate2);
+        TextView expireDate2 = (TextView) findViewById(R.id.expireDate2);
+        releaseDate2.setText(rel2);
+        expireDate2.setText(ext2);
+
+
+        Calendar r3 = Calendar.getInstance();
+        r3.setTime(sdf.parse(dt));
+        r3.add(Calendar.DATE, -10);
+        String rel3 = sdf.format(r3.getTime());
+
+        Calendar e3 = Calendar.getInstance();
+        e3.setTime(sdf.parse(dt));
+        e3.add(Calendar.DATE, -3);
+        String ext3 = sdf.format(e3.getTime());
+
+        TextView releaseDate3 = (TextView) findViewById(R.id.releaseDate3);
+        TextView expireDate3 = (TextView) findViewById(R.id.expireDate3);
+        releaseDate3.setText(rel3);
+        expireDate3.setText(ext3);
+        expireDate3.setTextColor(0xFFD60000);
     }
 
     public void zib(){
@@ -178,36 +246,8 @@ private RapidFloatingActionHelper rfabHelper;
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(3)
         );
-        items.add(new RFACLabelItem<Integer>()
-                .setLabel("Dokument nie przeczytany")
-                .setResId(R.drawable.doc_warning)
-                .setIconNormalColor(0xfffffff)
-                .setLabelColor(Color.WHITE)
-                .setLabelSizeSp(14)
-                .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
-                .setWrapper(4)
-        );
-        items.add(new RFACLabelItem<Integer>()
-                .setLabel("Nie przeczytany, termin przekroczony")
-                .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffb0000)
-                .setIconPressedColor(0xff3e2723)
-                .setLabelColor(Color.WHITE)
-                .setLabelSizeSp(14)
-                .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
-                .setWrapper(5)
-        );
-        items.add(new RFACLabelItem<Integer>()
-                .setLabel("Zapoznano się z dokumentem")
-                .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffb0000)
-                .setIconPressedColor(0xff3e2723)
-                .setLabelColor(Color.WHITE)
-                .setLabelSizeSp(14)
-                .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
-                .setWrapper(6)
-        );
-        rfaContent
+
+                rfaContent
                 .setItems(items)
                 .setIconShadowRadius(ABTextUtil.dip2px(context, 5))
                 .setIconShadowColor(0xff888888)
@@ -297,4 +337,42 @@ private RapidFloatingActionHelper rfabHelper;
         dialog = alertBuldier.create();
         dialog.show();
     }
+
+    public void openDoc1(View view) {
+        new DownloadFile().execute("https://drive.google.com/open?id=0B_8Ma1M-KU7iZGppS1RiLXBnSzg", "1.pdf");
+    }
+
+    public void openDoc2(View view) {
+        new DownloadFile().execute("https://drive.google.com/open?id=0B_8Ma1M-KU7iZ3hjZHJXVnl4WUk", "2.pdf");
+    }
+
+    public void openDoc3(View view) {
+        new DownloadFile().execute("https://drive.google.com/open?id=0B_8Ma1M-KU7iWk9OUEdiZ0dPNlk", "3.pdf");
+    }
+
+    private class DownloadFile extends AsyncTask<String, Void, Void> {
+
+        @Override
+        protected Void doInBackground(String... strings) {
+            String fileUrl = strings[0];   // -> http://maven.apache.org/maven-1.x/maven.pdf
+            String fileName = strings[1];  // -> maven.pdf
+//            String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+            File folder = new File(context.getFilesDir(), "Download");
+            folder.mkdir();
+
+            File pdfFile = new File(folder, fileName);
+
+            try{
+                pdfFile.createNewFile();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+            FileDownloader.downloadFile(fileUrl, pdfFile);
+            return null;
+        }
+    }
+
+
 }
+
+
