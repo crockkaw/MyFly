@@ -30,11 +30,18 @@ import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RFACLabelItem;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RapidFloatingActionContentLabelList;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @AILayout(R.layout.activity_ma_typ)
 public class MATypActivity extends AIActionBarActivity implements RapidFloatingActionContentLabelList.OnRapidFloatingActionContentLabelListListener {
+
+
+    String dd, mm, yy, date;
+
 
     @AIView(R.id.activity_main_rfal)
     private RapidFloatingActionLayout rfaLayout;
@@ -46,10 +53,14 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_ma_typ);
+
+        Bundle bundle = getIntent().getExtras();
+        String typ = bundle.getString("a");
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Status - TYP");
+        getSupportActionBar().setTitle("Status  " + typ);
 
         setupWindowAnimations();
         floatingButtonMenu();
@@ -59,10 +70,18 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(this.getResources().getColor(R.color.statusbar_color));
 
+        date();
+
     }
 
 
-
+    private void date() {
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
+        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+        date = dd + "." + mm + "." + yy;
+    }
 
     private void setupWindowAnimations() {
         Transition transition;
@@ -117,15 +136,7 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(0)
         );
-        items.add(new RFACLabelItem<Integer>()
-                .setLabel(getString(R.string.legend_label_purple))
-                .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffea9054)
-                .setLabelColor(Color.WHITE)
-                .setLabelSizeSp(14)
-                .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
-                .setWrapper(1)
-        );
+
         items.add(new RFACLabelItem<Integer>()
                 .setResId(R.mipmap.ico_test_d)
                 .setLabel(getString(R.string.legend_label_yellow))
@@ -134,6 +145,15 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(2)
+        );
+        items.add(new RFACLabelItem<Integer>()
+                .setLabel(getString(R.string.legend_label_purple))
+                .setResId(R.mipmap.ico_test_d)
+                .setIconNormalColor(0xffea9054)
+                .setLabelColor(Color.WHITE)
+                .setLabelSizeSp(14)
+                .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
+                .setWrapper(1)
         );
         items.add(new RFACLabelItem<Integer>()
                 .setLabel(getString(R.string.legend_label_red))
@@ -173,7 +193,31 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
 
 
-    public void wodowanie_onClick(View view) {
+    public void wodowanie_onClick(View view) throws ParseException {
+
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
+        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+        date = dd + "." + mm + "." + yy;
+
+
+        String dt = String.valueOf(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+
+        Calendar d1 = Calendar.getInstance();
+        d1.setTime(sdf.parse(dt));
+        d1.add(Calendar.DATE, 14);
+        String dat1 = sdf.format(d1.getTime());
+
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+        SimpleDateFormat sdf3 = new SimpleDateFormat("mm");
+
+
+        String dd1 = sdf2.format(d1.getTime());
+        String mm1 = sdf3.format(d1.getTime());
+
+
 
 
         Dialog dialog;
@@ -188,16 +232,23 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
         titleText.setText(R.string.typ_wodowanie);
         final TextView textView1_1 = (TextView)
                 v.findViewById(R.id.textView1_1);
-        textView1_1.setText(R.string.typ_wodow1);
+        final TextView textView1_2 = (TextView)
+                v.findViewById(R.id.textView1_2);
+        textView1_1.setText("Data kontroli: ");
+        textView1_2.setText(dd1 + "." + mm1 + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
-        textView2_1.setText(R.string.typ_wodow2);
+        final TextView textView2_2 = (TextView)
+                v.findViewById(R.id.textView2_2);
+        textView2_1.setText("Data następnej kontroli: ");
+        textView2_2.setText(dat1);
+
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
-        textView3_1.setText(R.string.typ_wodow3);
-        final TextView textView4_1 = (TextView)
-                v.findViewById(R.id.textView4_1);
-        textView4_1.setVisibility(View.GONE);
+        final TextView textView3_2 = (TextView)
+                v.findViewById(R.id.textView3_2);
+        textView3_1.setText("Pozostało dni: ");
+        textView3_2.setText("14");
 
 
         alertBuldier.setCancelable(true)

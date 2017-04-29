@@ -36,7 +36,6 @@ public class MAktualnoscFragment extends BaseFragment implements RapidFloatingAc
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initRFAB();
-
     }
 
     @Override
@@ -87,15 +86,7 @@ public class MAktualnoscFragment extends BaseFragment implements RapidFloatingAc
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(0)
         );
-        items.add(new RFACLabelItem<Integer>()
-                .setLabel(getString(R.string.legend_label_purple))
-                .setResId(R.mipmap.ico_test_d)
-                .setIconNormalColor(0xffea9054)
-                .setLabelColor(Color.WHITE)
-                .setLabelSizeSp(14)
-                .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
-                .setWrapper(1)
-        );
+
         items.add(new RFACLabelItem<Integer>()
                 .setResId(R.mipmap.ico_test_d)
                 .setLabel(getString(R.string.legend_label_yellow))
@@ -104,6 +95,15 @@ public class MAktualnoscFragment extends BaseFragment implements RapidFloatingAc
                 .setLabelSizeSp(14)
                 .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
                 .setWrapper(2)
+        );
+        items.add(new RFACLabelItem<Integer>()
+                .setLabel(getString(R.string.legend_label_purple))
+                .setResId(R.mipmap.ico_test_d)
+                .setIconNormalColor(0xffea9054)
+                .setLabelColor(Color.WHITE)
+                .setLabelSizeSp(14)
+                .setLabelBackgroundDrawable(ABShape.generateCornerShapeDrawable(0xaa000000, ABTextUtil.dip2px(context, 4)))
+                .setWrapper(1)
         );
         items.add(new RFACLabelItem<Integer>()
                 .setLabel(getString(R.string.legend_label_red))

@@ -356,8 +356,15 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void pressTyp(View view) {
+    public void pressTyp1(View view) {
         Intent i = new Intent(this, MATypActivity.class);
+        i.putExtra("a", "W-3");
+        transitionTo(i);
+    }
+
+    public void pressTyp2(View view) {
+        Intent i = new Intent(this, MATypActivity.class);
+        i.putExtra("a", "MI-17");
         transitionTo(i);
     }
 

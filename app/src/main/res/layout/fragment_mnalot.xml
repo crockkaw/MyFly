@@ -169,7 +169,7 @@
                 <com.veinhorn.tagview.TagView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nalot na sp w roku bieżącym"
+                    android:text="Nalot na sp w roku"
                     android:textSize="16sp"
                     app:tagType="modern"
                     app:tagColor="#4a76a3"
@@ -256,7 +256,7 @@
                 <com.veinhorn.tagview.TagView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Nalot na sp w roku bieżącym"
+                    android:text="Nalot na sym. w roku"
                     android:textSize="16sp"
                     app:tagType="modern"
                     app:tagColor="#4a76a3"
