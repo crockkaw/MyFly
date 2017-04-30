@@ -235,13 +235,13 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
         textView1_1.setText("Data kontroli: ");
-        textView1_2.setText(dd1 + "." + mm1 + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText("Data następnej kontroli: ");
-        textView2_2.setText(dat1);
+        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + yy);
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);

@@ -37,6 +37,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -295,13 +296,15 @@ private RapidFloatingActionHelper rfabHelper;
         date = dd + "." + mm + "." + yy;
 
 
-        String dt = String.valueOf(date);
+        String dt = date;
         SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
 
         Calendar d1 = Calendar.getInstance();
         d1.setTime(sdf.parse(dt));
         d1.add(Calendar.DATE, 49);
-        String dat1 = sdf.format(d1.getTime());
+        Date resultdate = new Date(d1.getTimeInMillis());
+
+        String dat1 = sdf.format(resultdate);
 
         SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
         SimpleDateFormat sdf3 = new SimpleDateFormat("mm");
@@ -309,10 +312,6 @@ private RapidFloatingActionHelper rfabHelper;
 
         String dd1 = sdf2.format(d1.getTime());
         String mm1 = sdf3.format(d1.getTime());
-
-
-
-
 
         Dialog dialog;
         View v;
@@ -330,14 +329,14 @@ private RapidFloatingActionHelper rfabHelper;
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
         textView1_1.setText(R.string.status_komisja_1);
-        textView1_2.setText(dd1 + "." + mm1 + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
 
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText(R.string.status_komisja_2);
-        textView2_2.setText(dat1);
+        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + yy);;
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
