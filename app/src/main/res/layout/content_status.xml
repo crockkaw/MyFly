@@ -207,6 +207,7 @@
                         android:paddingLeft="5dp"
                         android:background="@drawable/button_zib"
                         android:drawableLeft="@drawable/ic_done_all_white_24dp"
+                        android:onClick="confirmDoc"
                         />
 
                 </LinearLayout>

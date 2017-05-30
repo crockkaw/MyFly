@@ -7,14 +7,20 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.kawka.myfly.models.NalotAktualnyAdapter;
+
 public class StartActivity extends AppCompatActivity {
 
     Thread thread;
+    NalotAktualnyAdapter nalotAktualnyAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
+        nalotAktualnyAdapter = new NalotAktualnyAdapter();
 
         Window window = this.getWindow();
 

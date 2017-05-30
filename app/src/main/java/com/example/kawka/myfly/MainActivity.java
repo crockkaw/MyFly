@@ -21,20 +21,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.example.kawka.myfly.models.NalotAktualny;
-import com.example.kawka.myfly.network.ApiService;
-import com.example.kawka.myfly.network.NalotAktualnyAdapter;
+import com.example.kawka.myfly.models.NalotAktualnyAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
-
 
 
 public class MainActivity extends AppCompatActivity

@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ServiceGenerator  {
 
 
-    private static final String BASE_URL = "https://kkawka.pl:8011/rest/api/v0/";
+    private static final String BASE_URL = "https://kkawka.pl:8011/";
 
     private static Retrofit.Builder builder =
             new Retrofit.Builder()

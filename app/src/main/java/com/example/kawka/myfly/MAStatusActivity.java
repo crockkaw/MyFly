@@ -3,9 +3,8 @@ package com.example.kawka.myfly;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.graphics.Color;
-import android.os.AsyncTask;
-import android.os.Environment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +17,12 @@ import android.transition.Slide;
 import android.transition.Transition;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.example.kawka.myfly.network.FileDownloader;
+import com.example.kawka.myfly.models.ZibConfirm;
+import com.example.kawka.myfly.network.ApiService;
+import com.example.kawka.myfly.network.DownloadFile;
+import com.example.kawka.myfly.network.ServiceGenerator;
 import com.wangjie.androidinject.annotation.annotations.base.AIView;
 import com.wangjie.androidbucket.utils.ABTextUtil;
 import com.wangjie.androidbucket.utils.imageprocess.ABShape;
@@ -31,8 +34,6 @@ import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RFACLabelItem;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RapidFloatingActionContentLabelList;
 
-import java.io.File;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -40,6 +41,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 @AILayout(R.layout.activity_maktu_status)
@@ -47,6 +51,14 @@ public class MAStatusActivity extends AIActionBarActivity implements RapidFloati
 
     String dd, mm, yy, date;
 
+boolean yetDownload;
+
+    String docUrl;
+
+    ProgressDialog mProgressDialog;
+
+
+    ProgressDialog progressDialog;
 
 @AIView(R.id.activity_main_rfal)
 private RapidFloatingActionLayout rfaLayout;
@@ -360,40 +372,128 @@ private RapidFloatingActionHelper rfabHelper;
     }
 
     public void openDoc1(View view) {
-        new DownloadFile().execute("https://drive.google.com/open?id=0B_8Ma1M-KU7iZGppS1RiLXBnSzg", "1.pdf");
+        new DownloadFile().execute("http://www23.zippyshare.com/d/bWxguypq/41661/wys-temp.pdf");
+
+        new DownloadFile().execute(docUrl);
+
+
+
     }
 
+
+
     public void openDoc2(View view) {
-        new DownloadFile().execute("https://drive.google.com/open?id=0B_8Ma1M-KU7iZ3hjZHJXVnl4WUk", "2.pdf");
+        new DownloadFile().execute("https://www.pdfhost.net/index.php?Action=DownloadFile&id=7fac6382d4de59c967a38a07668730e5");
+
     }
 
     public void openDoc3(View view) {
-        new DownloadFile().execute("https://drive.google.com/open?id=0B_8Ma1M-KU7iWk9OUEdiZ0dPNlk", "3.pdf");
+        new DownloadFile().execute("http://www23.zippyshare.com/d/bWxguypq/36923/wys-temp.pdf");
+
     }
 
-    private class DownloadFile extends AsyncTask<String, Void, Void> {
+    public void confirmDoc(View view) {
+        ApiService client = ServiceGenerator.createService(ApiService.class, "client", "Turawa2016");
 
-        @Override
-        protected Void doInBackground(String... strings) {
-            String fileUrl = strings[0];   // -> http://maven.apache.org/maven-1.x/maven.pdf
-            String fileName = strings[1];  // -> maven.pdf
-//            String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
-            File folder = new File(context.getFilesDir(), "Download");
-            folder.mkdir();
-
-            File pdfFile = new File(folder, fileName);
-
-            try{
-                pdfFile.createNewFile();
-            }catch (IOException e){
-                e.printStackTrace();
+        ZibConfirm zibCon = new ZibConfirm("21", "264","56","2017-05-12");
+        Call<ZibConfirm> call = client.createZibCon("application/vnd.oracle.adf.resourceitem+json",zibCon);
+        call.enqueue(new Callback<ZibConfirm>() {
+            @Override
+            public void onResponse(Call<ZibConfirm> call, Response<ZibConfirm> response) {
+                Toast.makeText(MAStatusActivity.this, "Potwierdzono zapoznanie się z dokumentem", Toast.LENGTH_SHORT).show();
             }
-            FileDownloader.downloadFile(fileUrl, pdfFile);
-            return null;
-        }
+            @Override
+            public void onFailure(Call<ZibConfirm> call, Throwable t) {
+                Toast.makeText(MAStatusActivity.this, "Błąd", Toast.LENGTH_SHORT).show();}
+        });
     }
 
+
+//    private class DownloadFile extends AsyncTask<String, Integer, String> {
+//
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//            // Create progress dialog
+//            mProgressDialog = new ProgressDialog(MAStatusActivity.this);
+//            // Set your progress dialog Title
+//            mProgressDialog.setTitle("Trwa pobieranie dokumentu");
+//            // Set your progress dialog Message
+//            mProgressDialog.setMessage("Proszę czekać...");
+//            mProgressDialog.setIndeterminate(false);
+//            mProgressDialog.setMax(100);
+//            mProgressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+//            // Show progress dialog
+//            mProgressDialog.show();
+//        }
+//
+//        @Override
+//        protected String doInBackground(String... Url) {
+//            try {
+//                URL url = new URL(Url[0]);
+//                URLConnection connection = url.openConnection();
+//                connection.connect();
+//
+//                // Detect the file lenghth
+//                int fileLength = connection.getContentLength();
+//
+//                // Locate storage location
+//                String filepath = Environment.getExternalStorageDirectory()
+//                        .getPath();
+//
+//                // Download the file
+//                InputStream input = new BufferedInputStream(url.openStream());
+//
+//                // Save the downloaded file
+//                OutputStream output = new FileOutputStream(filepath + "/"
+//                        + "doc.pdf");
+//
+//                byte data[] = new byte[1024];
+//                long total = 0;
+//                int count;
+//                while ((count = input.read(data)) != -1) {
+//                    total += count;
+//                    // Publish the progress
+//                    publishProgress((int) (total * 100 / fileLength));
+//                    output.write(data, 0, count);
+//                }
+//
+//                // Close connection
+//                output.flush();
+//                output.close();
+//                input.close();
+//            } catch (Exception e) {
+//                // Error Log
+//                Log.e("Error", e.getMessage());
+//                e.printStackTrace();
+//            }
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onProgressUpdate(Integer... progress) {
+//            super.onProgressUpdate(progress);
+//            mProgressDialog.setProgress(progress[0]);
+//
+//            if (mProgressDialog.getProgress()==100) {
+//                mProgressDialog.dismiss();
+//
+//                File pdfFile = new File(Environment.getExternalStorageDirectory() + "/doc.pdf");  // -> filename = maven.pdf
+//                Uri path = Uri.fromFile(pdfFile);
+//                Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
+//                pdfIntent.setDataAndType(path, "application/pdf");
+//                pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//
+//                try {
+//                    startActivity(pdfIntent);
+//                } catch (ActivityNotFoundException e) {
+//                    Toast.makeText(MAStatusActivity.this, "Brak aplikacji do wyświetlania dokumentów pdf ", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        }
+//
+//
+//    }
 
 }
-
 

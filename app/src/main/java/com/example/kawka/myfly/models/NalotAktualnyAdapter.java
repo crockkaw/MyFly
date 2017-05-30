@@ -1,7 +1,9 @@
-package com.example.kawka.myfly.network;
+package com.example.kawka.myfly.models;
 
 
 import com.example.kawka.myfly.models.NalotAktualny;
+import com.example.kawka.myfly.network.ApiService;
+import com.example.kawka.myfly.network.ServiceGenerator;
 
 import java.util.ArrayList;
 
@@ -43,7 +45,7 @@ public class NalotAktualnyAdapter {
 
         ApiService client = ServiceGenerator.createService(ApiService.class, "client", "Turawa2016");
 
-        Call<NalotAktualny> call = client.getItems();
+        Call<NalotAktualny> call = client.getNalaktu();
 
 
         call.enqueue(new Callback<NalotAktualny>() {
