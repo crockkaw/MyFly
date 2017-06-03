@@ -10,9 +10,7 @@ import android.os.Environment;
 import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
-
 import com.example.kawka.myfly.MyApplication;
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -116,6 +114,4 @@ public class DownloadFile extends AsyncTask<String, Integer, String> {
             }
         }
     }
-
-
 }

@@ -372,23 +372,18 @@ private RapidFloatingActionHelper rfabHelper;
     }
 
     public void openDoc1(View view) {
-        new DownloadFile().execute("http://www23.zippyshare.com/d/bWxguypq/41661/wys-temp.pdf");
-
-        new DownloadFile().execute(docUrl);
-
-
-
+        new DownloadFile().execute("http://www.mon.gov.pl/d/pliki/dokumenty/rozne/2014/03/regulamin_ogolny_szrp_2014.pdf");
     }
 
 
 
     public void openDoc2(View view) {
-        new DownloadFile().execute("https://www.pdfhost.net/index.php?Action=DownloadFile&id=7fac6382d4de59c967a38a07668730e5");
+        new DownloadFile().execute("http://www.mon.gov.pl/d/pliki/dokumenty/rozne/2014/03/regulamin_ogolny_szrp_2014.pdf");
 
     }
 
     public void openDoc3(View view) {
-        new DownloadFile().execute("http://www23.zippyshare.com/d/bWxguypq/36923/wys-temp.pdf");
+        new DownloadFile().execute("http://www.mon.gov.pl/d/pliki/dokumenty/rozne/2014/03/regulamin_ogolny_szrp_2014.pdf");
 
     }
 

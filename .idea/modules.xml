@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyFly.iml" filepath="$PROJECT_DIR$/MyFly.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/application/application.iml" filepath="$PROJECT_DIR$/application/application.iml" />
       <module fileurl="file://$PROJECT_DIR$/loliPin/loliPin.iml" filepath="$PROJECT_DIR$/loliPin/loliPin.iml" />
       <module fileurl="file://$PROJECT_DIR$/preferenceMaterial/preferenceMaterial.iml" filepath="$PROJECT_DIR$/preferenceMaterial/preferenceMaterial.iml" />
       <module fileurl="file://$PROJECT_DIR$/rapidFloatingActionButton/rapidFloatingActionButton.iml" filepath="$PROJECT_DIR$/rapidFloatingActionButton/rapidFloatingActionButton.iml" />

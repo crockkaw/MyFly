@@ -10,14 +10,7 @@ public class NalotAktualny {
     @Expose
     private List<NalotAktualnyItems> items = null;
 
-
     public List<NalotAktualnyItems> getItems() {
         return items;
     }
-
-    public void setItems(List<NalotAktualnyItems> items) {
-        this.items = items;
-    }
-
-
 }

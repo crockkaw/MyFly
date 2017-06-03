@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity
         setTitle(getString(R.string.aktu));
         context=this;
 
-        nalotAktualnyAdapter = new NalotAktualnyAdapter();
+        nalotAktualnyAdapter = new NalotAktualnyAdapter("40");
 
 
 //        dane();
@@ -251,7 +251,7 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.content_frame
                             , new MNalotFragment())
                     .commit();
-            actionBar.setTitle("NalotAktualny");
+            actionBar.setTitle("Nalot");
         } else if (id == R.id.nav_zdarzenia) {
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame

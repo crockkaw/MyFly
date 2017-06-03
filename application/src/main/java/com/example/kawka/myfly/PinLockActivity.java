@@ -34,14 +34,6 @@ public class PinLockActivity extends AppLockActivity {
 
                 fingersucces ();
 
-//                final Handler handler = new Handler();
-//                handler.postDelayed(new Runnable() {
-//                    @Override
-//                    public void run() {
-//
-//                    }
-//                }, 1000);
-
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
                 startActivity(intent);
             }
@@ -50,14 +42,11 @@ public class PinLockActivity extends AppLockActivity {
             public void onFailure(@NonNull AuthenticationFailureReason failureReason, boolean fatal,
                                   @Nullable CharSequence errorMessage, int moduleTag, int errorCode) {
 
-
-
                 errorMess(failureReason, fatal, errorMessage,  moduleTag,  errorCode);
             }
         });
 
     }
-
 
     @Override
     public void showForgotDialog() {

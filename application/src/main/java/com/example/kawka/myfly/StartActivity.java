@@ -20,7 +20,7 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        nalotAktualnyAdapter = new NalotAktualnyAdapter();
+//        nalotAktualnyAdapter = new NalotAktualnyAdapter();
 
         Window window = this.getWindow();
 

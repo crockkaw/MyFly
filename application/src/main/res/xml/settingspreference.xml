@@ -19,7 +19,7 @@
 
     </com.codevscolor.materialpreference.widget.MaterialPreferenceCategory>
 
-    <com.codevscolor.materialpreference.widget.MaterialPreferenceCategory android:title="Autoryzacja">
+    <com.codevscolor.materialpreference.widget.MaterialPreferenceCategory android:title="Kontrola dostępu">
 
         <Preference
             android:key="changePin"

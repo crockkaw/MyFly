@@ -354,8 +354,23 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
             if (mm1.equals("05")){
                 mm1 = "V";
             }
+            if (mm1.equals("06")){
+                mm1 = "VI";
+            }
+            if (mm1.equals("07")){
+                mm1 = "VII";
+            }
+            if (mm1.equals("08")){
+                mm1 = "VIII";
+            }
+            if (mm1.equals("09")){
+                mm1 = "IX";
+            }
+            if (mm1.equals("10")){
+                mm1 = "X";
+            }
 
-            results.add(dd1 +" "+ mm1 +" "+ yy1);
+            results.add(dd1 +" "+ mm1 +" "+ "17");
         }
         return results;
     }
