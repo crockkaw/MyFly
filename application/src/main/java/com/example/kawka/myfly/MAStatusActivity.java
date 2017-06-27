@@ -372,18 +372,18 @@ private RapidFloatingActionHelper rfabHelper;
     }
 
     public void openDoc1(View view) {
-        new DownloadFile().execute("http://www.mon.gov.pl/d/pliki/dokumenty/rozne/2014/03/regulamin_ogolny_szrp_2014.pdf");
+        new DownloadFile().execute("http://turdoc.wex.pl/file/wys-temp.pdf");
     }
 
 
 
     public void openDoc2(View view) {
-        new DownloadFile().execute("http://www.mon.gov.pl/d/pliki/dokumenty/rozne/2014/03/regulamin_ogolny_szrp_2014.pdf");
+        new DownloadFile().execute("http://turdoc.wex.pl/file/okres_wiosenny_s.pdf");
 
     }
 
     public void openDoc3(View view) {
-        new DownloadFile().execute("http://www.mon.gov.pl/d/pliki/dokumenty/rozne/2014/03/regulamin_ogolny_szrp_2014.pdf");
+        new DownloadFile().execute("http://turdoc.wex.pl/file/maszyna-czlowiek_s.pdf");
 
     }
 

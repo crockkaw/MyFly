@@ -38,7 +38,7 @@ public class StartActivity extends AppCompatActivity {
         thread = new Thread(){
             public void run(){
                 try {
-                    sleep(3000);
+                    sleep(4500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

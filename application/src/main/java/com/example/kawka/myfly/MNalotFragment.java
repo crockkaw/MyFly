@@ -109,10 +109,7 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
     public void initialization() throws ParseException {
 
         numberOfFlights = (EditText) myView.findViewById(R.id.numberOfFlights);
-
-
         dataButton1 = (Button) myView.findViewById(R.id.dataButton1);
-
         dataButton1.setOnClickListener(this);
 
         stv_loty = (ScrollTableView) myView.findViewById(R.id.scroll_t_loty);
@@ -130,7 +127,6 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
         stv_roczny.setDatas(createTopTitlesRoczny(), createLeftTitle(), createContent1(rowSp1,rowSp2,rowSp3,null));
         stv_roczny_sym.setDatas(createTopTitlesRoczny(), createLeftTitleSym(), createContent1(rowSym1,rowSym2,rowSym3, null));
         stv_aktualny.setDatas(createTopTitlesAktualny(), createLeftTitleAktualny(), createContent1(rowAktu1,rowAktu2,rowAktu3,rowAktu4));
-
 
 //        stv_loty.setDatas(createTopTitlesLoty(), createLeftTitleLoty(), createContent(leftTitleLoty.size(), topTitlesLoty.size()));
 //        stv_roczny.setDatas(createTopTitlesRoczny(), createLeftTitle(), createContent(leftTitle.size(), topTitlesRoczny.size()));
