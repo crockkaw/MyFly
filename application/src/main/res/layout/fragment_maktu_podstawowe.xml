@@ -258,6 +258,7 @@
                                 android:layout_marginLeft="250dp"
                                 android:layout_marginTop="5dp"
                                 android:background = "@drawable/button_label2"
+                                android:onClick="pressTyp1"
                                 android:text="W-3"
                                 />
 
@@ -274,6 +275,8 @@
                                     android:text="Nalot na typie: "
                                     android:textStyle="bold"
                                     android:textColor="#2e2c2c"
+                                    android:onClick="pressTyp1"
+
                                     />
 
                                 <TextView
@@ -282,7 +285,9 @@
                                     android:text="621:25"
                                     android:layout_marginLeft="5dp"
                                     android:textStyle="bold"
-                                    android:textColor="#000000"/>
+                                    android:textColor="#000000"
+                                    android:onClick="pressTyp1"
+                                    />
 
                             </LinearLayout>
 
@@ -300,6 +305,8 @@
                                 android:layout_marginBottom="5dp"
                                 android:textStyle="bold"
                                 android:textColor="#2e2c2c"
+                                android:onClick="pressTyp1"
+
                                 />
 
                                 <TextView
@@ -308,7 +315,9 @@
                                     android:text="112:50"
                                     android:layout_marginLeft="5dp"
                                     android:textStyle="bold"
-                                    android:textColor="#000000"/>
+                                    android:textColor="#000000"
+                                    android:onClick="pressTyp1"
+                                    />
 
                             </LinearLayout>
 
@@ -326,6 +335,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:background="@drawable/button_red"
+                                android:onClick="pressTyp1"
+
 
                                 />
 
@@ -336,6 +347,8 @@
                                 android:layout_marginTop="5dp"
                                 android:background = "@drawable/button_label"
                                 android:text="STATUS"
+                                android:onClick="pressTyp1"
+
                                 />
 
                             <Button
@@ -344,6 +357,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:background="@drawable/button_orange"
+                                android:onClick="pressTyp1"
+
                                 />
 
                             <Button
@@ -353,6 +368,8 @@
                                 android:layout_marginTop="-1dp"
                                 android:background = "@drawable/button_label"
                                 android:text="PRZERWA W LOTACH"
+                                android:onClick="pressTyp1"
+
                                 />
 
                         </LinearLayout>
@@ -389,6 +406,8 @@
                                 android:layout_marginTop="5dp"
                                 android:background = "@drawable/button_label2"
                                 android:text="MI-17"
+                                android:onClick="pressTyp2"
+
                                 />
 
                             <LinearLayout
@@ -404,6 +423,8 @@
                                     android:text="Nalot na typie: "
                                     android:textStyle="bold"
                                     android:textColor="#2e2c2c"
+                                    android:onClick="pressTyp2"
+
                                     />
 
                                 <TextView
@@ -412,7 +433,9 @@
                                     android:text="458:30"
                                     android:layout_marginLeft="5dp"
                                     android:textStyle="bold"
-                                    android:textColor="#000000"/>
+                                    android:textColor="#000000"
+                                    android:onClick="pressTyp2"
+                                    />
 
                             </LinearLayout>
 
@@ -430,6 +453,8 @@
                                     android:layout_marginBottom="5dp"
                                     android:textStyle="bold"
                                     android:textColor="#2e2c2c"
+                                    android:onClick="pressTyp2"
+
                                     />
 
                                 <TextView
@@ -438,7 +463,9 @@
                                     android:text="81:50"
                                     android:layout_marginLeft="5dp"
                                     android:textStyle="bold"
-                                    android:textColor="#000000"/>
+                                    android:textColor="#000000"
+                                    android:onClick="pressTyp2"
+                                    />
 
                             </LinearLayout>
 
@@ -456,6 +483,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:background="@drawable/button_green"
+                                android:onClick="pressTyp2"
+
                                 />
 
                             <Button
@@ -465,6 +494,8 @@
                                 android:layout_marginTop="5dp"
                                 android:background = "@drawable/button_label"
                                 android:text="STATUS"
+                                android:onClick="pressTyp2"
+
                                 />
 
                             <Button
@@ -473,6 +504,8 @@
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:background="@drawable/button_yellow"
+                                android:onClick="pressTyp2"
+
                                 />
 
                             <Button
@@ -482,6 +515,8 @@
                                 android:layout_marginTop="-1dp"
                                 android:background = "@drawable/button_label"
                                 android:text="PRZERWA W LOTACH"
+                                android:onClick="pressTyp2"
+
                                 />
 
                         </LinearLayout>

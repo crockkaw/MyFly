@@ -88,7 +88,7 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
 
         MainActivity activity = (MainActivity) getActivity();
 //        leftTitlesAktualny = activity.nalotAktualnyAdapter.getMyLeftTitlesAktualny();
-        resultsAktualny = activity.nalotAktualnyAdapter.getMyResultsAktualny();
+//        resultsAktualny = activity.nalotAktualnyAdapter.getMyResultsAktualny();
 
         topTitlesLoty = new String[]{getString(R.string.nal_loty1), getString(R.string.nal_loty2), getString(R.string.nal_loty3), getString(R.string.nal_loty4), getString(R.string.nal_loty5), getString(R.string.nal_loty6)};
         topTitlesRoczny = new String[]{getString(R.string.nal_rocz1), getString(R.string.nal_rocz2), getString(R.string.nal_rocz3), getString(R.string.nal_rocz4), getString(R.string.nal_rocz5), getString(R.string.nal_rocz6), getString(R.string.nal_rocz7), getString(R.string.nal_rocz8), getString(R.string.nal_rocz9), getString(R.string.nal_rocz10), getString(R.string.nal_rocz11), getString(R.string.nal_rocz12), "Razem"};

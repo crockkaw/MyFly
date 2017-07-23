@@ -1,6 +1,10 @@
 package com.example.kawka.myfly;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -58,10 +62,25 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+
+
+
+        boolean option = isNetworkAvailable();
+
+        if (!option){
+            Snackbar.make((findViewById(R.id.loginLayout)), "Brak połączenia z internetem, zamknij aplikację.", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Zamknij", new MyUndoListener()).show();
+
+            _loginButton.setEnabled(false);
+        }
+
+
     }
 
     public void login() {
         Log.d(TAG, "Login");
+
+
 
         if (!validate()) {
             onLoginFailed();
@@ -108,10 +127,14 @@ public class LoginActivity extends AppCompatActivity {
         intent.putExtra(AppLock.EXTRA_TYPE, AppLock.ENABLE_PINLOCK);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
+
+        Intent i = new Intent(getApplication(), StartActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(intent);
     }
 
     public void onLoginFailed() {
-        Toast.makeText(getBaseContext(), "Nieudana weryfikacja", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Nieudana weryfikacja, wprowadź poprawne dane", Toast.LENGTH_LONG).show();
 
         _loginButton.setEnabled(true);
     }
@@ -122,20 +145,25 @@ public class LoginActivity extends AppCompatActivity {
         String email = _emailText.getText().toString();
         String password = _passwordText.getText().toString();
 
-        if (email.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            _emailText.setError("enter a valid email address");
+        if (!email.equals("admin")) {
             valid = false;
         } else {
             _emailText.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
-            _passwordText.setError("between 4 and 10 alphanumeric characters");
+        if (!password.equals("admin")) {
             valid = false;
         } else {
             _passwordText.setError(null);
         }
 
         return valid;
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

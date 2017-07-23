@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
     int poleData;
     EditText dataOdET, dataDoET;
 
-    NalotAktualnyAdapter nalotAktualnyAdapter;
+//    NalotAktualnyAdapter nalotAktualnyAdapter;
 
     Context context;
 
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity
         setTitle(getString(R.string.aktu));
         context=this;
 
-        nalotAktualnyAdapter = new NalotAktualnyAdapter("40");
+//        nalotAktualnyAdapter = new NalotAktualnyAdapter("40");
 
 
 //        dane();

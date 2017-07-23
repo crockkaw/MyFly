@@ -1,7 +1,11 @@
 package com.example.kawka.myfly;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
@@ -43,10 +47,7 @@ public class StartActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 finally {
-                    Intent intent = new Intent(getApplication(),MainActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                    chooseOption();
                 }}
 
         };
@@ -56,10 +57,43 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void startClick(View view) {
-        Intent intent = new Intent(this,MainActivity.class);
+        thread.interrupt();
+        chooseOption();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        // code here to show dialog
+        super.onBackPressed();  // optional depending on your needs
+    }
+
+    public void chooseOption(){
+        boolean option = isNetworkAvailable();
+
+        if (option){
+            jump();
+        } else {
+            Snackbar.make((findViewById(R.id.activity_start)), "Brak połączenia z internetem, zamknij aplikację.", Snackbar.LENGTH_INDEFINITE)
+                    .setAction("Zamknij", new MyUndoListener()).show();
+
+
+        }
+
+    }
+
+    public void jump(){
+        Intent intent = new Intent(getApplication(),MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        thread.interrupt();
         startActivity(intent);
     }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
 }

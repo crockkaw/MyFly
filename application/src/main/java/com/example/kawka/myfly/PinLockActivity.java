@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
+import android.os.Process;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.widget.Toast;
@@ -103,6 +104,11 @@ public class PinLockActivity extends AppLockActivity {
     @Override
     public void onPinSuccess(int attempts) {
                 Intent intent = new Intent(this,StartActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                finish();
+                Process.killProcess(Process.myPid());
         startActivity(intent);
 
     }

@@ -278,24 +278,7 @@ private RapidFloatingActionHelper rfabHelper;
 
     }
 
-//    public void komisja_onClick(View view) {
-//
-//
-////        boolean wrapInScrollView = true;
-////        new MaterialDialog.Builder(this)
-////                .title("Komisja Lekarska")
-////                .customView(R.layout.custom_view, wrapInScrollView)
-////                .positiveText(R.string.positive)
-////                .show();
-//
-//
-//        new MaterialDialog.Builder(this)
-//                .title("Komisja Lekarska")
-//                .items(komisjaList)
-//                .positiveText("OK")
-//                .show();
-//
-//    }
+
 
 
 
@@ -303,27 +286,19 @@ private RapidFloatingActionHelper rfabHelper;
 
         java.util.Calendar instance = java.util.Calendar.getInstance();
         dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH));
         yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
         date = dd + "." + mm + "." + yy;
 
-
-        String dt = date;
         SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
-
         Calendar d1 = Calendar.getInstance();
-        d1.setTime(sdf.parse(dt));
+        d1.setTime(sdf.parse(date));
         d1.add(Calendar.DATE, 49);
-        Date resultdate = new Date(d1.getTimeInMillis());
-
-        String dat1 = sdf.format(resultdate);
 
         SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
-        SimpleDateFormat sdf3 = new SimpleDateFormat("mm");
-
+//        SimpleDateFormat sdf3 = new SimpleDateFormat("mm");
 
         String dd1 = sdf2.format(d1.getTime());
-        String mm1 = sdf3.format(d1.getTime());
 
         Dialog dialog;
         View v;
@@ -371,6 +346,60 @@ private RapidFloatingActionHelper rfabHelper;
         dialog.show();
     }
 
+
+    public void knc_onClick(View view) {
+        Dialog dialog;
+        View v;
+        v =  (LayoutInflater.from(this))
+                .inflate(R.layout.dialog_status, null);
+        final AlertDialog.Builder alertBuldier =
+                new AlertDialog.Builder(this);
+        alertBuldier.setView(v);
+        final TextView titleText = (TextView)
+                v.findViewById(R.id.titleText);
+        titleText.setText(R.string.status_komisja);
+
+        final TextView textView1_1 = (TextView)
+                v.findViewById(R.id.textView1_1);
+        final TextView textView1_2 = (TextView)
+                v.findViewById(R.id.textView1_2);
+        textView1_1.setText(R.string.status_komisja_1);
+        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+
+        final TextView textView2_1 = (TextView)
+                v.findViewById(R.id.textView2_1);
+        final TextView textView2_2 = (TextView)
+                v.findViewById(R.id.textView2_2);
+        textView2_1.setText(R.string.status_komisja_2);
+        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + yy);;
+
+        final TextView textView3_1 = (TextView)
+                v.findViewById(R.id.textView3_1);
+        final TextView textView3_2 = (TextView)
+                v.findViewById(R.id.textView3_2);
+        textView3_1.setText(R.string.status_komisja_3);
+        textView3_2.setText("Z1C");
+
+        final TextView textView4_1 = (TextView)
+                v.findViewById(R.id.textView4_1);
+        final TextView textView4_2 = (TextView)
+                v.findViewById(R.id.textView4_2);
+        textView4_1.setText(R.string.status_komisja_4);
+        textView4_2.setText("49");
+
+
+        alertBuldier.setCancelable(true)
+                .setPositiveButton("OK", null);
+        dialog = alertBuldier.create();
+        dialog.show();
+
+    }
+
+    public void woszk_onClick(View view) {
+    }
+
+
+
     public void openDoc1(View view) {
         new DownloadFile().execute("http://turdoc.wex.pl/file/wys-temp.pdf");
     }
@@ -402,6 +431,8 @@ private RapidFloatingActionHelper rfabHelper;
                 Toast.makeText(MAStatusActivity.this, "Błąd", Toast.LENGTH_SHORT).show();}
         });
     }
+
+
 
 
 //    private class DownloadFile extends AsyncTask<String, Integer, String> {
