@@ -518,6 +518,8 @@ public class MNalotFragment extends Fragment  implements View.OnClickListener {
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinRocznySym.setAdapter(spinnerArrayAdapter);
 
+
+
     }
 
 
