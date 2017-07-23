@@ -201,24 +201,16 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
         yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
         date = dd + "." + mm + "." + yy;
 
-
         String dt = String.valueOf(date);
         SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
 
         Calendar d1 = Calendar.getInstance();
         d1.setTime(sdf.parse(dt));
         d1.add(Calendar.DATE, 14);
-        String dat1 = sdf.format(d1.getTime());
 
         SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
-        SimpleDateFormat sdf3 = new SimpleDateFormat("mm");
-
 
         String dd1 = sdf2.format(d1.getTime());
-        String mm1 = sdf3.format(d1.getTime());
-
-
-
 
         Dialog dialog;
         View v;
@@ -230,6 +222,62 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
         final TextView titleText = (TextView)
                 v.findViewById(R.id.titleText);
         titleText.setText(R.string.typ_wodowanie);
+        final TextView textView1_1 = (TextView)
+                v.findViewById(R.id.textView1_1);
+        final TextView textView1_2 = (TextView)
+                v.findViewById(R.id.textView1_2);
+        textView1_1.setText("Data kontroli: ");
+        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        final TextView textView2_1 = (TextView)
+                v.findViewById(R.id.textView2_1);
+        final TextView textView2_2 = (TextView)
+                v.findViewById(R.id.textView2_2);
+        textView2_1.setText("Data następnej kontroli: ");
+        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + yy);
+
+        final TextView textView3_1 = (TextView)
+                v.findViewById(R.id.textView3_1);
+        final TextView textView3_2 = (TextView)
+                v.findViewById(R.id.textView3_2);
+        textView3_1.setText("Pozostało dni: ");
+        textView3_2.setText("14");
+
+        alertBuldier.setCancelable(true)
+                .setPositiveButton("OK", null);
+        dialog = alertBuldier.create();
+        dialog.show();
+    }
+
+
+    public void zaawans_onClick(View view) throws ParseException {
+
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
+        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+        date = dd + "." + mm + "." + yy;
+
+        String dt = String.valueOf(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+
+        Calendar d1 = Calendar.getInstance();
+        d1.setTime(sdf.parse(dt));
+        d1.add(Calendar.DATE, 3);
+
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+
+        String dd1 = sdf2.format(d1.getTime());
+
+        Dialog dialog;
+        View v;
+        v =  (LayoutInflater.from(this))
+                .inflate(R.layout.dialog_status_small, null);
+        final AlertDialog.Builder alertBuldier =
+                new AlertDialog.Builder(this);
+        alertBuldier.setView(v);
+        final TextView titleText = (TextView)
+                v.findViewById(R.id.titleText);
+        titleText.setText("W-R Zaawansowane");
         final TextView textView1_1 = (TextView)
                 v.findViewById(R.id.textView1_1);
         final TextView textView1_2 = (TextView)
@@ -248,19 +296,343 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
         final TextView textView3_2 = (TextView)
                 v.findViewById(R.id.textView3_2);
         textView3_1.setText("Pozostało dni: ");
-        textView3_2.setText("14");
-
+        textView3_2.setText("33");
 
         alertBuldier.setCancelable(true)
-
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface pDialog, int pWhich) {
-                    }
-
-                });
-
+                .setPositiveButton("OK", null);
         dialog = alertBuldier.create();
         dialog.show();
     }
-}
+
+
+    public void egzaminy_onClick(View view) throws ParseException {
+
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH) + 1);
+        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+        date = dd + "." + mm + "." + yy;
+
+        String dt = String.valueOf(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+
+        Calendar d1 = Calendar.getInstance();
+        d1.setTime(sdf.parse(dt));
+        d1.add(Calendar.DATE, -4);
+
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+
+        String dd1 = sdf2.format(d1.getTime());
+
+        Dialog dialog;
+        View v;
+        v = (LayoutInflater.from(this))
+                .inflate(R.layout.dialog_status_small, null);
+        final AlertDialog.Builder alertBuldier =
+                new AlertDialog.Builder(this);
+        alertBuldier.setView(v);
+        final TextView titleText = (TextView)
+                v.findViewById(R.id.titleText);
+        titleText.setText("Egzaminy");
+        final TextView textView1_1 = (TextView)
+                v.findViewById(R.id.textView1_1);
+        final TextView textView1_2 = (TextView)
+                v.findViewById(R.id.textView1_2);
+        textView1_1.setText("Data egzaminu: ");
+        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH) + 1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR) - 1));
+        final TextView textView2_1 = (TextView)
+                v.findViewById(R.id.textView2_1);
+        final TextView textView2_2 = (TextView)
+                v.findViewById(R.id.textView2_2);
+        textView2_1.setText("Data następnego egzaminu: ");
+        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH) + 1) + "." + yy);
+
+        final TextView textView3_1 = (TextView)
+                v.findViewById(R.id.textView3_1);
+        final TextView textView3_2 = (TextView)
+                v.findViewById(R.id.textView3_2);
+        textView3_1.setText("Pozostało dni: ");
+        textView3_2.setText("-4");
+
+        alertBuldier.setCancelable(true)
+                .setPositiveButton("OK", null);
+        dialog = alertBuldier.create();
+        dialog.show();
+    }
+
+        public void kontrole_onClick(View view) throws ParseException {
+
+            java.util.Calendar instance = java.util.Calendar.getInstance();
+            dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+            mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
+            yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+            date = dd + "." + mm + "." + yy;
+
+            String dt = String.valueOf(date);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+
+            Calendar d1 = Calendar.getInstance();
+            d1.setTime(sdf.parse(dt));
+            d1.add(Calendar.DATE, 3);
+
+            SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+
+            String dd1 = sdf2.format(d1.getTime());
+
+            Dialog dialog;
+            View v;
+            v =  (LayoutInflater.from(this))
+                    .inflate(R.layout.dialog_status_small, null);
+            final AlertDialog.Builder alertBuldier =
+                    new AlertDialog.Builder(this);
+            alertBuldier.setView(v);
+            final TextView titleText = (TextView)
+                    v.findViewById(R.id.titleText);
+            titleText.setText("Kontrole");
+            final TextView textView1_1 = (TextView)
+                    v.findViewById(R.id.textView1_1);
+            final TextView textView1_2 = (TextView)
+                    v.findViewById(R.id.textView1_2);
+            textView1_1.setText("Data kontroli: ");
+            textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+            final TextView textView2_1 = (TextView)
+                    v.findViewById(R.id.textView2_1);
+            final TextView textView2_2 = (TextView)
+                    v.findViewById(R.id.textView2_2);
+            textView2_1.setText("Data następnej kontroli: ");
+            textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + yy);
+
+            final TextView textView3_1 = (TextView)
+                    v.findViewById(R.id.textView3_1);
+            final TextView textView3_2 = (TextView)
+                    v.findViewById(R.id.textView3_2);
+            textView3_1.setText("Pozostało dni: ");
+            textView3_2.setText("3");
+
+            alertBuldier.setCancelable(true)
+                    .setPositiveButton("OK", null);
+            dialog = alertBuldier.create();
+            dialog.show();
+        }
+
+    public void vfrD_onClick(View view) throws ParseException {
+
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
+        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+        date = dd + "." + mm + "." + yy;
+
+        String dt = String.valueOf(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+
+        Calendar d1 = Calendar.getInstance();
+        d1.setTime(sdf.parse(dt));
+        d1.add(Calendar.DATE, 6);
+
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+
+        String dd1 = sdf2.format(d1.getTime());
+
+        Dialog dialog;
+        View v;
+        v =  (LayoutInflater.from(this))
+                .inflate(R.layout.dialog_status_small, null);
+        final AlertDialog.Builder alertBuldier =
+                new AlertDialog.Builder(this);
+        alertBuldier.setView(v);
+        final TextView titleText = (TextView)
+                v.findViewById(R.id.titleText);
+        titleText.setText("VFR Dzień");
+        final TextView textView1_1 = (TextView)
+                v.findViewById(R.id.textView1_1);
+        final TextView textView1_2 = (TextView)
+                v.findViewById(R.id.textView1_2);
+        textView1_1.setText("Data kontroli: ");
+        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+3) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        final TextView textView2_1 = (TextView)
+                v.findViewById(R.id.textView2_1);
+        final TextView textView2_2 = (TextView)
+                v.findViewById(R.id.textView2_2);
+        textView2_1.setText("Data następnej kontroli: ");
+        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+3) + "." + yy);
+
+        final TextView textView3_1 = (TextView)
+                v.findViewById(R.id.textView3_1);
+        final TextView textView3_2 = (TextView)
+                v.findViewById(R.id.textView3_2);
+        textView3_1.setText("Pozostało dni: ");
+        textView3_2.setText("67");
+
+        alertBuldier.setCancelable(true)
+                .setPositiveButton("OK", null);
+        dialog = alertBuldier.create();
+        dialog.show();
+    }
+
+    public void vfrN_onClick(View view) throws ParseException {
+
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
+        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+        date = dd + "." + mm + "." + yy;
+
+        String dt = String.valueOf(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+
+        Calendar d1 = Calendar.getInstance();
+        d1.setTime(sdf.parse(dt));
+        d1.add(Calendar.DATE, 11);
+
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+
+        String dd1 = sdf2.format(d1.getTime());
+
+        Dialog dialog;
+        View v;
+        v =  (LayoutInflater.from(this))
+                .inflate(R.layout.dialog_status_small, null);
+        final AlertDialog.Builder alertBuldier =
+                new AlertDialog.Builder(this);
+        alertBuldier.setView(v);
+        final TextView titleText = (TextView)
+                v.findViewById(R.id.titleText);
+        titleText.setText("VFR Noc");
+        final TextView textView1_1 = (TextView)
+                v.findViewById(R.id.textView1_1);
+        final TextView textView1_2 = (TextView)
+                v.findViewById(R.id.textView1_2);
+        textView1_1.setText("Data kontroli: ");
+        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        final TextView textView2_1 = (TextView)
+                v.findViewById(R.id.textView2_1);
+        final TextView textView2_2 = (TextView)
+                v.findViewById(R.id.textView2_2);
+        textView2_1.setText("Data następnej kontroli: ");
+        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + yy);
+
+        final TextView textView3_1 = (TextView)
+                v.findViewById(R.id.textView3_1);
+        final TextView textView3_2 = (TextView)
+                v.findViewById(R.id.textView3_2);
+        textView3_1.setText("Pozostało dni: ");
+        textView3_2.setText("41");
+
+        alertBuldier.setCancelable(true)
+                .setPositiveButton("OK", null);
+        dialog = alertBuldier.create();
+        dialog.show();
+    }
+
+    public void ifrD_onClick(View view) throws ParseException {
+
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
+        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+        date = dd + "." + mm + "." + yy;
+
+        String dt = String.valueOf(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+
+        Calendar d1 = Calendar.getInstance();
+        d1.setTime(sdf.parse(dt));
+        d1.add(Calendar.DATE, 13);
+
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+
+        String dd1 = sdf2.format(d1.getTime());
+
+        Dialog dialog;
+        View v;
+        v =  (LayoutInflater.from(this))
+                .inflate(R.layout.dialog_status_small, null);
+        final AlertDialog.Builder alertBuldier =
+                new AlertDialog.Builder(this);
+        alertBuldier.setView(v);
+        final TextView titleText = (TextView)
+                v.findViewById(R.id.titleText);
+        titleText.setText("IFR Dzień");
+        final TextView textView1_1 = (TextView)
+                v.findViewById(R.id.textView1_1);
+        final TextView textView1_2 = (TextView)
+                v.findViewById(R.id.textView1_2);
+        textView1_1.setText("Data kontroli: ");
+        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        final TextView textView2_1 = (TextView)
+                v.findViewById(R.id.textView2_1);
+        final TextView textView2_2 = (TextView)
+                v.findViewById(R.id.textView2_2);
+        textView2_1.setText("Data następnej kontroli: ");
+        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + yy);
+
+        final TextView textView3_1 = (TextView)
+                v.findViewById(R.id.textView3_1);
+        final TextView textView3_2 = (TextView)
+                v.findViewById(R.id.textView3_2);
+        textView3_1.setText("Pozostało dni: ");
+        textView3_2.setText("13");
+
+        alertBuldier.setCancelable(true)
+                .setPositiveButton("OK", null);
+        dialog = alertBuldier.create();
+        dialog.show();
+    }
+
+    public void ifrN_onClick(View view) throws ParseException {
+
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
+        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+        date = dd + "." + mm + "." + yy;
+
+        String dt = String.valueOf(date);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+
+        Calendar d1 = Calendar.getInstance();
+        d1.setTime(sdf.parse(dt));
+        d1.add(Calendar.DATE, 4);
+
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+
+        String dd1 = sdf2.format(d1.getTime());
+
+        Dialog dialog;
+        View v;
+        v =  (LayoutInflater.from(this))
+                .inflate(R.layout.dialog_status_small, null);
+        final AlertDialog.Builder alertBuldier =
+                new AlertDialog.Builder(this);
+        alertBuldier.setView(v);
+        final TextView titleText = (TextView)
+                v.findViewById(R.id.titleText);
+        titleText.setText("IFR Noc");
+        final TextView textView1_1 = (TextView)
+                v.findViewById(R.id.textView1_1);
+        final TextView textView1_2 = (TextView)
+                v.findViewById(R.id.textView1_2);
+        textView1_1.setText("Data kontroli: ");
+        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        final TextView textView2_1 = (TextView)
+                v.findViewById(R.id.textView2_1);
+        final TextView textView2_2 = (TextView)
+                v.findViewById(R.id.textView2_2);
+        textView2_1.setText("Data następnej kontroli: ");
+        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + yy);
+
+        final TextView textView3_1 = (TextView)
+                v.findViewById(R.id.textView3_1);
+        final TextView textView3_2 = (TextView)
+                v.findViewById(R.id.textView3_2);
+        textView3_1.setText("Pozostało dni: ");
+        textView3_2.setText("4");
+
+        alertBuldier.setCancelable(true)
+                .setPositiveButton("OK", null);
+        dialog = alertBuldier.create();
+        dialog.show();
+    }
+    }
+

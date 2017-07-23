@@ -108,11 +108,11 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginLeft="5dp"
-                android:text="KNC"
+                android:text="WOSZK"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:background="@drawable/button_yellow"
-                android:onClick="knc_onClick"
+                android:onClick="woszk_onClick"
 
                 />
         </LinearLayout>
@@ -125,17 +125,20 @@
             android:layout_marginRight="0dp"
             android:layout_marginLeft="-2dp">
 
+
             <Button
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_marginLeft="5dp"
-                android:text="WOSZK"
+                android:text="KNC"
                 android:textSize="14dp"
                 android:textStyle="bold"
                 android:background="@drawable/button_green"
-                android:onClick="woszk_onClick"
+                android:onClick="knc_onClick"
 
                 />
+
+
         </LinearLayout>
 
     </LinearLayout>

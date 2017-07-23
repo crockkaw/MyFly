@@ -293,13 +293,128 @@ private RapidFloatingActionHelper rfabHelper;
         SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
         Calendar d1 = Calendar.getInstance();
         d1.setTime(sdf.parse(date));
-        d1.add(Calendar.DATE, 49);
+        d1.add(Calendar.DATE, 2);
 
         SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
-//        SimpleDateFormat sdf3 = new SimpleDateFormat("mm");
+        SimpleDateFormat sdf3 = new SimpleDateFormat("mm");
+
+        String dd1 = sdf2.format(d1.getTime());
+        String mm1 = sdf3.format(d1.getTime()) + 1;
+
+
+        Dialog dialog;
+        View v;
+        v =  (LayoutInflater.from(this))
+                .inflate(R.layout.dialog_status, null);
+        final AlertDialog.Builder alertBuldier =
+                new AlertDialog.Builder(this);
+        alertBuldier.setView(v);
+        final TextView titleText = (TextView)
+                v.findViewById(R.id.titleText);
+        titleText.setText(R.string.status_komisja);
+
+        final TextView textView1_1 = (TextView)
+                v.findViewById(R.id.textView1_1);
+        final TextView textView1_2 = (TextView)
+                v.findViewById(R.id.textView1_2);
+        textView1_1.setText(R.string.status_komisja_1);
+        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+3) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+
+        final TextView textView2_1 = (TextView)
+                v.findViewById(R.id.textView2_1);
+        final TextView textView2_2 = (TextView)
+                v.findViewById(R.id.textView2_2);
+        textView2_1.setText(R.string.status_komisja_2);
+        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+3) + "." + yy);;
+
+        final TextView textView3_1 = (TextView)
+                v.findViewById(R.id.textView3_1);
+        final TextView textView3_2 = (TextView)
+                v.findViewById(R.id.textView3_2);
+        textView3_1.setText(R.string.status_komisja_3);
+        textView3_2.setText("Z1C");
+
+        final TextView textView4_1 = (TextView)
+                v.findViewById(R.id.textView4_1);
+        final TextView textView4_2 = (TextView)
+                v.findViewById(R.id.textView4_2);
+        textView4_1.setText(R.string.status_komisja_4);
+        textView4_2.setText("63");
+
+
+        alertBuldier.setCancelable(true)
+                .setPositiveButton("OK", null);
+        dialog = alertBuldier.create();
+        dialog.show();
+    }
+
+
+//    public void knc_onClick(View view) {
+//        Dialog dialog;
+//        View v;
+//        v =  (LayoutInflater.from(this))
+//                .inflate(R.layout.dialog_status, null);
+//        final AlertDialog.Builder alertBuldier =
+//                new AlertDialog.Builder(this);
+//        alertBuldier.setView(v);
+//        final TextView titleText = (TextView)
+//                v.findViewById(R.id.titleText);
+//        titleText.setText(R.string.status_komisja);
+//
+//        final TextView textView1_1 = (TextView)
+//                v.findViewById(R.id.textView1_1);
+//        final TextView textView1_2 = (TextView)
+//                v.findViewById(R.id.textView1_2);
+//        textView1_1.setText(R.string.status_komisja_1);
+//        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+//
+//        final TextView textView2_1 = (TextView)
+//                v.findViewById(R.id.textView2_1);
+//        final TextView textView2_2 = (TextView)
+//                v.findViewById(R.id.textView2_2);
+//        textView2_1.setText(R.string.status_komisja_2);
+//        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + yy);;
+//
+//        final TextView textView3_1 = (TextView)
+//                v.findViewById(R.id.textView3_1);
+//        final TextView textView3_2 = (TextView)
+//                v.findViewById(R.id.textView3_2);
+//        textView3_1.setText(R.string.status_komisja_3);
+//        textView3_2.setText("Z1C");
+//
+//        final TextView textView4_1 = (TextView)
+//                v.findViewById(R.id.textView4_1);
+//        final TextView textView4_2 = (TextView)
+//                v.findViewById(R.id.textView4_2);
+//        textView4_1.setText(R.string.status_komisja_4);
+//        textView4_2.setText("49");
+//
+//
+//        alertBuldier.setCancelable(true)
+//                .setPositiveButton("OK", null);
+//        dialog = alertBuldier.create();
+//        dialog.show();
+//
+//    }
+
+    public void woszk_onClick(View view) throws ParseException {
+
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH));
+        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+        date = dd + "." + mm + "." + yy;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        Calendar d1 = Calendar.getInstance();
+        d1.setTime(sdf.parse(date));
+        d1.add(Calendar.DATE, 14);
+
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
 
         String dd1 = sdf2.format(d1.getTime());
 
+
         Dialog dialog;
         View v;
         v =  (LayoutInflater.from(this))
@@ -309,45 +424,63 @@ private RapidFloatingActionHelper rfabHelper;
         alertBuldier.setView(v);
         final TextView titleText = (TextView)
                 v.findViewById(R.id.titleText);
-        titleText.setText(R.string.status_komisja);
+        titleText.setText("Wojskowy Ośrodek Szkoleniowo-Kondycyjny");
 
         final TextView textView1_1 = (TextView)
                 v.findViewById(R.id.textView1_1);
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
-        textView1_1.setText(R.string.status_komisja_1);
-        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_1.setText("Data aktualnego: ");
+        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
 
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
-        textView2_1.setText(R.string.status_komisja_2);
-        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + yy);;
+        textView2_1.setText("Data planowanego: ");
+        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + yy);;
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
         final TextView textView3_2 = (TextView)
                 v.findViewById(R.id.textView3_2);
-        textView3_1.setText(R.string.status_komisja_3);
-        textView3_2.setText("Z1C");
+        textView3_1.setText("Lokalizacja: ");
+        textView3_2.setText("Zakopane");
 
         final TextView textView4_1 = (TextView)
                 v.findViewById(R.id.textView4_1);
         final TextView textView4_2 = (TextView)
                 v.findViewById(R.id.textView4_2);
         textView4_1.setText(R.string.status_komisja_4);
-        textView4_2.setText("49");
+        textView4_2.setText("14");
 
 
         alertBuldier.setCancelable(true)
                 .setPositiveButton("OK", null);
         dialog = alertBuldier.create();
         dialog.show();
+
     }
 
 
-    public void knc_onClick(View view) {
+    public void knc_onClick(View view) throws ParseException {
+
+        java.util.Calendar instance = java.util.Calendar.getInstance();
+        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
+        mm = String.valueOf(instance.get(java.util.Calendar.MONTH));
+        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
+        date = dd + "." + mm + "." + yy;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        Calendar d1 = Calendar.getInstance();
+        d1.setTime(sdf.parse(date));
+        d1.add(Calendar.DATE, 5);
+
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+
+        String dd1 = sdf2.format(d1.getTime());
+
+
         Dialog dialog;
         View v;
         v =  (LayoutInflater.from(this))
@@ -357,35 +490,35 @@ private RapidFloatingActionHelper rfabHelper;
         alertBuldier.setView(v);
         final TextView titleText = (TextView)
                 v.findViewById(R.id.titleText);
-        titleText.setText(R.string.status_komisja);
+        titleText.setText("Komora niskich ciśnień ");
 
         final TextView textView1_1 = (TextView)
                 v.findViewById(R.id.textView1_1);
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
-        textView1_1.setText(R.string.status_komisja_1);
+        textView1_1.setText("Data aktualnego badania: ");
         textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
 
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
-        textView2_1.setText(R.string.status_komisja_2);
+        textView2_1.setText("Data następnego badania: ");
         textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + yy);;
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
         final TextView textView3_2 = (TextView)
                 v.findViewById(R.id.textView3_2);
-        textView3_1.setText(R.string.status_komisja_3);
-        textView3_2.setText("Z1C");
+        textView3_1.setText("Wynik: ");
+        textView3_2.setText("Pozytywny");
 
         final TextView textView4_1 = (TextView)
                 v.findViewById(R.id.textView4_1);
         final TextView textView4_2 = (TextView)
                 v.findViewById(R.id.textView4_2);
         textView4_1.setText(R.string.status_komisja_4);
-        textView4_2.setText("49");
+        textView4_2.setText("35");
 
 
         alertBuldier.setCancelable(true)
@@ -394,10 +527,6 @@ private RapidFloatingActionHelper rfabHelper;
         dialog.show();
 
     }
-
-    public void woszk_onClick(View view) {
-    }
-
 
 
     public void openDoc1(View view) {
