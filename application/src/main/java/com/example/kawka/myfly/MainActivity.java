@@ -19,8 +19,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.kawka.myfly.models.NalotAktualnyAdapter;
 
@@ -38,6 +41,9 @@ public class MainActivity extends AppCompatActivity
 //    NalotAktualnyAdapter nalotAktualnyAdapter;
 
     Context context;
+
+    MNalotFragment mNalotFragment;
+
 
 
 
@@ -74,6 +80,8 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         setTitle(getString(R.string.aktu));
         context=this;
+
+        mNalotFragment = new MNalotFragment();
 
 //        nalotAktualnyAdapter = new NalotAktualnyAdapter("40");
 
@@ -190,13 +198,56 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        new AlertDialog.Builder(this)
+                .setMessage("Czy chcesz zamknąć aplikację?")
+                .setCancelable(false)
+                .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        MainActivity.this.finish();
+                    }
+                })
+                .setNegativeButton("Nie", null)
+                .show();
     }
+
+
+//    @Override
+//    public void onBackPressed() {
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        if (drawer.isDrawerOpen(GravityCompat.START)) {
+//            drawer.closeDrawer(GravityCompat.START);
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
+//
+//
+//    @Override
+//    public void onBackPressed() {
+//        if (webview.canGoBack()) {
+//            webview.goBack();
+//
+//        }
+//        else
+//        {
+//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//            builder.setMessage("Are you sure you want to exit?")
+//                    .setCancelable(false)
+//                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            finish();
+//                        }
+//                    })
+//                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            dialog.cancel();
+//                        }
+//                    });
+//            AlertDialog alert = builder.create();
+//            alert.show();
+//        }
+//
+//    }
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
@@ -266,9 +317,18 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
 
         } else if (id == R.id.nav_logout) {
-            finish();
-            System.exit(0);
-
+//            finish();
+//            System.exit(0);
+            new AlertDialog.Builder(this)
+                    .setMessage("Czy na pewno chcesz się wylogować?")
+                    .setCancelable(false)
+                    .setPositiveButton("Tak", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            MainActivity.this.finish();
+                        }
+                    })
+                    .setNegativeButton("Nie", null)
+                    .show();
 
         }
 
@@ -377,10 +437,14 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void nalRoczSpButton(View view) {
-        LinearLayout l = (LinearLayout) findViewById(R.id.nalRoczSp);
-        l.setVisibility(View.VISIBLE);
-    }
+//    public void nalRoczSpButton(View view) {
+//        LinearLayout l = (LinearLayout) findViewById(R.id.nalRoczSp);
+//        l.setVisibility(View.VISIBLE);
+//
+//        mNalotFragment.nalRoczSpButton(view);
+//
+//
+//    }
 
     public void nalRoczSymButton(View view) {
         LinearLayout l = (LinearLayout) findViewById(R.id.nalRoczSym);

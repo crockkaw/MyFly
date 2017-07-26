@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -546,19 +547,41 @@ private RapidFloatingActionHelper rfabHelper;
     }
 
     public void confirmDoc(View view) {
-        ApiService client = ServiceGenerator.createService(ApiService.class, "client", "Turawa2016");
+        final ProgressDialog progressDialog = new ProgressDialog(MAStatusActivity.this,
+                R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Przetwarzanie...");
+        progressDialog.show();
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        progressDialog.dismiss();
 
-        ZibConfirm zibCon = new ZibConfirm("21", "264","56","2017-05-12");
-        Call<ZibConfirm> call = client.createZibCon("application/vnd.oracle.adf.resourceitem+json",zibCon);
-        call.enqueue(new Callback<ZibConfirm>() {
-            @Override
-            public void onResponse(Call<ZibConfirm> call, Response<ZibConfirm> response) {
-                Toast.makeText(MAStatusActivity.this, "Potwierdzono zapoznanie się z dokumentem", Toast.LENGTH_SHORT).show();
-            }
-            @Override
-            public void onFailure(Call<ZibConfirm> call, Throwable t) {
-                Toast.makeText(MAStatusActivity.this, "Błąd", Toast.LENGTH_SHORT).show();}
-        });
+                        Snackbar.make((findViewById(R.id.activity_mastatus)), "Potwierdzono zapoznanie się z dokumentem.", Snackbar.LENGTH_SHORT)
+                                .show();
+
+
+
+                    }
+                }, 700);
+
+
+
+
+
+//        ApiService client = ServiceGenerator.createService(ApiService.class, "client", "Turawa2016");
+//
+//        ZibConfirm zibCon = new ZibConfirm("21", "264","56","2017-05-12");
+//        Call<ZibConfirm> call = client.createZibCon("application/vnd.oracle.adf.resourceitem+json",zibCon);
+//        call.enqueue(new Callback<ZibConfirm>() {
+//            @Override
+//            public void onResponse(Call<ZibConfirm> call, Response<ZibConfirm> response) {
+//                Toast.makeText(MAStatusActivity.this, "Potwierdzono zapoznanie się z dokumentem", Toast.LENGTH_SHORT).show();
+//            }
+//            @Override
+//            public void onFailure(Call<ZibConfirm> call, Throwable t) {
+//                Toast.makeText(MAStatusActivity.this, "Błąd", Toast.LENGTH_SHORT).show();}
+//        });
     }
 
 

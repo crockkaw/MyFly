@@ -19,8 +19,17 @@
         <ImageView android:src="@drawable/logo"
             android:layout_width="wrap_content"
             android:layout_height="110dp"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="17dp"
             android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nie pamiętasz ? "
+            android:gravity="center"
+            android:textColor="#b1b1b1"
+            android:onClick="passportDialog"
+            android:textSize="12dp"/>
 
         <!-- Email Label -->
         <android.support.design.widget.TextInputLayout

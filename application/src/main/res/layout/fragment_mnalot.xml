@@ -44,12 +44,14 @@
             android:elevation="0dp"
             android:layout_marginTop="10dp"
             app:contentPadding="5dp"
+            android:id="@+id/cardLoty"
             >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:id="@+id/loty">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -75,7 +77,7 @@
                     android:gravity="right"
                     android:orientation="horizontal">
 
-                    <Button
+                    <ToggleButton
                         android:id="@+id/dataButton1"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
@@ -97,7 +99,6 @@
                 android:visibility="gone"
                 >
 
-                android:visibility="gone"
 
 
                 <SeekBar
@@ -116,7 +117,7 @@
                     android:layout_width="40dp"
                     android:layout_height="37dp"
                     android:gravity="center"
-                    android:hint="8"
+                    android:text="5"
                     android:textColor="#000000"
                     android:id="@+id/numberOfFlights"
                     android:textSize="15sp"
@@ -148,12 +149,20 @@
     <LinearLayout
         android:id="@+id/layout_loty"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <com.loopeer.android.librarys.scrolltable.ScrollTableView
             android:id="@+id/scroll_t_loty"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            />
+        <com.loopeer.android.librarys.scrolltable.ScrollTableView
+            android:id="@+id/scroll_t_loty2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+
             />
     </LinearLayout>
 
@@ -200,7 +209,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="right">
-                    <Button
+                    <ToggleButton
                         android:layout_gravity="right"
                         android:background="@drawable/button_edit"
                         android:layout_width="35dp"
@@ -208,7 +217,7 @@
                         android:paddingLeft="7dp"
                         android:drawableLeft="@drawable/ic_mode_edit_white_24dp"
                         android:layout_marginBottom="2dp"
-                        android:onClick="nalRoczSpButton"
+                        android:id="@+id/nalRokSp"
                         />
                 </LinearLayout>
             </LinearLayout>
@@ -287,7 +296,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="right">
-                    <Button
+                    <ToggleButton
                         android:layout_gravity="right"
                         android:background="@drawable/button_edit"
                         android:layout_width="35dp"
@@ -295,7 +304,7 @@
                         android:paddingLeft="7dp"
                         android:drawableLeft="@drawable/ic_mode_edit_white_24dp"
                         android:layout_marginBottom="2dp"
-                        android:onClick="nalRoczSymButton"
+                        android:id="@+id/nalRokSym"
                         />
                 </LinearLayout>
             </LinearLayout>

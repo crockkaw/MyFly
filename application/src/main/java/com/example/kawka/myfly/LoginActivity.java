@@ -1,15 +1,20 @@
 package com.example.kawka.myfly;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 
 import com.github.orangegangsters.lollipin.lib.managers.AppLock;
+import com.github.orangegangsters.lollipin.lib.managers.LockManager;
 
 
 import android.app.ProgressDialog;
@@ -25,6 +30,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -82,10 +89,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        if (!validate()) {
-            onLoginFailed();
-            return;
-        }
+
 
         _loginButton.setEnabled(false);
 
@@ -102,12 +106,18 @@ public class LoginActivity extends AppCompatActivity {
         new android.os.Handler().postDelayed(
                 new Runnable() {
                     public void run() {
+                        progressDialog.dismiss();
+
+                        if (!validate()) {
+                            onLoginFailed();
+                            return;
+                        }
                         // On complete call either onLoginSuccess or onLoginFailed
                         onLoginSuccess();
                         // onLoginFailed();
-                        progressDialog.dismiss();
+
                     }
-                }, 3000);
+                }, 1200);
     }
 
 
@@ -123,14 +133,17 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void onLoginSuccess() {
+
+        AppLock appLock = LockManager.getInstance().getAppLock(); if (appLock != null) { appLock.disableAndRemoveConfiguration(); }
+
         Intent intent = new Intent(getApplication(), PinLockActivity.class);
         intent.putExtra(AppLock.EXTRA_TYPE, AppLock.ENABLE_PINLOCK);
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
 
-        Intent i = new Intent(getApplication(), StartActivity.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        startActivity(intent);
+//        Intent i = new Intent(getApplication(), StartActivity.class);
+//        i.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+//        startActivity(i);
     }
 
     public void onLoginFailed() {
@@ -166,4 +179,16 @@ public class LoginActivity extends AppCompatActivity {
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
+
+    public void passportDialog(View view) {
+
+        new AlertDialog.Builder(this)
+                .setMessage("Dane uwierzytelniające możesz zmienić tylko za pomocą aplikacji webowej. ")
+                .setCancelable(true)
+                .setPositiveButton("OK", null)
+                .show();
+    }
+
+
+
 }
