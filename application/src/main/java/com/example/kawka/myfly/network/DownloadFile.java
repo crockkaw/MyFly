@@ -106,8 +106,11 @@ public class DownloadFile extends AsyncTask<String, Integer, String> {
             Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
             pdfIntent.setDataAndType(path, "application/pdf");
             pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            pdfIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
 
             try {
+
                 context.startActivity(pdfIntent);
             } catch (ActivityNotFoundException e) {
                 Toast.makeText(context, "Brak aplikacji do wyświetlania dokumentów pdf ", Toast.LENGTH_SHORT).show();
