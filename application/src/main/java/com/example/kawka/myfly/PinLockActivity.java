@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.github.ajalt.reprint.core.AuthenticationFailureReason;
 import com.github.ajalt.reprint.core.AuthenticationListener;
 import com.github.ajalt.reprint.core.Reprint;
+import com.github.ajalt.reprint.core.ReprintModule;
 import com.github.orangegangsters.lollipin.lib.managers.AppLockActivity;
 import com.github.orangegangsters.lollipin.lib.managers.LockManager;
 
@@ -27,15 +28,23 @@ public class PinLockActivity extends AppLockActivity {
 
     @Override
     public void onCreateActivity(){
-        Reprint.initialize(this);
+        Reprint.initialize(PinLockActivity.this);
 
         Reprint.authenticate(new AuthenticationListener() {
             @Override
             public void onSuccess(int moduleTag) {
+                Reprint.cancelAuthentication();
 
-                fingersucces ();
+
+
+                fingersucces();
+                Reprint.cancelAuthentication();
+
 
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
 
@@ -109,7 +118,9 @@ public class PinLockActivity extends AppLockActivity {
 
     @Override
     public void onPinSuccess(int attempts) {
-                Intent intent = new Intent(this,StartActivity.class);
+        Reprint.cancelAuthentication();
+
+        Intent intent = new Intent(this,StartActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);

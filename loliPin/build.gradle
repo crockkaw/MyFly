@@ -32,7 +32,7 @@ dependencies {
 
     //Skaner linii papilarnych
     compile 'com.github.ajalt.reprint:core:2.9.2@aar'     // required, supports marshmallow devices
-    compile 'com.github.ajalt.reprint:reprint_spass:2.9.2@aar' // optional: support for pre-marshmallow Samsung devices
+//    compile 'com.github.ajalt.reprint:reprint_spass:2.9.2@aar' // optional: support for pre-marshmallow Samsung devices
 }
 
 //gradle clean build uploadArchives

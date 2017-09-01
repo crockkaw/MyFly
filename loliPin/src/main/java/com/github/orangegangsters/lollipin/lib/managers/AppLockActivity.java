@@ -76,7 +76,7 @@ public abstract class AppLockActivity extends PinActivity implements KeyboardBut
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
-        Reprint.initialize(this);
+//        Reprint.initialize(this);
 
         onCreateActivity();
 
@@ -174,42 +174,8 @@ public abstract class AppLockActivity extends PinActivity implements KeyboardBut
 
     }
 
-//    private void startTraditional() {
-//
-//        Reprint.authenticate(new AuthenticationListener() {
-//            @Override
-//            public void onSuccess(int moduleTag) {
-//                fingersucces();
-//
-//            }
-//
-//            @Override
-//            public void onFailure(@NonNull AuthenticationFailureReason failureReason, boolean fatal,
-//                                  @NonNull CharSequence errorMessage, int moduleTag, int errorCode) {
-//                errorMess(@NonNull AuthenticationFailureReason failureReason, boolean fatal,
-//                @NonNull CharSequence errorMessage, int moduleTag, int errorCode);
-//
-//                if (errorCode==0) {
-//                    Toast.makeText(getBaseContext(), String.valueOf(errorCode),
-//                            Toast.LENGTH_SHORT).show();
-//                }
-//                if (fatal) {
-//                    onResume();
-//                }
-//
-//
-////                mFingerprintTextView = (TextView) this.findViewById(R.id.pin_code_fingerprint_textview);
-////
-////                mFingerprintTextView.setText(errorMessage.toString());
-//            }
-//        });
-//    }
 
-    public void repInt(){
-        Reprint.initialize(this);
-
-    }
-    public void fingersucces (){
+    public void fingersucces(){
         ImageView finger = (ImageView) this.findViewById(R.id.pin_code_fingerprint_imageview);
         finger.setImageResource(R.drawable.ic_fingerprint_success);
 

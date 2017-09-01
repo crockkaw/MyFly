@@ -25,7 +25,7 @@ public class FingerprintActivity extends AppCompatActivity {
 
         errorText = (TextView) findViewById(R.id.error_TextView);
 
-        startTraditional();
+//        startTraditional();
     }
 
 
@@ -36,22 +36,22 @@ public class FingerprintActivity extends AppCompatActivity {
 
 
 
-    private void startTraditional() {
-
-        Reprint.authenticate(new AuthenticationListener() {
-            @Override
-            public void onSuccess(int moduleTag) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onFailure(@NonNull AuthenticationFailureReason failureReason, boolean fatal,
-                                  @Nullable CharSequence errorMessage, int moduleTag, int errorCode) {
-                errorText.setText(errorMessage.toString());
-            }
-        });
-
-    }
+//    private void startTraditional() {
+//
+//        Reprint.authenticate(new AuthenticationListener() {
+//            @Override
+//            public void onSuccess(int moduleTag) {
+//                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                startActivity(intent);
+//            }
+//
+//            @Override
+//            public void onFailure(@NonNull AuthenticationFailureReason failureReason, boolean fatal,
+//                                  @Nullable CharSequence errorMessage, int moduleTag, int errorCode) {
+//                errorText.setText(errorMessage.toString());
+//            }
+//        });
+//
+//    }
 
 }
