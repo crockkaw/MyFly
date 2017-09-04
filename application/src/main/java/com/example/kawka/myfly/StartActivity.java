@@ -12,17 +12,20 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.kawka.myfly.models.NalotAktualnyAdapter;
+import com.github.ajalt.reprint.core.Reprint;
 
 public class StartActivity extends AppCompatActivity {
 
     Thread thread;
-    NalotAktualnyAdapter nalotAktualnyAdapter;
+//    NalotAktualnyAdapter nalotAktualnyAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+
+        Reprint.cancelAuthentication();
 
 //        nalotAktualnyAdapter = new NalotAktualnyAdapter();
 

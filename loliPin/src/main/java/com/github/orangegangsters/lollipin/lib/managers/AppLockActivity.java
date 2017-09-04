@@ -76,7 +76,7 @@ public abstract class AppLockActivity extends PinActivity implements KeyboardBut
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getContentView());
-        Reprint.initialize(this);
+//        Reprint.initialize(this);
 
         onCreateActivity();
 
@@ -205,10 +205,10 @@ public abstract class AppLockActivity extends PinActivity implements KeyboardBut
 //        });
 //    }
 
-    public void repInt(){
-        Reprint.initialize(this);
-
-    }
+//    public void repInt(){
+//        Reprint.initialize(this);
+//
+//    }
     public void fingersucces (){
         ImageView finger = (ImageView) this.findViewById(R.id.pin_code_fingerprint_imageview);
         finger.setImageResource(R.drawable.ic_fingerprint_success);

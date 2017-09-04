@@ -18,10 +18,7 @@ import android.transition.Slide;
 import android.transition.Transition;
 import android.view.Gravity;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import com.example.kawka.myfly.models.ZibConfirm;
-import com.example.kawka.myfly.network.ApiService;
 import com.example.kawka.myfly.network.DownloadFile;
 import com.example.kawka.myfly.network.ServiceGenerator;
 import com.wangjie.androidinject.annotation.annotations.base.AIView;
@@ -35,6 +32,11 @@ import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RFACLabelItem;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RapidFloatingActionContentLabelList;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ public class MAStatusActivity extends AIActionBarActivity implements RapidFloati
 
     String dd, mm, yy, date;
 
-boolean yetDownload;
+    boolean yetDownload;
 
     String docUrl;
 
@@ -61,11 +63,11 @@ boolean yetDownload;
 
     ProgressDialog progressDialog;
 
-@AIView(R.id.activity_main_rfal)
-private RapidFloatingActionLayout rfaLayout;
-@AIView(R.id.activity_main_rfab)
-private RapidFloatingActionButton rfaBtn;
-private RapidFloatingActionHelper rfabHelper;
+    @AIView(R.id.activity_main_rfal)
+    private RapidFloatingActionLayout rfaLayout;
+    @AIView(R.id.activity_main_rfab)
+    private RapidFloatingActionButton rfaBtn;
+    private RapidFloatingActionHelper rfabHelper;
 
 
 
@@ -112,34 +114,48 @@ private RapidFloatingActionHelper rfabHelper;
 
     private void zibDate() throws ParseException {
 
-        String dt = String.valueOf(date);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        DateTime r1 = new DateTime();
+        DateTime e1 = new DateTime();
 
-        Calendar r1 = Calendar.getInstance();
-        r1.setTime(sdf.parse(dt));
-        r1.add(Calendar.DATE, -1);
-        String rel1 = sdf.format(r1.getTime());
+        r1 = r1.minusDays(1);
+        e1 = e1.plusDays(6);
 
-        Calendar e1 = Calendar.getInstance();
-        e1.setTime(sdf.parse(dt));
-        e1.add(Calendar.DATE, 6);
-        String ext1 = sdf.format(e1.getTime());
+        DecimalFormat df = new DecimalFormat("00");
+
+        String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+        String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+        String yr1 = String.valueOf(r1.getYear());
+
+        String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+        String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+        String ye1 = String.valueOf(e1.getYear());
+
+        String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+        String ext1 = de1 + "." + me1 + "." + ye1 ;
+
+
 
         TextView releaseDate1 = (TextView) findViewById(R.id.releaseDate1);
         TextView expireDate1 = (TextView) findViewById(R.id.expireDate1);
         releaseDate1.setText(rel1);
         expireDate1.setText(ext1);
 
+        DateTime r2 = new DateTime();
+        DateTime e2 = new DateTime();
 
-        Calendar r2 = Calendar.getInstance();
-        r2.setTime(sdf.parse(dt));
-        r2.add(Calendar.DATE, -5);
-        String rel2 = sdf.format(r2.getTime());
+        r2 = r2.minusDays(5);
+        e2 = e2.plusDays(1);
 
-        Calendar e2 = Calendar.getInstance();
-        e2.setTime(sdf.parse(dt));
-        e2.add(Calendar.DATE, 1);
-        String ext2 = sdf.format(e2.getTime());
+        String dr2 = String.valueOf(df.format(r2.getDayOfMonth()));
+        String mr2 = String.valueOf(df.format(r2.getMonthOfYear()));
+        String yr2 = String.valueOf(r2.getYear());
+
+        String de2 = String.valueOf(df.format(e2.getDayOfMonth()));
+        String me2 = String.valueOf(df.format(e2.getMonthOfYear()));
+        String ye2 = String.valueOf(e2.getYear());
+
+        String rel2 = dr2 + "." + mr2 + "." + yr2 ;
+        String ext2 = de2 + "." + me2 + "." + ye2 ;
 
         TextView releaseDate2 = (TextView) findViewById(R.id.releaseDate2);
         TextView expireDate2 = (TextView) findViewById(R.id.expireDate2);
@@ -147,15 +163,22 @@ private RapidFloatingActionHelper rfabHelper;
         expireDate2.setText(ext2);
 
 
-        Calendar r3 = Calendar.getInstance();
-        r3.setTime(sdf.parse(dt));
-        r3.add(Calendar.DATE, -10);
-        String rel3 = sdf.format(r3.getTime());
+        DateTime r3 = new DateTime();
+        DateTime e3 = new DateTime();
 
-        Calendar e3 = Calendar.getInstance();
-        e3.setTime(sdf.parse(dt));
-        e3.add(Calendar.DATE, -3);
-        String ext3 = sdf.format(e3.getTime());
+        r3 = r3.minusDays(10);
+        e3 = e3.minusDays(3);
+
+        String dr3 = String.valueOf(df.format(r3.getDayOfMonth()));
+        String mr3 = String.valueOf(df.format(r3.getMonthOfYear()));
+        String yr3 = String.valueOf(r3.getYear());
+
+        String de3 = String.valueOf(df.format(e3.getDayOfMonth()));
+        String me3 = String.valueOf(df.format(e3.getMonthOfYear()));
+        String ye3 = String.valueOf(e3.getYear());
+
+        String rel3 = dr3 + "." + mr3 + "." + yr3 ;
+        String ext3 = de3 + "." + me3 + "." + ye3 ;
 
         TextView releaseDate3 = (TextView) findViewById(R.id.releaseDate3);
         TextView expireDate3 = (TextView) findViewById(R.id.expireDate3);
@@ -177,22 +200,18 @@ private RapidFloatingActionHelper rfabHelper;
 
     @Override
     public void onRFACItemLabelClick(int position, RFACLabelItem item) {
-            rfabHelper.toggleContent();
-            }
+        rfabHelper.toggleContent();
+    }
 
     @Override
     public void onRFACItemIconClick(int position, RFACLabelItem item) {
-            rfabHelper.toggleContent();
-            }
-
-
+        rfabHelper.toggleContent();
+    }
 
     private void setupWindowAnimations() {
         Transition transition;
         transition = buildEnterTransition();
         getWindow().setEnterTransition(transition);
-
-
     }
 
     private Transition buildEnterTransition() {
@@ -201,8 +220,6 @@ private RapidFloatingActionHelper rfabHelper;
         enterTransition.setSlideEdge(Gravity.RIGHT);
         return enterTransition;
     }
-
-
 
 
 
@@ -262,7 +279,7 @@ private RapidFloatingActionHelper rfabHelper;
                 .setWrapper(3)
         );
 
-                rfaContent
+        rfaContent
                 .setItems(items)
                 .setIconShadowRadius(ABTextUtil.dip2px(context, 5))
                 .setIconShadowColor(0xff888888)
@@ -285,22 +302,26 @@ private RapidFloatingActionHelper rfabHelper;
 
     public void komisja_onClick(View view) throws ParseException {
 
-        java.util.Calendar instance = java.util.Calendar.getInstance();
-        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        mm = String.valueOf(instance.get(java.util.Calendar.MONTH));
-        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
-        date = dd + "." + mm + "." + yy;
+        DateTime r1 = new DateTime();
+        DateTime e1 ;
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
-        Calendar d1 = Calendar.getInstance();
-        d1.setTime(sdf.parse(date));
-        d1.add(Calendar.DATE, 2);
+        r1 = r1.plusDays(63);
+        e1 = r1.minusYears(1);
 
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
-        SimpleDateFormat sdf3 = new SimpleDateFormat("mm");
+        DecimalFormat df = new DecimalFormat("00");
 
-        String dd1 = sdf2.format(d1.getTime());
-        String mm1 = sdf3.format(d1.getTime()) + 1;
+        String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+        String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+        String yr1 = String.valueOf(r1.getYear());
+
+        String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+        String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+        String ye1 = String.valueOf(e1.getYear());
+
+        String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+        String ext1 = de1 + "." + me1 + "." + ye1 ;
+
+
 
 
         Dialog dialog;
@@ -318,15 +339,15 @@ private RapidFloatingActionHelper rfabHelper;
                 v.findViewById(R.id.textView1_1);
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
-        textView1_1.setText(R.string.status_komisja_1);
-        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+3) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_1.setText("Data aktualnego badania");
+        textView1_2.setText(ext1);
 
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText(R.string.status_komisja_2);
-        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+3) + "." + yy);;
+        textView2_2.setText(rel1);;
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
@@ -400,20 +421,25 @@ private RapidFloatingActionHelper rfabHelper;
 
     public void woszk_onClick(View view) throws ParseException {
 
-        java.util.Calendar instance = java.util.Calendar.getInstance();
-        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        mm = String.valueOf(instance.get(java.util.Calendar.MONTH));
-        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
-        date = dd + "." + mm + "." + yy;
+        DateTime r1 = new DateTime();
+        DateTime e1 ;
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
-        Calendar d1 = Calendar.getInstance();
-        d1.setTime(sdf.parse(date));
-        d1.add(Calendar.DATE, 14);
+        r1 = r1.plusDays(14);
+        e1 = r1.minusYears(1);
 
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+        DecimalFormat df = new DecimalFormat("00");
 
-        String dd1 = sdf2.format(d1.getTime());
+        String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+        String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+        String yr1 = String.valueOf(r1.getYear());
+
+        String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+        String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+        String ye1 = String.valueOf(e1.getYear());
+
+        String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+        String ext1 = de1 + "." + me1 + "." + ye1 ;
+
 
 
         Dialog dialog;
@@ -432,14 +458,14 @@ private RapidFloatingActionHelper rfabHelper;
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
         textView1_1.setText("Data aktualnego: ");
-        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_2.setText(ext1);
 
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText("Data planowanego: ");
-        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + yy);;
+        textView2_2.setText(rel1);
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
@@ -466,20 +492,25 @@ private RapidFloatingActionHelper rfabHelper;
 
     public void knc_onClick(View view) throws ParseException {
 
-        java.util.Calendar instance = java.util.Calendar.getInstance();
-        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        mm = String.valueOf(instance.get(java.util.Calendar.MONTH));
-        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
-        date = dd + "." + mm + "." + yy;
+        DateTime r1 = new DateTime();
+        DateTime e1;
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
-        Calendar d1 = Calendar.getInstance();
-        d1.setTime(sdf.parse(date));
-        d1.add(Calendar.DATE, 5);
+        r1 = r1.plusDays(35);
+        e1 = r1.minusYears(1);
 
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+        DecimalFormat df = new DecimalFormat("00");
 
-        String dd1 = sdf2.format(d1.getTime());
+        String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+        String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+        String yr1 = String.valueOf(r1.getYear());
+
+        String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+        String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+        String ye1 = String.valueOf(e1.getYear());
+
+        String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+        String ext1 = de1 + "." + me1 + "." + ye1 ;
+
 
 
         Dialog dialog;
@@ -498,14 +529,14 @@ private RapidFloatingActionHelper rfabHelper;
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
         textView1_1.setText("Data aktualnego badania: ");
-        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_2.setText(ext1);
 
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText("Data następnego badania: ");
-        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + yy);;
+        textView2_2.setText(rel1);
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);

@@ -12,9 +12,11 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import com.loopeer.android.librarys.scrolltable.ScrollTableView;
 
+import org.joda.time.DateTime;
 
 
 public class MPlanLotyFragment extends Fragment {
@@ -77,13 +79,16 @@ public class MPlanLotyFragment extends Fragment {
         nalotTextView4 = (TextView) myView.findViewById(R.id.nalotTextView4);
 
 
+
+        DecimalFormat df = new DecimalFormat("00");
+
         java.util.Calendar instance = java.util.Calendar.getInstance();
-        String dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        String mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
+        String dd = String.valueOf(df.format(instance.get(java.util.Calendar.DAY_OF_MONTH)));
+        String mm = String.valueOf(df.format(instance.get(java.util.Calendar.MONTH)+1));
         String yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
         String date = dd + "." + mm + "." + yy;
 
-        String dd2 = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH)+1);
+        String dd2 = String.valueOf(df.format(instance.get(java.util.Calendar.DAY_OF_MONTH)+1));
         String date2 = dd2 + "." + mm + "." + yy;
 
 

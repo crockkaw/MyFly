@@ -36,6 +36,9 @@ public class PinLockActivity extends AppLockActivity {
                 fingersucces ();
 
                 Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
 

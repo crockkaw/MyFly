@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId "com.example.kawka.myfly"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -90,9 +90,9 @@ dependencies {
     compile 'uk.me.lewisdeane.ldialogs:ldialogs:1.2.0@aar'
 
 
-    //Skaner linii papilarnych
+//    //Skaner linii papilarnych
     compile 'com.github.ajalt.reprint:core:2.9.2@aar'     // required, supports marshmallow devices
-    compile 'com.github.ajalt.reprint:reprint_spass:2.9.2@aar' // optional: support for pre-marshmallow Samsung devices
+//    compile 'com.github.ajalt.reprint:reprint_spass:2.9.2@aar' // optional: support for pre-marshmallow Samsung devices
 
      //RapidFloatingActionButton
 //  compile 'com.github.wangjiegulu:RapidFloatingActionButton:1.0.3'

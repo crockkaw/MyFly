@@ -30,6 +30,9 @@ import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RFACLabelItem;
 import com.wangjie.rapidfloatingactionbutton.contentimpl.labellist.RapidFloatingActionContentLabelList;
 
+import org.joda.time.DateTime;
+
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -195,22 +198,24 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
     public void wodowanie_onClick(View view) throws ParseException {
 
-        java.util.Calendar instance = java.util.Calendar.getInstance();
-        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
-        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
-        date = dd + "." + mm + "." + yy;
+        DateTime r1 = new DateTime();
+        DateTime e1 ;
 
-        String dt = String.valueOf(date);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        r1 = r1.plusDays(14);
+        e1 = r1.minusYears(1);
 
-        Calendar d1 = Calendar.getInstance();
-        d1.setTime(sdf.parse(dt));
-        d1.add(Calendar.DATE, 14);
+        DecimalFormat df = new DecimalFormat("00");
 
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+        String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+        String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+        String yr1 = String.valueOf(r1.getYear());
 
-        String dd1 = sdf2.format(d1.getTime());
+        String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+        String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+        String ye1 = String.valueOf(e1.getYear());
+
+        String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+        String ext1 = de1 + "." + me1 + "." + ye1 ;
 
         Dialog dialog;
         View v;
@@ -226,14 +231,14 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
                 v.findViewById(R.id.textView1_1);
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
-        textView1_1.setText("Data kontroli: ");
-        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_1.setText("Data aktualnej kontroli: ");
+        textView1_2.setText(ext1);
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText("Data następnej kontroli: ");
-        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + yy);
+        textView2_2.setText(rel1);
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
@@ -251,22 +256,24 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
     public void zaawans_onClick(View view) throws ParseException {
 
-        java.util.Calendar instance = java.util.Calendar.getInstance();
-        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
-        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
-        date = dd + "." + mm + "." + yy;
+        DateTime r1 = new DateTime();
+        DateTime e1 ;
 
-        String dt = String.valueOf(date);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        r1 = r1.plusDays(33);
+        e1 = r1.minusYears(1);
 
-        Calendar d1 = Calendar.getInstance();
-        d1.setTime(sdf.parse(dt));
-        d1.add(Calendar.DATE, 3);
+        DecimalFormat df = new DecimalFormat("00");
 
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+        String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+        String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+        String yr1 = String.valueOf(r1.getYear());
 
-        String dd1 = sdf2.format(d1.getTime());
+        String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+        String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+        String ye1 = String.valueOf(e1.getYear());
+
+        String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+        String ext1 = de1 + "." + me1 + "." + ye1 ;
 
         Dialog dialog;
         View v;
@@ -282,14 +289,14 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
                 v.findViewById(R.id.textView1_1);
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
-        textView1_1.setText("Data kontroli: ");
-        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_1.setText("Data aktualnej kontroli: ");
+        textView1_2.setText(ext1);
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText("Data następnej kontroli: ");
-        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + yy);
+        textView2_2.setText(rel1);
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
@@ -307,22 +314,24 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
     public void egzaminy_onClick(View view) throws ParseException {
 
-        java.util.Calendar instance = java.util.Calendar.getInstance();
-        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        mm = String.valueOf(instance.get(java.util.Calendar.MONTH) + 1);
-        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
-        date = dd + "." + mm + "." + yy;
+        DateTime r1 = new DateTime();
+        DateTime e1 ;
 
-        String dt = String.valueOf(date);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        r1 = r1.plusDays(14);
+        e1 = r1.minusYears(1);
 
-        Calendar d1 = Calendar.getInstance();
-        d1.setTime(sdf.parse(dt));
-        d1.add(Calendar.DATE, -4);
+        DecimalFormat df = new DecimalFormat("00");
 
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+        String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+        String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+        String yr1 = String.valueOf(r1.getYear());
 
-        String dd1 = sdf2.format(d1.getTime());
+        String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+        String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+        String ye1 = String.valueOf(e1.getYear());
+
+        String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+        String ext1 = de1 + "." + me1 + "." + ye1 ;
 
         Dialog dialog;
         View v;
@@ -338,14 +347,14 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
                 v.findViewById(R.id.textView1_1);
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
-        textView1_1.setText("Data egzaminu: ");
-        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH) + 1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR) - 1));
+        textView1_1.setText("Data aktualnego egzaminu: ");
+        textView1_2.setText(ext1);
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText("Data następnego egzaminu: ");
-        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH) + 1) + "." + yy);
+        textView2_2.setText(rel1);
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
@@ -362,22 +371,24 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
         public void kontrole_onClick(View view) throws ParseException {
 
-            java.util.Calendar instance = java.util.Calendar.getInstance();
-            dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-            mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
-            yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
-            date = dd + "." + mm + "." + yy;
+            DateTime r1 = new DateTime();
+            DateTime e1 ;
 
-            String dt = String.valueOf(date);
-            SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+            r1 = r1.plusDays(3);
+            e1 = r1.minusYears(1);
 
-            Calendar d1 = Calendar.getInstance();
-            d1.setTime(sdf.parse(dt));
-            d1.add(Calendar.DATE, 3);
+            DecimalFormat df = new DecimalFormat("00");
 
-            SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+            String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+            String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+            String yr1 = String.valueOf(r1.getYear());
 
-            String dd1 = sdf2.format(d1.getTime());
+            String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+            String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+            String ye1 = String.valueOf(e1.getYear());
+
+            String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+            String ext1 = de1 + "." + me1 + "." + ye1 ;
 
             Dialog dialog;
             View v;
@@ -393,14 +404,14 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
                     v.findViewById(R.id.textView1_1);
             final TextView textView1_2 = (TextView)
                     v.findViewById(R.id.textView1_2);
-            textView1_1.setText("Data kontroli: ");
-            textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+            textView1_1.setText("Data aktualnej kontroli: ");
+            textView1_2.setText(ext1);
             final TextView textView2_1 = (TextView)
                     v.findViewById(R.id.textView2_1);
             final TextView textView2_2 = (TextView)
                     v.findViewById(R.id.textView2_2);
             textView2_1.setText("Data następnej kontroli: ");
-            textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + yy);
+            textView2_2.setText(rel1);
 
             final TextView textView3_1 = (TextView)
                     v.findViewById(R.id.textView3_1);
@@ -417,22 +428,24 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
     public void vfrD_onClick(View view) throws ParseException {
 
-        java.util.Calendar instance = java.util.Calendar.getInstance();
-        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
-        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
-        date = dd + "." + mm + "." + yy;
+        DateTime r1 = new DateTime();
+        DateTime e1 ;
 
-        String dt = String.valueOf(date);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        r1 = r1.plusDays(67);
+        e1 = r1.minusYears(1);
 
-        Calendar d1 = Calendar.getInstance();
-        d1.setTime(sdf.parse(dt));
-        d1.add(Calendar.DATE, 6);
+        DecimalFormat df = new DecimalFormat("00");
 
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+        String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+        String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+        String yr1 = String.valueOf(r1.getYear());
 
-        String dd1 = sdf2.format(d1.getTime());
+        String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+        String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+        String ye1 = String.valueOf(e1.getYear());
+
+        String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+        String ext1 = de1 + "." + me1 + "." + ye1 ;
 
         Dialog dialog;
         View v;
@@ -448,14 +461,14 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
                 v.findViewById(R.id.textView1_1);
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
-        textView1_1.setText("Data kontroli: ");
-        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+3) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_1.setText("Data aktualnej kontroli: ");
+        textView1_2.setText(ext1);
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText("Data następnej kontroli: ");
-        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+3) + "." + yy);
+        textView2_2.setText(rel1);
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
@@ -472,22 +485,24 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
     public void vfrN_onClick(View view) throws ParseException {
 
-        java.util.Calendar instance = java.util.Calendar.getInstance();
-        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
-        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
-        date = dd + "." + mm + "." + yy;
+        DateTime r1 = new DateTime();
+        DateTime e1 ;
 
-        String dt = String.valueOf(date);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        r1 = r1.plusDays(41);
+        e1 = r1.minusYears(1);
 
-        Calendar d1 = Calendar.getInstance();
-        d1.setTime(sdf.parse(dt));
-        d1.add(Calendar.DATE, 11);
+        DecimalFormat df = new DecimalFormat("00");
 
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+        String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+        String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+        String yr1 = String.valueOf(r1.getYear());
 
-        String dd1 = sdf2.format(d1.getTime());
+        String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+        String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+        String ye1 = String.valueOf(e1.getYear());
+
+        String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+        String ext1 = de1 + "." + me1 + "." + ye1 ;
 
         Dialog dialog;
         View v;
@@ -503,14 +518,14 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
                 v.findViewById(R.id.textView1_1);
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
-        textView1_1.setText("Data kontroli: ");
-        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_1.setText("Data aktualnej kontroli: ");
+        textView1_2.setText(ext1);
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText("Data następnej kontroli: ");
-        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+2) + "." + yy);
+        textView2_2.setText(rel1);
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
@@ -527,22 +542,24 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
     public void ifrD_onClick(View view) throws ParseException {
 
-        java.util.Calendar instance = java.util.Calendar.getInstance();
-        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
-        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
-        date = dd + "." + mm + "." + yy;
+        DateTime r1 = new DateTime();
+        DateTime e1 ;
 
-        String dt = String.valueOf(date);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        r1 = r1.plusDays(13);
+        e1 = r1.minusYears(1);
 
-        Calendar d1 = Calendar.getInstance();
-        d1.setTime(sdf.parse(dt));
-        d1.add(Calendar.DATE, 13);
+        DecimalFormat df = new DecimalFormat("00");
 
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+        String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+        String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+        String yr1 = String.valueOf(r1.getYear());
 
-        String dd1 = sdf2.format(d1.getTime());
+        String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+        String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+        String ye1 = String.valueOf(e1.getYear());
+
+        String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+        String ext1 = de1 + "." + me1 + "." + ye1 ;
 
         Dialog dialog;
         View v;
@@ -558,14 +575,14 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
                 v.findViewById(R.id.textView1_1);
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
-        textView1_1.setText("Data kontroli: ");
-        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_1.setText("Data aktualnej kontroli: ");
+        textView1_2.setText(ext1);
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText("Data następnej kontroli: ");
-        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + yy);
+        textView2_2.setText(rel1);
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
@@ -582,22 +599,24 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
 
     public void ifrN_onClick(View view) throws ParseException {
 
-        java.util.Calendar instance = java.util.Calendar.getInstance();
-        dd = String.valueOf(instance.get(java.util.Calendar.DAY_OF_MONTH));
-        mm = String.valueOf(instance.get(java.util.Calendar.MONTH)+1);
-        yy = String.valueOf(instance.get(java.util.Calendar.YEAR));
-        date = dd + "." + mm + "." + yy;
+        DateTime r1 = new DateTime();
+        DateTime e1 ;
 
-        String dt = String.valueOf(date);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.mm.yyyy");
+        r1 = r1.plusDays(4);
+        e1 = r1.minusYears(1);
 
-        Calendar d1 = Calendar.getInstance();
-        d1.setTime(sdf.parse(dt));
-        d1.add(Calendar.DATE, 4);
+        DecimalFormat df = new DecimalFormat("00");
 
-        SimpleDateFormat sdf2 = new SimpleDateFormat("dd");
+        String dr1 = String.valueOf(df.format(r1.getDayOfMonth()));
+        String mr1 = String.valueOf(df.format(r1.getMonthOfYear()));
+        String yr1 = String.valueOf(r1.getYear());
 
-        String dd1 = sdf2.format(d1.getTime());
+        String de1 = String.valueOf(df.format(e1.getDayOfMonth()));
+        String me1 = String.valueOf(df.format(e1.getMonthOfYear()));
+        String ye1 = String.valueOf(e1.getYear());
+
+        String rel1 = dr1 + "." + mr1 + "." + yr1 ;
+        String ext1 = de1 + "." + me1 + "." + ye1 ;
 
         Dialog dialog;
         View v;
@@ -613,14 +632,14 @@ public class MATypActivity extends AIActionBarActivity implements RapidFloatingA
                 v.findViewById(R.id.textView1_1);
         final TextView textView1_2 = (TextView)
                 v.findViewById(R.id.textView1_2);
-        textView1_1.setText("Data kontroli: ");
-        textView1_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + String.valueOf(instance.get(java.util.Calendar.YEAR)-1));
+        textView1_1.setText("Data aktualnej kontroli: ");
+        textView1_2.setText(ext1);
         final TextView textView2_1 = (TextView)
                 v.findViewById(R.id.textView2_1);
         final TextView textView2_2 = (TextView)
                 v.findViewById(R.id.textView2_2);
         textView2_1.setText("Data następnej kontroli: ");
-        textView2_2.setText(dd1 + "." + String.valueOf(instance.get(Calendar.MONTH)+1) + "." + yy);
+        textView2_2.setText(rel1);
 
         final TextView textView3_1 = (TextView)
                 v.findViewById(R.id.textView3_1);
